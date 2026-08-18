@@ -1,0 +1,11 @@
+name = "vorsprung-blinkin-site"
+compatibility_date = "2026-08-18"
+
+[assets]
+directory = "."
+not_found_handling = "404-page"
+
+[[routes]]
+pattern = "vorsprung.blinkin.de"
+custom_domain = true
+zone_name = "blinkin.de"
