@@ -1,0 +1,9 @@
+.git
+.claude
+node_modules
+dist
+wrangler.toml
+.assetsignore
+*.md
+package.json
+package-lock.json
