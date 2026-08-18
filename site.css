@@ -274,3 +274,7 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.5; }
 .build-next-grid { grid-template-columns: .35fr .65fr; }
 .about-hero h1 { font-size: clamp(2.1rem, 3.4vw, 3.4rem); }
 @media (max-width: 860px) { .build-next-grid { grid-template-columns: 1fr; } }
+
+/* index: tighten hero -> offer cards */
+#top.hero { padding-bottom: clamp(14px, 2vw, 26px); }
+.offers-section { padding-top: clamp(8px, 1.2vw, 18px); }
