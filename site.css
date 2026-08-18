@@ -252,3 +252,25 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.5; }
 .offer-card-primary .inline-action { color: #fff; }
 .offer-card-primary .offer-lede, .offer-card-primary .offer-includes li,
 .offer-card-primary .offer-footnote { color: oklch(96% .015 240); }
+
+/* --- critique fixes --- */
+/* 1) contrast: text-bearing surfaces use the darker blue (white on #1E7FA2 = 4.55:1 AA) */
+:root { --accent-blue-deep: #17607C; }
+.button-yellow, .button-primary, .nav-action,
+.offer-card-primary { background: var(--accent-blue-strong); border-color: var(--accent-blue-strong); }
+.button-yellow:hover, .button-primary:hover, .nav-action:hover { background: var(--accent-blue-deep); }
+.offer-card-primary .offer-lede, .offer-card-primary .offer-includes li,
+.offer-card-primary .offer-footnote { color: #fff; }
+
+/* 2) mobile header: CTA moves into the menu instead of a second header row */
+.site-nav .nav-cta-clone { display: none; }
+@media (max-width: 620px) {
+  .site-header .nav-action { display: none; }
+  .site-nav .nav-cta-clone { display: block; color: var(--accent-blue-on-dark); font-weight: 800; }
+  html { scroll-padding-top: 80px; }
+}
+
+/* 3) narrow columns: closing sections + about hero headline */
+.build-next-grid { grid-template-columns: .35fr .65fr; }
+.about-hero h1 { font-size: clamp(2.1rem, 3.4vw, 3.4rem); }
+@media (max-width: 860px) { .build-next-grid { grid-template-columns: 1fr; } }
