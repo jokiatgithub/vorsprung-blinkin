@@ -374,3 +374,11 @@ main h1 {
 .offer-card:not(.offer-card-primary) { background: #fff; }
 /* guaranteed gap between bullet list and card button (mobile: auto-margin collapses) */
 .offer-card .offer-includes { margin-bottom: 24px; }
+/* mobile: recommendation + flow visuals wrap instead of clipping */
+@media (max-width: 620px) {
+  .loop-track { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .loop-track i { display: none; }
+  .loop-track .loop-step { min-width: 0; }
+  .flow-canvas { display: grid !important; grid-template-columns: 1fr; gap: 8px; }
+  .flow-canvas .flow-arrow { display: none; }
+}
