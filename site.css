@@ -172,7 +172,7 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
   border-top: 0;
 }
 .loop-repeat::before {
-  content: "⟲"; position: absolute; left: 0; top: clamp(14px, 2vw, 22px);
+  content: "\27F2"; position: absolute; left: 0; top: clamp(14px, 2vw, 22px);
   display: grid; place-items: center; width: 40px; height: 40px;
   border-radius: 50%; background: var(--accent-blue-strong); color: #fff;
   font-size: 17px; font-weight: 800; z-index: 1;
@@ -381,4 +381,11 @@ main h1 {
   .loop-track .loop-step { min-width: 0; }
   .flow-canvas { display: grid !important; grid-template-columns: 1fr; gap: 8px; }
   .flow-canvas .flow-arrow { display: none; }
+}
+
+/* mobile: single-column use-case list aligns flush left */
+@media (max-width: 760px) {
+  .examples-list .example-row,
+  .examples-list .example-row:nth-child(even),
+  .examples-list .example-row:nth-child(3n + 1) { padding-left: 0; padding-right: 0; }
 }
