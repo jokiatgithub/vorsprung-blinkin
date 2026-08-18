@@ -415,8 +415,9 @@ main h1 {
 .build-hero .hero-support, .sprint-fit-intro { color: var(--ink-soft); }
 .build-hero .hero-support strong { color: var(--ink); }
 
-/* vorher-nachher closing CTA: white label */
-.button-dark, .button-dark:hover { color: #fff; }
+/* vorher-nachher closing CTA: white label on the standard button blue */
+.button-dark, .button-dark:hover { color: #fff !important; background: var(--accent-blue-strong) !important; }
+.button-dark:hover { background: var(--accent-blue-deep) !important; }
 
 /* index footer uses the shared footer layout (values from styles.css) */
 .site-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(240px, .55fr); align-items: end; gap: clamp(28px, 5vw, 72px); padding: 40px clamp(18px, 4vw, 44px); border-top: 1px solid oklch(98% .006 94 / .2); }
