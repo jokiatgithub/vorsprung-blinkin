@@ -272,7 +272,6 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 
 /* 3) narrow columns: closing sections + about hero headline */
 .build-next-grid { grid-template-columns: .35fr .65fr; }
-.about-hero h1 { font-size: clamp(2.1rem, 3.4vw, 3.4rem); }
 @media (max-width: 860px) { .build-next-grid { grid-template-columns: 1fr; } }
 
 /* index: hero -> offers, moderate spacing (v3: lighter, airier) */
@@ -288,3 +287,15 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 body { font-weight: 500; }
 .offer-card, .pg-panel, .pg-relation a { border-color: oklch(88% .01 145); }
 .pg-chips span, .pg-modules span { font-weight: 700; }
+
+
+/* one hero-headline scale on every page (legacy sheets fight with higher specificity -> !important) */
+main h1 {
+  font-size: clamp(2.55rem, 4.3vw, 4.35rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.035em !important;
+}
+@media (max-width: 900px) {
+  main h1 { font-size: clamp(2.2rem, 8.4vw, 3.4rem) !important; }
+}
