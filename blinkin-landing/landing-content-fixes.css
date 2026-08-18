@@ -1,0 +1,1327 @@
+.platform-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: center;
+  margin-top: 56px;
+  padding: clamp(20px, 4vw, 40px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.platform-panel img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.platform-panel h3 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: -.04em;
+  line-height: 1.08;
+}
+
+.platform-panel p:last-child {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.problem-section {
+  padding: clamp(76px, 10vw, 128px) 0;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .85fr);
+  gap: clamp(32px, 8vw, 120px);
+  align-items: end;
+}
+
+.problem-grid h2 {
+  max-width: 620px;
+  margin: 0;
+  color: var(--paper);
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -.055em;
+  line-height: 1.02;
+}
+
+.problem-grid > p {
+  margin: 0;
+  color: var(--muted-dark);
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.45;
+}
+
+@media (max-width: 700px) {
+  .platform-panel,
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Turn the deliverable visuals into explanatory diagrams, not placeholders. */
+.deliverable-row {
+  align-items: stretch;
+}
+
+.deliverable-row .row-visual {
+  min-height: 214px;
+  padding: 20px;
+  overflow: hidden;
+  border-color: oklch(67% .025 150);
+}
+
+.visual-header,
+.visual-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.visual-header b {
+  color: var(--ink);
+  font-size: 9px;
+}
+
+.visual-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid oklch(18% .015 150 / .18);
+  font-size: 9px;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+
+.visual-footer b {
+  color: var(--ink);
+}
+
+/* Keep the loop footer labels visibly equal in size. */
+.loop-visual .visual-footer span,
+.loop-visual .visual-footer b {
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.flow-visual {
+  display: block;
+  background: var(--blue);
+}
+
+.flow-canvas {
+  display: grid;
+  grid-template-columns: .72fr auto 1.25fr auto .8fr;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.flow-inputs {
+  display: grid;
+  gap: 5px;
+}
+
+.flow-inputs span,
+.flow-stage span,
+.flow-outcome span {
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.flow-inputs b {
+  display: block;
+  padding: 6px 7px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid oklch(18% .015 150 / .14);
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+.flow-arrow {
+  color: oklch(42% .1 305);
+  font-size: 20px;
+  font-style: normal;
+}
+
+.flow-stage,
+.flow-outcome {
+  display: grid;
+  gap: 7px;
+  min-height: 91px;
+  align-content: center;
+  padding: 12px;
+  border: 1px solid oklch(18% .015 150 / .18);
+  border-radius: 8px;
+}
+
+.flow-stage {
+  background: var(--surface);
+}
+
+.flow-stage strong {
+  font-size: 19px;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
+
+.flow-stage small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.flow-outcome {
+  background: var(--lilac);
+}
+
+.flow-outcome strong {
+  color: oklch(37% .09 305);
+  font-size: 16px;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+}
+
+.score-visual {
+  display: block;
+  background: var(--mint);
+}
+
+.score-row {
+  display: grid;
+  grid-template-columns: 82px 1fr 45px;
+  align-items: center;
+  gap: 9px;
+  margin-top: 13px;
+}
+
+.score-row span {
+  display: block !important;
+  color: var(--ink) !important;
+  font-size: 11px !important;
+}
+
+.score-row i {
+  display: block;
+  height: 7px;
+  overflow: hidden;
+  background: oklch(18% .015 150 / .18) !important;
+  border-radius: 99px;
+}
+
+.score-row em {
+  display: block;
+  height: 100%;
+  background: oklch(49% .13 166);
+  border-radius: inherit;
+}
+
+.score-row b {
+  color: var(--ink) !important;
+  font-size: 10px !important;
+}
+
+.score-row-low em {
+  background: oklch(61% .08 305);
+}
+
+.score-callout {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 17px;
+  padding: 9px 10px;
+  background: var(--surface);
+  border-radius: 6px;
+}
+
+.score-callout strong {
+  font-size: 11px;
+}
+
+.score-callout span {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.loop-visual {
+  display: block;
+  background: var(--lilac);
+}
+
+.loop-track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 7px;
+  margin-top: 26px;
+}
+
+.loop-track > i {
+  color: oklch(42% .1 305);
+  font-size: 18px;
+  font-style: normal;
+}
+
+.loop-step {
+  display: grid;
+  gap: 5px;
+  min-height: 78px;
+  align-content: center;
+  padding: 9px;
+  background: var(--surface);
+  border: 1px solid oklch(18% .015 150 / .18);
+  border-radius: 7px;
+}
+
+.loop-step em {
+  color: oklch(42% .1 305);
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.loop-step strong {
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  color: var(--ink) !important;
+  font-size: 11px !important;
+  line-height: 1.1;
+}
+
+.loop-step small {
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+.loop-step-active {
+  background: var(--yellow);
+}
+
+.loop-step-final {
+  background: oklch(98% .025 165);
+}
+
+.loop-visual .visual-footer b {
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .flow-canvas {
+    grid-template-columns: .72fr auto 1fr;
+  }
+
+  .flow-stage {
+    grid-column: 3;
+  }
+
+  .flow-outcome {
+    grid-column: 3;
+  }
+
+  .flow-canvas > .flow-arrow:last-of-type {
+    display: none;
+  }
+
+  .flow-inputs {
+    grid-row: span 2;
+  }
+
+  .loop-track {
+    gap: 4px;
+  }
+
+  .loop-track > i {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .deliverable-row .row-visual {
+    min-height: 200px;
+    padding: 16px;
+  }
+
+  .flow-canvas {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .flow-inputs,
+  .flow-stage,
+  .flow-outcome {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .flow-arrow,
+  .flow-canvas > .flow-arrow:last-of-type {
+    display: block;
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .flow-stage strong {
+    font-size: 16px;
+  }
+
+  .score-row {
+    grid-template-columns: 74px 1fr 38px;
+    gap: 6px;
+  }
+
+  .score-callout span {
+    display: none;
+  }
+
+  .loop-step {
+    min-height: 62px;
+    padding: 6px;
+  }
+
+  .loop-step small {
+    display: none;
+  }
+}
+
+.faq-section {
+  padding-block: clamp(56px, 7vw, 88px);
+}
+
+.faq-grid {
+  gap: clamp(32px, 6vw, 88px);
+}
+
+.faq-list summary {
+  padding-block: 14px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.faq-list summary::after {
+  flex: 0 0 auto;
+  font-size: 18px;
+}
+
+.faq-list details p {
+  max-width: 72ch;
+  margin: -1px 28px 16px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Keep the first decision, price, and proof sequence close together. */
+.hero {
+  padding-top: clamp(28px, 3.5vw, 46px);
+}
+
+.hero.dark-band {
+  color: var(--ink);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero.dark-band .eyebrow-yellow {
+  color: oklch(42% .09 305);
+}
+
+.hero.dark-band .hero-lede {
+  color: var(--muted);
+}
+
+.hero.dark-band .text-link-light {
+  color: var(--ink);
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.hero-copy {
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 4.8vw, 64px);
+}
+
+.hero-lede {
+  max-width: 760px;
+  margin-top: 22px;
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.4;
+}
+
+.hero-actions {
+  margin-top: 20px;
+}
+
+.offers-section {
+  padding-block: clamp(34px, 4vw, 58px);
+}
+
+.offers-section .section-heading h2 {
+  max-width: 900px;
+  font-size: clamp(30px, 3.5vw, 46px);
+}
+
+.offers-section .section-heading > p:last-child {
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+.offer-grid {
+  margin-top: 32px;
+}
+
+.offer-board {
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.offer-board .offer-card {
+  min-height: 300px;
+  border: 0;
+  border-radius: 0;
+}
+
+.offer-board .offer-card + .offer-card {
+  border-left: 1px solid var(--line);
+}
+
+.offer-board .offer-card h3 {
+  margin-top: 24px;
+  font-size: clamp(28px, 3.4vw, 44px);
+}
+
+.offer-board .offer-lede {
+  max-width: 48ch;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.offer-includes {
+  display: grid;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 16px 0 0 18px;
+  border-top: 1px solid oklch(18% .015 150 / .18);
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.offer-includes li::marker {
+  color: oklch(45% .12 305);
+}
+
+.offer-board .inline-action {
+  margin-top: 22px;
+}
+
+.offer-board .offer-footnote {
+  margin-top: auto;
+  font-size: 11px;
+}
+
+.offer-card {
+  padding: clamp(24px, 3vw, 34px);
+}
+
+.offer-card h3 {
+  margin-top: 28px;
+}
+
+.offer-footnote {
+  padding-top: 22px;
+}
+
+.trust-logo-bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 24px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.trust-logo-label {
+  max-width: 150px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.trust-logo-list {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 42px;
+  padding-right: 42px;
+}
+
+.trust-marquee {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.trust-logo-track {
+  display: flex;
+  width: max-content;
+  animation: trust-logo-scroll 42s linear infinite;
+}
+
+.trust-marquee:hover .trust-logo-track,
+.trust-marquee:focus-within .trust-logo-track {
+  animation-play-state: paused;
+}
+
+.trust-logo-list img {
+  width: auto;
+  max-width: 112px;
+  height: 26px;
+  object-fit: contain;
+  filter: grayscale(1);
+  mix-blend-mode: multiply;
+}
+
+/* Keep the official T-Systems mark recognizable in the otherwise subdued logo loop. */
+.trust-logo-list img[src*="t-systems.svg"] {
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+.trust-logo-wordmark {
+  display: inline-flex;
+  flex: 0 0 112px;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  color: var(--muted);
+  filter: grayscale(1);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.06em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.henkel-logo {
+  font-size: 19px;
+}
+
+.maruti-logo {
+  font-size: 11px;
+  letter-spacing: .03em;
+}
+
+.self-check-emoji {
+  flex: 0 0 44px;
+  width: 44px;
+  font-size: 38px;
+  line-height: 1;
+  text-align: center;
+}
+
+.trust-quote {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: end;
+  margin: 18px 0 0;
+  padding: 24px 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.trust-quote blockquote {
+  max-width: 66ch;
+  margin: 0;
+  font-size: clamp(16px, 1.8vw, 21px);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.35;
+}
+
+.trust-quote figcaption {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-align: right;
+}
+
+@keyframes trust-logo-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-logo-track {
+    animation: none;
+  }
+}
+
+/* Give the platform proof its own visual chapter after the mint examples section. */
+.platform-section {
+  background: var(--blue);
+}
+
+@media (max-width: 700px) {
+  .trust-logo-bar {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .trust-quote {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trust-quote figcaption {
+    text-align: left;
+  }
+
+  .offer-board .offer-card + .offer-card {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+}
+
+/* Keep the offer, proof rail, and testimonial in the first desktop view. */
+@media (min-width: 901px) {
+  .hero {
+    padding-block: 16px 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 4.2vw, 58px);
+  }
+
+  .hero-lede {
+    max-width: 920px;
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .offers-section {
+    padding-block: 26px 24px;
+  }
+
+  .offers-section .section-heading h2 {
+    font-size: clamp(30px, 3.2vw, 40px);
+  }
+
+  .offers-section .section-heading > p:last-child {
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .offer-grid {
+    margin-top: 0;
+  }
+
+  .offer-board .offer-card {
+    min-height: 0;
+    padding: 18px 22px 16px;
+  }
+
+  .offer-board .offer-card h3 {
+    margin-top: 18px;
+  }
+
+  .offer-board .offer-lede {
+    font-size: 14px;
+    line-height: 1.32;
+  }
+
+  .offer-includes {
+    gap: 5px;
+    margin-top: 14px;
+    padding-top: 10px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .offer-board .inline-action {
+    margin-top: 14px;
+  }
+
+  .offer-board .offer-footnote {
+    padding-top: 12px;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .trust-logo-bar {
+    gap: 14px;
+    margin-top: 12px;
+    padding-block: 6px;
+  }
+
+  .trust-logo-label {
+    max-width: 130px;
+    font-size: 9px;
+  }
+
+  .trust-logo-list {
+    gap: 28px;
+    padding-right: 28px;
+  }
+
+  .trust-logo-list img {
+    max-width: 90px;
+    height: 22px;
+  }
+
+  .trust-logo-wordmark {
+    flex-basis: 90px;
+    height: 22px;
+  }
+
+  .trust-quote {
+    gap: 18px;
+    margin-top: 6px;
+    padding: 6px 18px;
+  }
+
+  .trust-quote blockquote {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  .trust-quote figcaption {
+    font-size: 10px;
+  }
+}
+
+/* Keep both offer actions on the same baseline; the note below may wrap differently. */
+@media (min-width: 901px) {
+  .offer-board .inline-action {
+    margin-top: auto;
+  }
+
+  .offer-board .offer-footnote {
+    margin-top: 0;
+    min-height: 3.2em;
+  }
+}
+
+/* Keep the two offer actions on one shared row, even when the card copy wraps differently. */
+@media (min-width: 901px) {
+  .offer-board {
+    align-items: stretch;
+  }
+
+  .offer-board .offer-card {
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto auto;
+    align-content: stretch;
+  }
+
+  .offer-board .offer-card > .offer-card-top { grid-row: 1; }
+  .offer-board .offer-card > h3 { grid-row: 2; }
+  .offer-board .offer-card > .offer-lede { grid-row: 3; }
+  .offer-board .offer-card > .offer-includes { grid-row: 4; }
+  .offer-board .offer-card > .inline-action {
+    grid-row: 5;
+    margin-top: 14px;
+  }
+  .offer-board .offer-card > .offer-footnote {
+    grid-row: 6;
+    margin-top: 0;
+    min-height: 0;
+  }
+}
+
+/* Keep the long-form sections on a consistent desktop rhythm. */
+@media (min-width: 901px) {
+  .fit-section,
+  .deliverables-section,
+  .process-section,
+  .examples-section,
+  .faq-section {
+    padding-block: clamp(58px, 6vw, 84px);
+  }
+
+  .fit-grid {
+    gap: 56px;
+  }
+
+  .self-check {
+    padding: 20px;
+  }
+
+  .self-check-list label {
+    padding-block: 11px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .self-check-result {
+    gap: 12px;
+    margin-top: 14px;
+    padding: 10px 12px;
+  }
+
+  .self-check-emoji {
+    flex-basis: 42px;
+    width: 42px;
+    font-size: 38px;
+  }
+
+  .deliverables-section {
+    padding-block: 42px 52px;
+  }
+
+  .deliverables-section .section-heading {
+    max-width: 1100px;
+  }
+
+  .deliverables-section .section-heading h2 {
+    font-size: clamp(30px, 3.2vw, 44px);
+  }
+
+  .deliverable-list {
+    margin-top: 18px;
+  }
+
+  .deliverable-row {
+    grid-template-columns: 34px minmax(250px, .72fr) minmax(400px, 1.28fr);
+    gap: 20px;
+    padding-block: 10px;
+  }
+
+  .deliverable-row h3 {
+    font-size: 24px;
+  }
+
+  .deliverable-row p:not(.eyebrow) {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .deliverables-section .section-heading > p:last-child {
+    max-width: 820px;
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .deliverable-row .row-visual {
+    min-height: 0;
+    padding: 13px;
+    border-radius: 8px;
+  }
+
+  .visual-footer {
+    margin-top: 10px;
+    padding-top: 8px;
+  }
+
+  .flow-canvas {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .flow-inputs {
+    gap: 3px;
+  }
+
+  .flow-inputs span,
+  .flow-stage span,
+  .flow-outcome span {
+    font-size: 7px;
+  }
+
+  .flow-inputs b {
+    padding: 3px 5px;
+    font-size: 9px;
+  }
+
+  .flow-stage,
+  .flow-outcome {
+    min-height: 64px;
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .flow-stage strong {
+    font-size: 16px;
+  }
+
+  .flow-stage small {
+    font-size: 9px;
+  }
+
+  .flow-outcome strong {
+    font-size: 14px;
+  }
+
+  .score-row {
+    grid-template-columns: 70px 1fr 38px;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .score-callout {
+    gap: 8px;
+    margin-top: 6px;
+    padding: 5px 8px;
+  }
+
+  .score-callout span {
+    display: block;
+    grid-template-columns: none;
+  }
+
+  .loop-track {
+    gap: 4px;
+    margin-top: 14px;
+  }
+
+  .loop-step {
+    min-height: 58px;
+    gap: 3px;
+    padding: 7px;
+  }
+
+  .loop-step strong {
+    font-size: 10px !important;
+  }
+
+  .loop-step small {
+    font-size: 8px;
+  }
+
+  .loop-visual .visual-header b {
+    display: block;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .process-section {
+    padding-block: 60px 68px;
+  }
+
+  .process-heading {
+    max-width: 760px;
+  }
+
+  .timeline {
+    margin-top: 34px;
+  }
+
+  .timeline-step {
+    min-height: 170px;
+    padding: 16px 16px 0 0;
+  }
+
+  .timeline-step:not(:first-child) {
+    padding-left: 16px;
+  }
+
+  .timeline-step h3 {
+    margin: 18px 0 8px;
+    font-size: 20px;
+  }
+
+  .timeline-step p {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .process-after {
+    gap: 18px;
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+
+  .process-after strong {
+    font-size: 18px;
+  }
+
+  .process-after p {
+    margin-top: 5px;
+    font-size: 13px;
+  }
+
+  .examples-section {
+    padding-block: 60px 68px;
+  }
+
+  .examples-section .section-heading {
+    max-width: 820px;
+  }
+
+  .examples-section .section-heading h2 {
+    font-size: clamp(34px, 4.2vw, 52px);
+  }
+
+  .examples-section .section-heading > p:last-child {
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .examples-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin-top: 30px;
+  }
+
+  .example-row,
+  .example-row:nth-child(even) {
+    display: block;
+    min-height: 154px;
+    padding: 18px 22px;
+    border-left: 0;
+    border-right: 1px solid oklch(18% .015 150 / .25);
+  }
+
+  .example-row:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .example-row:nth-child(n + 4) {
+    border-top: 1px solid oklch(18% .015 150 / .25);
+  }
+
+  .example-row h3 {
+    max-width: 24ch;
+    margin-top: 10px;
+    font-size: 19px;
+    line-height: 1.12;
+  }
+
+  .example-row p {
+    max-width: 35ch;
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .platform-section {
+    padding-block: 46px 54px;
+  }
+
+  .platform-section .section-heading > p:last-child {
+    max-width: 760px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .platform-section .platform-panel {
+    margin-top: 24px;
+    padding: 26px;
+  }
+
+  .faq-section {
+    padding-block: 60px 72px;
+  }
+
+  .faq-grid {
+    gap: 56px;
+  }
+
+  .faq-grid .inline-action {
+    margin-top: 22px;
+  }
+
+  .faq-list summary {
+    padding-block: 15px;
+    font-size: 14px;
+  }
+
+  .faq-list details p {
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+
+  .final-cta {
+    padding-block: 72px 78px;
+  }
+
+  .final-cta-inner {
+    max-width: 980px;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(42px, 5vw, 64px);
+  }
+
+  .final-cta p:not(.eyebrow) {
+    max-width: 760px;
+    margin-block: 16px 20px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .site-footer {
+    padding-block: 42px 28px;
+  }
+}
+
+/* Keep the page on one calm beige canvas. Colour belongs to proof surfaces and actions. */
+main > .light-section,
+main > .examples-section,
+main > .process-section,
+main > .final-cta {
+  background: var(--paper);
+}
+
+.hero.dark-band {
+  background: var(--paper);
+}
+
+.process-section {
+  color: var(--ink);
+}
+
+.process-section .process-heading h2,
+.process-section .process-heading > p:last-child,
+.process-section .timeline-step h3,
+.process-section .process-after strong {
+  color: var(--ink);
+}
+
+.process-section .process-heading > p:last-child,
+.process-section .timeline-step p,
+.process-section .process-after p {
+  color: var(--muted);
+}
+
+.process-section .process-heading .eyebrow {
+  color: var(--ink);
+}
+
+.process-section .timeline,
+.process-section .process-after {
+  border-color: var(--line);
+}
+
+.process-section .timeline-step {
+  border-color: var(--line);
+}
+
+.process-section .timeline-step span,
+.process-section .process-after > span {
+  color: var(--muted);
+}
+
+.final-cta {
+  color: var(--ink);
+}
+
+.final-cta h2 {
+  color: var(--ink);
+}
+
+.final-cta p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.final-cta .eyebrow-yellow {
+  color: var(--muted);
+}
+
+.final-cta .cta-lead {
+  display: grid;
+  gap: 12px;
+}
+
+.final-cta .cta-lead strong {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.25;
+}
+
+/* Give the proof quote a deliberate pause after the moving logo rail. */
+.trust-quote {
+  margin-top: 18px;
+}
+
+/* Make the recommendation visual read as a left-aligned decision path. */
+.loop-track {
+  position: relative;
+  align-items: stretch;
+}
+
+.loop-track::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: 3%;
+  left: 3%;
+  border-top: 1px solid oklch(18% .015 150 / .24);
+}
+
+.loop-track > * {
+  position: relative;
+  z-index: 1;
+}
+
+.loop-track > i {
+  align-self: center;
+}
+
+.loop-step {
+  align-content: start;
+  text-align: left;
+}
+
+.loop-step em {
+  font-size: 11px;
+}
+
+.loop-step strong,
+.loop-step small {
+  text-align: left;
+}
+
+.loop-step strong {
+  font-size: 12px !important;
+}
+
+.loop-step-active {
+  border-color: var(--ink);
+  box-shadow: 0 4px 0 oklch(18% .015 150 / .14);
+}
