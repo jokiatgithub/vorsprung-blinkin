@@ -291,11 +291,11 @@ body { font-weight: 500; }
 
 /* one hero-headline scale on every page (legacy sheets fight with higher specificity -> !important) */
 main h1 {
-  font-size: clamp(2.55rem, 4.3vw, 4.35rem) !important;
-  font-weight: 700 !important;
-  line-height: 1.04 !important;
-  letter-spacing: -.035em !important;
+  font-size: clamp(2.55rem, 4.3vw, 4.35rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -.035em;
 }
 @media (max-width: 900px) {
-  main h1 { font-size: clamp(2.2rem, 8.4vw, 3.4rem) !important; }
+  main h1 { font-size: clamp(2.2rem, 8.4vw, 3.4rem); }
 }

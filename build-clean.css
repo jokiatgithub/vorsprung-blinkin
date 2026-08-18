@@ -1,9 +1,3 @@
-/* Keep Build Sprint yellow identical to the live Solution Loop token. */
-:root {
-  --accent: oklch(91% .17 96);
-  --surface-yellow: oklch(91% .17 96);
-}
-
 /* Match the Solution Loop opening: the Build Sprint hero lives on the shared beige canvas. */
 .build-hero {
   background: var(--paper) !important;
