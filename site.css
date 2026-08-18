@@ -20,8 +20,8 @@
   /* shared scale */
   --page-max: 1240px;
   --gutter: clamp(18px, 3.2vw, 44px);
-  --section-y: clamp(46px, 5.5vw, 84px);
-  --hero-y: clamp(40px, 5vw, 72px);
+  --section-y: clamp(64px, 7.5vw, 118px);
+  --hero-y: clamp(56px, 6.5vw, 96px);
 }
 
 /* ---- accent adaptions (contrast) ---- */
@@ -70,24 +70,24 @@ body { overflow-x: hidden; }
 
 h1, .hero-copy h1, .build-hero h1, .about-hero h1 {
   font-size: clamp(2.55rem, 4.3vw, 4.35rem);
-  line-height: .98; letter-spacing: -.045em;
+  line-height: 1.04; letter-spacing: -.035em;
 }
 h2, .section-heading h2, .section-heading.narrow h2, .about-cta h2, .about-role h2 {
   font-size: clamp(1.85rem, 2.85vw, 3rem);
-  line-height: 1.02; letter-spacing: -.04em;
+  line-height: 1.08; letter-spacing: -.03em; font-weight: 700;
 }
 h3 { font-size: clamp(1.2rem, 1.65vw, 1.7rem); line-height: 1.12; }
-p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.5; }
+p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 .eyebrow { font-size: clamp(.72rem, .85vw, .84rem); }
-.hero-lede { font-size: clamp(1.08rem, 1.45vw, 1.32rem); line-height: 1.42; }
+.hero-lede { font-size: clamp(1.08rem, 1.45vw, 1.32rem); line-height: 1.55; }
 
 #top, .build-hero, .about-hero, .before-after-hero, .pg-hero { padding-block: var(--hero-y); }
 .offers-section, .fit-section, .deliverables-section, .process-section, .examples-section,
 .faq-section, .final-cta, .sprint-fit, .sprint-method, .build-next, .before-after-section,
 .before-after-proof, .about-logos, .about-position, .about-role, .about-cta, .about-infra-logos,
 .pg-section { padding-block: var(--section-y); }
-.section-heading, .section-heading.narrow { margin-bottom: clamp(20px, 3vw, 38px); }
-.deliverable-row, .example-row { padding-block: clamp(18px, 2.6vw, 34px); }
+.section-heading, .section-heading.narrow { margin-bottom: clamp(30px, 4.2vw, 60px); }
+.deliverable-row, .example-row { padding-block: clamp(28px, 3.6vw, 50px); }
 
 .build-proof img, .hero-visual img, .about-hero img,
 .platform-panel img, .before-after-section img, .pg-panel img {
@@ -126,13 +126,13 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.5; }
 .loop-week {
   display: grid; grid-template-columns: minmax(210px, .85fr) 1.7fr;
   gap: 10px clamp(20px, 3vw, 40px);
-  padding: clamp(14px, 2vw, 20px) 0; border-top: 1px solid var(--line);
+  padding: clamp(22px, 2.8vw, 34px) 0; border-top: 1px solid var(--line);
 }
 .loop-week header span { font-size: 10px; font-weight: 800; letter-spacing: .1em; color: var(--accent-blue-strong); }
 .loop-week h3 { margin: 6px 0 0; font-size: clamp(1.1rem, 1.45vw, 1.35rem); }
-.loop-week dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0; }
+.loop-week dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 0; }
 .loop-week dt { font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.loop-week dd { margin: 6px 0 0; color: var(--ink-soft); font-size: 13px; line-height: 1.42; }
+.loop-week dd { margin: 8px 0 0; color: var(--ink-soft); font-size: 13px; line-height: 1.55; }
 .loop-week .loop-result { margin: 10px 0 0; font-size: 13px; color: var(--ink); }
 .loop-week .loop-result b { font-weight: 800; }
 
@@ -162,7 +162,7 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.5; }
 .platform-teaser .inline-action { margin-top: 16px; }
 
 /* ---- build sprint: compact steps ---- */
-.sprint-method-steps li { padding-block: clamp(14px, 2vw, 22px); }
+.sprint-method-steps li { padding-block: clamp(24px, 3.2vw, 42px); }
 .sprint-method-steps strong { display: block; margin-top: 10px; font-size: 13px; }
 .sprint-fit li { padding: 14px 0; }
 .build-next .button { margin-top: 18px; }
@@ -178,7 +178,7 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.5; }
 .pg-cap {
   display: grid; grid-template-columns: minmax(230px, .9fr) 1.4fr;
   gap: 10px clamp(24px, 4vw, 56px);
-  padding: clamp(18px, 2.6vw, 30px) 0; border-bottom: 1px solid var(--line);
+  padding: clamp(26px, 3.4vw, 44px) 0; border-bottom: 1px solid var(--line);
 }
 .pg-cap .eyebrow { color: var(--accent-blue-strong); }
 .pg-cap h3 { margin: 8px 0 0; font-size: clamp(1.25rem, 1.8vw, 1.7rem); }
@@ -275,13 +275,16 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.5; }
 .about-hero h1 { font-size: clamp(2.1rem, 3.4vw, 3.4rem); }
 @media (max-width: 860px) { .build-next-grid { grid-template-columns: 1fr; } }
 
-/* index: tighten hero -> offers so cards + logos + quote fit one laptop viewport */
-#top.hero { padding-block: clamp(22px, 2.6vw, 36px) clamp(6px, .8vw, 12px); }
-.offers-section { padding-block: clamp(4px, .8vw, 10px) clamp(20px, 2.4vw, 36px); }
-.trust-logo-bar { margin-top: clamp(12px, 1.4vw, 20px); }
-.trust-quote { margin-top: clamp(8px, 1vw, 14px); }
-#top .hero-copy h1 { margin-block: 10px 12px; }
-#top .hero-lede { margin-top: 0; }
-.offer-card { padding: clamp(18px, 2vw, 26px); }
-.offer-card h3 { margin-block: 14px 10px; }
-.trust-logo-label { margin-block: 0 6px; }
+/* index: hero -> offers, moderate spacing (v3: lighter, airier) */
+#top.hero { padding-block: clamp(44px, 5vw, 76px) clamp(20px, 2.6vw, 40px); }
+.offers-section { padding-block: clamp(16px, 2.2vw, 34px) clamp(36px, 4.5vw, 72px); }
+.trust-logo-bar { margin-top: clamp(28px, 3.4vw, 52px); }
+.trust-quote { margin-top: clamp(20px, 2.6vw, 40px); }
+.offer-card { padding: clamp(26px, 3vw, 42px); }
+.offer-grid { gap: clamp(16px, 1.8vw, 26px); }
+
+
+/* v3 lightness: unified, slightly lighter text weight + softer surfaces */
+body { font-weight: 500; }
+.offer-card, .pg-panel, .pg-relation a { border-color: oklch(88% .01 145); }
+.pg-chips span, .pg-modules span { font-weight: 700; }
