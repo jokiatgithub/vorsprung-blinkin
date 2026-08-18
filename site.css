@@ -446,3 +446,6 @@ main h1 {
 
 /* playground panel: no hairline around the visual */
 .pg-panel, .pg-panel img { border: 0; }
+
+/* vorher-nachher: white bullets inside the lilac NACHHER boxes */
+.before-after-grid article:has(.eyebrow-purple) li::before { color: #fff; }
