@@ -3,9 +3,8 @@
   var inV1 = location.pathname.indexOf('/v1/') === 0 || location.pathname === '/v1';
   var page = location.pathname.replace(/^\/v1\/?/, '/').replace(/^\/+/, '/');
   if (page === '/' || page === '') page = '/index.html';
-  var other = inV1 ? page.replace(/^\//, '/') : '/v1' + page;
-  if (inV1) other = page;            // v1 -> new version at root
-  else other = '/v1' + page;         // root -> old version
+  var v1Pages = { '/index.html': 1, '/build.html': 1, '/vorher-nachher.html': 1, '/about.html': 1 };
+  var other = inV1 ? page : (v1Pages[page] ? '/v1' + page : '/v1/');
   var el = document.createElement('div');
   el.innerHTML =
     '<div style="position:fixed;bottom:14px;right:14px;z-index:9999;font:12px/1 Manrope,system-ui,sans-serif;' +
