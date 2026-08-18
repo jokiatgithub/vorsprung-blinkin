@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1080" viewBox="0 0 1800 1080">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#172033"/>
+    </marker>
+    <marker id="arrow-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M2,2 L8,5 L2,8 Z" fill="#0f766e" fill-opacity="0.62"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f8fb; }
+      .title { font-family: Arial, sans-serif; font-size: 42px; font-weight: 750; fill: #111827; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 19px; fill: #4b5563; }
+      .card { fill: #ffffff; stroke: #d8dee8; stroke-width: 2; rx: 18; }
+      .card-strong { fill: #ffffff; stroke: #0f766e; stroke-width: 2.6; rx: 18; }
+      .step-num { font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; fill: #6b7280; letter-spacing: .8px; }
+      .step-title { font-family: Arial, sans-serif; font-size: 22px; font-weight: 750; fill: #111827; }
+      .desc { font-family: Arial, sans-serif; font-size: 15px; fill: #374151; }
+      .outcome { font-family: Arial, sans-serif; font-size: 14px; fill: #0f766e; font-weight: 700; }
+      .icon { stroke: #111827; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #ecfdf5; stroke: #0f766e; stroke-width: 2.4; }
+      .arrow { stroke: #172033; stroke-width: 2.8; fill: none; marker-end: url(#arrow); }
+      .learning-arrow { stroke: #0f766e; stroke-width: 2.1; stroke-dasharray: 7 8; fill: none; opacity: .62; marker-end: url(#arrow-soft); }
+      .learning-label-bg { fill: #f7f8fb; stroke: #b7e4dc; stroke-width: 1.3; rx: 16; }
+      .learning-label { font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #0f766e; }
+      .trust-panel { fill: #0f172a; rx: 24; }
+      .trust-title { font-family: Arial, sans-serif; font-size: 24px; font-weight: 750; fill: #ffffff; }
+      .trust-sub { font-family: Arial, sans-serif; font-size: 15px; fill: #cbd5e1; }
+      .trust-item { fill: #172033; stroke: #334155; stroke-width: 1.5; rx: 16; }
+      .trust-h { font-family: Arial, sans-serif; font-size: 17px; font-weight: 750; fill: #ffffff; }
+      .trust-t { font-family: Arial, sans-serif; font-size: 13px; fill: #cbd5e1; }
+      .badge { fill: #ffffff; stroke: #d8dee8; stroke-width: 1.6; rx: 18; }
+      .badge-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .takeaway { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .muted { font-family: Arial, sans-serif; font-size: 15px; fill: #6b7280; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1800" height="1080"/>
+
+  <text class="title" x="80" y="78">Blinkin Closed-Loop AI Workflow</text>
+  <text class="subtitle" x="80" y="110">Create governed AI workflows that capture live inputs, produce approved outputs and learn only from expert-validated outcomes.</text>
+
+  <g transform="translate(70 170)">
+    <!-- Step 1 -->
+    <rect class="card-strong" x="0" y="0" width="260" height="320"/>
+    <text class="step-num" x="24" y="34">STEP 1</text>
+    <g transform="translate(24 58)">
+      <rect class="icon-fill" x="0" y="0" width="54" height="54" rx="14"/>
+      <path class="icon" d="M17 26 L17 41 L39 41 L39 26 Z"/>
+      <path class="icon" d="M21 26 L21 21 C21 14 35 14 35 21 L35 26"/>
+      <path class="icon" d="M28 31 L28 35"/>
+    </g>
+    <text class="step-title" x="24" y="142">Connect Trusted</text>
+    <text class="step-title" x="24" y="168">Knowledge</text>
+    <text class="desc" x="24" y="204">Use documents, SOPs,</text>
+    <text class="desc" x="24" y="226">policies, standards, examples</text>
+    <text class="desc" x="24" y="248">and previous work.</text>
+    <text class="outcome" x="24" y="292">Outcome: allowed context</text>
+
+    <!-- Step 2 -->
+    <rect class="card-strong" x="285" y="0" width="260" height="320"/>
+    <text class="step-num" x="309" y="34">STEP 2</text>
+    <g transform="translate(309 58)">
+      <rect class="icon-fill" x="0" y="0" width="54" height="54" rx="14"/>
+      <path class="icon" d="M15 17 L39 17 L39 37 L15 37 Z"/>
+      <path class="icon" d="M21 23 L33 23"/>
+      <path class="icon" d="M21 31 L29 31"/>
+      <path class="icon" d="M39 27 L47 27"/>
+    </g>
+    <text class="step-title" x="309" y="142">Configure Workflow</text>
+    <text class="step-title" x="309" y="168">And Surface</text>
+    <text class="desc" x="309" y="204">Define logic, inputs, review</text>
+    <text class="desc" x="309" y="226">rules, outputs and where</text>
+    <text class="desc" x="309" y="248">people use it.</text>
+    <text class="outcome" x="309" y="292">Outcome: deployed workflow</text>
+
+    <!-- Step 3 -->
+    <rect class="card" x="570" y="0" width="260" height="320"/>
+    <text class="step-num" x="594" y="34">STEP 3</text>
+    <g transform="translate(594 58)">
+      <rect class="icon-fill" x="0" y="0" width="54" height="54" rx="14"/>
+      <path class="icon" d="M15 17 L43 17 L43 35 L29 35 L21 42 L21 35 L15 35 Z"/>
+      <path class="icon" d="M21 24 L36 24"/>
+      <path class="icon" d="M21 30 L31 30"/>
+    </g>
+    <text class="step-title" x="594" y="142">Capture Live</text>
+    <text class="step-title" x="594" y="168">Signals</text>
+    <text class="desc" x="594" y="204">Collect requests, forms, files,</text>
+    <text class="desc" x="594" y="226">photos, chats, tickets and</text>
+    <text class="desc" x="594" y="248">new observations.</text>
+    <text class="outcome" x="594" y="292">Outcome: real-world inputs</text>
+
+    <!-- Step 4 -->
+    <rect class="card" x="855" y="0" width="260" height="320"/>
+    <text class="step-num" x="879" y="34">STEP 4</text>
+    <g transform="translate(879 58)">
+      <rect class="icon-fill" x="0" y="0" width="54" height="54" rx="14"/>
+      <path class="icon" d="M17 15 L36 15 L36 39 L17 39 Z"/>
+      <path class="icon" d="M21 22 L32 22"/>
+      <path class="icon" d="M21 29 L32 29"/>
+      <path class="icon" d="M21 36 L28 36"/>
+    </g>
+    <text class="step-title" x="879" y="142">Process Into</text>
+    <text class="step-title" x="879" y="168">Output</text>
+    <text class="desc" x="879" y="204">Apply workflow logic to</text>
+    <text class="desc" x="879" y="226">classify, check, retrieve,</text>
+    <text class="desc" x="879" y="248">draft and cite.</text>
+    <text class="outcome" x="879" y="292">Outcome: grounded result</text>
+
+    <!-- Step 5 -->
+    <rect class="card" x="1140" y="0" width="260" height="320"/>
+    <text class="step-num" x="1164" y="34">STEP 5</text>
+    <g transform="translate(1164 58)">
+      <rect class="icon-fill" x="0" y="0" width="54" height="54" rx="14"/>
+      <circle class="icon" cx="22" cy="22" r="7"/>
+      <path class="icon" d="M12 41 C14 32 30 32 32 41"/>
+      <path class="icon" d="M34 18 L42 26 L50 14"/>
+    </g>
+    <text class="step-title" x="1164" y="142">Review And</text>
+    <text class="step-title" x="1164" y="168">Approve</text>
+    <text class="desc" x="1164" y="204">Experts validate claims,</text>
+    <text class="desc" x="1164" y="226">risks, exceptions, edits and</text>
+    <text class="desc" x="1164" y="248">release decisions.</text>
+    <text class="outcome" x="1164" y="292">Outcome: accountable output</text>
+
+    <!-- Step 6 -->
+    <rect class="card-strong" x="1425" y="0" width="260" height="320"/>
+    <text class="step-num" x="1449" y="34">STEP 6</text>
+    <g transform="translate(1449 58)">
+      <rect class="icon-fill" x="0" y="0" width="54" height="54" rx="14"/>
+      <path class="icon" d="M15 29 C15 21 21 15 29 15 C35 15 39 18 42 22"/>
+      <path class="icon" d="M42 15 L42 22 L35 22"/>
+      <path class="icon" d="M39 29 C39 37 33 43 25 43 C19 43 15 40 12 36"/>
+      <path class="icon" d="M12 43 L12 36 L19 36"/>
+    </g>
+    <text class="step-title" x="1449" y="142">Deliver And</text>
+    <text class="step-title" x="1449" y="168">Learn</text>
+    <text class="desc" x="1449" y="204">Route the result and promote</text>
+    <text class="desc" x="1449" y="226">approved outcomes into</text>
+    <text class="desc" x="1449" y="248">durable memory.</text>
+    <text class="outcome" x="1449" y="292">Outcome: governed learning</text>
+
+    <path class="arrow" d="M260 160 L285 160"/>
+    <path class="arrow" d="M545 160 L570 160"/>
+    <path class="arrow" d="M830 160 L855 160"/>
+    <path class="arrow" d="M1115 160 L1140 160"/>
+    <path class="arrow" d="M1400 160 L1425 160"/>
+  </g>
+
+  <path class="learning-arrow" d="M1575 490 C1575 544 735 544 735 490"/>
+  <rect class="learning-label-bg" x="730" y="520" width="560" height="34"/>
+  <text class="learning-label" x="754" y="542">Expert-approved outcomes update trusted knowledge and workflow logic</text>
+
+  <rect class="trust-panel" x="70" y="575" width="1660" height="260"/>
+  <text class="trust-title" x="105" y="625">Blinkin Trust Layer</text>
+  <text class="trust-sub" x="105" y="654">Controls that keep every deployed workflow grounded, traceable, reviewable and safe to improve.</text>
+
+  <g transform="translate(105 690)">
+    <rect class="trust-item" x="0" y="0" width="295" height="105"/>
+    <text class="trust-h" x="22" y="34">Permissioned Scope</text>
+    <text class="trust-t" x="22" y="62">Each workflow uses only</text>
+    <text class="trust-t" x="22" y="82">allowed spaces and sources.</text>
+
+    <rect class="trust-item" x="318" y="0" width="295" height="105"/>
+    <text class="trust-h" x="340" y="34">Evidence And Traceability</text>
+    <text class="trust-t" x="340" y="62">Outputs can point back to</text>
+    <text class="trust-t" x="340" y="82">source material and inputs.</text>
+
+    <rect class="trust-item" x="636" y="0" width="295" height="105"/>
+    <text class="trust-h" x="658" y="34">Human Approval Gates</text>
+    <text class="trust-t" x="658" y="62">Experts approve decisions,</text>
+    <text class="trust-t" x="658" y="82">claims, risks and updates.</text>
+
+    <rect class="trust-item" x="954" y="0" width="295" height="105"/>
+    <text class="trust-h" x="976" y="34">Flexible Deployment</text>
+    <text class="trust-t" x="976" y="62">Surfaces run in Blinkin,</text>
+    <text class="trust-t" x="976" y="82">third-party tools or custom apps.</text>
+
+    <rect class="trust-item" x="1272" y="0" width="295" height="105"/>
+    <text class="trust-h" x="1294" y="34">Controlled Learning</text>
+    <text class="trust-t" x="1294" y="62">Only approved outcomes become</text>
+    <text class="trust-t" x="1294" y="82">durable company memory.</text>
+  </g>
+
+  <text class="muted" x="80" y="895">Technical Fit</text>
+  <g transform="translate(220 870)">
+    <rect class="badge" x="0" y="0" width="190" height="44"/>
+    <text class="badge-text" x="26" y="28">Content connectors</text>
+    <rect class="badge" x="210" y="0" width="180" height="44"/>
+    <text class="badge-text" x="236" y="28">Workflow builder</text>
+    <rect class="badge" x="410" y="0" width="180" height="44"/>
+    <text class="badge-text" x="436" y="28">Companion apps</text>
+    <rect class="badge" x="610" y="0" width="185" height="44"/>
+    <text class="badge-text" x="636" y="28">APIs &amp; integrations</text>
+    <rect class="badge" x="815" y="0" width="190" height="44"/>
+    <text class="badge-text" x="841" y="28">Audit &amp; traceability</text>
+    <rect class="badge" x="1025" y="0" width="185" height="44"/>
+    <text class="badge-text" x="1051" y="28">Review workspaces</text>
+  </g>
+
+  <text class="takeaway" x="80" y="990">Blinkin turns trusted knowledge and live signals into approved outputs, then turns approved outcomes into durable memory.</text>
+</svg>
