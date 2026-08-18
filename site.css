@@ -107,9 +107,8 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 /* first column aligns with the section heading; others indent from their cell border */
 .examples-list .example-row:nth-child(3n + 1) { padding-left: 0; }
 .example-row span { margin: 0; }
-.example-row h3 { min-height: 2.3em; margin: 10px 0 0; }
+.example-row h3 { margin: 10px 0 0; }
 .example-row p { margin: 8px 0 0; }
-@media (max-width: 760px) { .example-row h3 { min-height: 0; } }
 
 /* ---- solution loop framework (index) ---- */
 .loop-roles {
@@ -399,3 +398,50 @@ main h1 {
   }
   .offer-grid.offer-board .offer-card .inline-action { margin-top: 0; justify-self: start; align-self: start; }
 }
+
+
+/* ---- google-doc feedback round ---- */
+/* playground: infra logo loop (ported from about-clean.css) + air under TECHNOLOGIEOFFEN headline */
+.about-infra-logos { padding: 0 0 clamp(64px, 8vw, 104px); }
+.infra-logo-loop { overflow: hidden; margin-top: 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.infra-logo-track { display: flex; width: max-content; animation: infra-logo-scroll 28s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .infra-logo-track { animation: none; } }
+.infra-logo-mark { display: grid; place-items: center; min-width: clamp(150px, 15vw, 220px); min-height: 84px; margin: 0; padding: 16px 24px; }
+.infra-logo-mark img { display: block; width: auto; max-width: 150px; max-height: 38px; filter: grayscale(1); opacity: .68; }
+@keyframes infra-logo-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+#pg-tech-title { margin-bottom: 22px; }
+
+/* build page: body copy in ink, not light grey */
+.build-hero .hero-support, .sprint-fit-intro { color: var(--ink-soft); }
+.build-hero .hero-support strong { color: var(--ink); }
+
+/* vorher-nachher closing CTA: white label */
+.button-dark, .button-dark:hover { color: #fff; }
+
+/* index footer uses the shared footer layout (values from styles.css) */
+.site-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(240px, .55fr); align-items: end; gap: clamp(28px, 5vw, 72px); padding: 40px clamp(18px, 4vw, 44px); border-top: 1px solid oklch(98% .006 94 / .2); }
+.site-footer .brand { width: 105px; }
+.footer-meta { display: grid; justify-items: end; gap: 18px; }
+.footer-meta > p { color: var(--inverse-muted, #b9beb9); font-size: 11px; }
+.footer-links { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 16px; color: var(--inverse-muted, #b9beb9); font-size: 11px; font-weight: 800; }
+.footer-links a:hover { color: var(--accent-blue-on-dark); }
+.eu-badge { width: 160px; padding: 8px; background: var(--inverse, #f7f6f0); }
+@media (max-width: 760px) {
+  .site-footer { grid-template-columns: 1fr; align-items: start; gap: 28px; }
+  .footer-meta { justify-items: start; }
+  .footer-links { justify-content: flex-start; }
+}
+
+/* playground: colour-code the chips in all three capability rows */
+.pg-cap:nth-child(1) .pg-chips span:nth-of-type(1) { background: var(--accent-blue-soft); }
+.pg-cap:nth-child(1) .pg-chips span:nth-of-type(2) { background: #E7DEF4; }
+.pg-cap:nth-child(1) .pg-chips span:nth-of-type(3) { background: var(--accent-blue); border-color: var(--accent-blue); color: #fff; }
+.pg-cap:nth-child(1) .pg-chips span:nth-of-type(4) { background: #DEF0E6; }
+.pg-cap:nth-child(1) .pg-chips span:nth-of-type(5) { background: var(--accent-blue-soft); }
+.pg-cap:nth-child(2) .pg-chips span:nth-of-type(1) { background: var(--accent-blue-soft); }
+.pg-cap:nth-child(2) .pg-chips span:nth-of-type(2) { background: #E7DEF4; }
+.pg-cap:nth-child(2) .pg-chips span:nth-of-type(3) { background: #DEF0E6; }
+.pg-cap:nth-child(2) .pg-chips span:nth-of-type(4) { background: #F4E9D7; }
+
+/* playground panel: no hairline around the visual */
+.pg-panel, .pg-panel img { border: 0; }
