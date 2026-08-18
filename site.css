@@ -364,3 +364,6 @@ main h1 {
 .faq-list summary::after { color: var(--accent-blue-strong); transition: transform .18s ease-out; }
 .faq-list details[open] summary::after { content: "+"; transform: rotate(45deg); }
 .faq-list details p { margin: 0 35px 24px 0; line-height: 1.6; }
+
+/* offer cards: no hairline border — the white surface on beige is enough */
+.offer-card { border: 0; }
