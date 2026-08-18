@@ -1,0 +1,99 @@
+/* Compact information architecture pass: fewer oversized blocks, more readable horizontal structure. */
+:root { --page-gap: clamp(24px, 3.2vw, 52px); --section-gap: clamp(34px, 5vw, 76px); }
+
+body { overflow-x: hidden; }
+.page-width { width: min(1240px, calc(100% - 48px)); margin-inline: auto; }
+main section { padding-block: var(--section-gap) !important; }
+main section + section { margin-top: 0 !important; }
+h1 { font-size: clamp(3rem, 6.2vw, 7rem) !important; line-height: .94 !important; letter-spacing: -.06em !important; }
+h2 { font-size: clamp(2.1rem, 4.2vw, 4.8rem) !important; line-height: .98 !important; letter-spacing: -.055em !important; }
+h3 { font-size: clamp(1.35rem, 2.2vw, 2.2rem) !important; line-height: 1.02 !important; }
+p { max-width: 74ch; }
+
+/* One clear opening: message left, two offers right. */
+#top .hero-grid { display: grid !important; grid-template-columns: minmax(0, 1.02fr) minmax(440px, .98fr) !important; gap: var(--page-gap) !important; align-items: start; }
+#top .hero-copy { min-width: 0; }
+#top .hero-copy > p { max-width: 60ch; }
+#top .hero-offer-stack { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 14px !important; align-items: stretch; }
+#top .offer-panel { min-width: 0 !important; height: auto !important; min-height: 0 !important; padding: 24px !important; border-radius: 14px !important; }
+#top .offer-panel h2, #top .offer-panel h3 { font-size: clamp(1.25rem, 2vw, 2rem) !important; }
+#top .offer-panel .offer-price, #top .offer-panel strong { font-size: clamp(2.5rem, 4vw, 4.6rem) !important; line-height: .9 !important; }
+#top .offer-panel p { font-size: .98rem !important; line-height: 1.28 !important; max-width: 34ch; }
+#top .offer-panel .button, #top .offer-panel a.button { display: none !important; }
+#top .hero-offer-stack::after { content: "SOLUTION LOOP STARTEN  ↗        BUILD SPRINT ANSEHEN  ↗"; white-space: pre; grid-column: 1 / -1; font-weight: 800; font-size: .92rem; letter-spacing: .02em; padding-top: 4px; color: #ffed00; }
+#top .hero-bottom { display: none !important; }
+
+/* Logos are proof, not a tall section. */
+.logo-wall, .proof-bar { display: flex !important; flex-wrap: nowrap !important; align-items: center; gap: 22px !important; overflow: hidden; padding: 12px 18px !important; background: #fff !important; color: #111 !important; border: 1px solid #111 !important; }
+.logo-cell { flex: 1 1 0; min-width: 70px; height: 44px !important; padding: 4px !important; background: #fff !important; border: 0 !important; }
+.logo-cell img { max-height: 32px !important; filter: grayscale(1) !important; }
+
+/* Deliverables: three equal, readable columns. */
+.deliverables-section .deliverables-list, .deliverables-section ol { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 0 !important; margin: 20px 0 0 !important; padding: 0 !important; }
+.deliverables-section .deliverables-list > li, .deliverables-section ol > li { display: flex !important; flex-direction: column !important; min-width: 0; padding: 20px !important; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; border-right: 1px solid currentColor; }
+.deliverables-section .deliverables-list > li:first-child { border-left: 1px solid currentColor; }
+.deliverables-section .deliverable-visual { order: 3; margin-top: auto; min-height: 96px !important; transform: none !important; }
+.deliverable-flow, .deliverable-potential, .deliverable-loop { width: 100% !important; max-width: 100% !important; }
+
+/* Self-check directly follows deliverables, with result beside the list. */
+.self-check-section { padding-block: 28px !important; }
+.self-check-section .self-check-grid { display: grid !important; grid-template-columns: minmax(0, 1.4fr) minmax(260px, .6fr) !important; gap: 28px !important; align-items: start; }
+.self-check-section .self-check-list { display: grid; gap: 0; }
+.self-check-section .self-check-list label { padding: 10px 0 !important; border-bottom: 1px solid currentColor; }
+#self-check-result { position: sticky; top: 100px; margin: 0 !important; min-height: 150px; display: grid; place-items: center; text-align: center; }
+
+/* Four weeks: one clean row, no staggered cards. */
+#erster-monat .sprint-steps, .sensemaking-sprint .sprint-steps { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 0 !important; padding: 0 !important; }
+#erster-monat .sprint-steps > li, .sensemaking-sprint .sprint-steps > li { min-width: 0; padding: 20px 16px !important; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; border-right: 1px solid currentColor; }
+#erster-monat .sprint-steps > li:first-child, .sensemaking-sprint .sprint-steps > li:first-child { border-left: 1px solid currentColor; }
+#erster-monat .sprint-steps h4, .sensemaking-sprint .sprint-steps h4 { font-size: clamp(1.25rem, 2vw, 2rem) !important; }
+
+/* Benefits are a compact scan, not another long narrative section. */
+.use-case-grid, .compact-case-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 12px !important; }
+.compact-case-card { min-height: 0 !important; padding: 20px !important; border-radius: 12px !important; }
+.compact-case-card h3 { font-size: 1.35rem !important; }
+.compact-case-card p { font-size: .9rem !important; line-height: 1.25 !important; }
+
+/* FAQ: compact two-column scan with consistent rules. */
+.faq-section .faq-grid { display: grid !important; grid-template-columns: minmax(180px, .35fr) minmax(0, 1fr) !important; gap: 28px !important; }
+.faq-section .faq-list { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; column-gap: 24px !important; align-content: start; }
+.faq-section details, .faq-section .faq-item { border-top: 1px solid currentColor !important; padding: 12px 0 !important; min-height: 0 !important; }
+.faq-section summary, .faq-section .faq-question { font-size: 1rem !important; line-height: 1.2 !important; }
+
+/* Before/after is a readable comparison, not a vertical poster. */
+.before-after-section .before-after-heading { display: grid !important; grid-template-columns: .28fr .72fr !important; gap: 24px !important; align-items: end; }
+.before-after-section .before-after-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 0 !important; }
+.before-after-section .before-after-grid > * { min-width: 0; padding: 22px !important; }
+.scenario-list { display: grid !important; gap: 0 !important; }
+.scenario-story { display: grid !important; grid-template-columns: .28fr .32fr .4fr !important; gap: 22px !important; padding-block: 24px !important; border-top: 1px solid currentColor; }
+.scenario-story h3 { font-size: 1.6rem !important; }
+.scenario-story .scenario-comparison { min-width: 0; }
+.before-after-proof { padding-block: 34px !important; }
+
+/* Context grid from the first-month explanation. */
+.context-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 0 !important; border-top: 1px solid currentColor; }
+.context-card { padding: 18px !important; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; min-height: 150px; }
+.context-card:nth-child(3n+1) { border-left: 1px solid currentColor; }
+.context-card h3 { font-size: 1.35rem !important; }
+.context-card p { font-size: .9rem !important; }
+
+/* Old standalone platform/trust blocks duplicate the offer; keep the platform proof in the offer itself. */
+#plattform .platform-trust, #plattform .platform-enablement, #plattform .platform-overview-footer { display: none !important; }
+
+@media (max-width: 900px) {
+  .page-width { width: min(100% - 32px, 720px); }
+  #top .hero-grid, .self-check-section .self-check-grid, .faq-section .faq-grid, .before-after-section .before-after-heading { grid-template-columns: 1fr !important; }
+  #top .hero-offer-stack { grid-template-columns: 1fr 1fr !important; }
+  .deliverables-section .deliverables-list, .deliverables-section ol, .use-case-grid, .compact-case-grid, .context-grid { grid-template-columns: 1fr !important; }
+  .deliverables-section .deliverables-list > li, .deliverables-section ol > li, .context-card { border-left: 1px solid currentColor !important; }
+  #erster-monat .sprint-steps, .sensemaking-sprint .sprint-steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .scenario-story { grid-template-columns: 1fr !important; }
+  .faq-section .faq-list { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 560px) {
+  main section { padding-block: 28px !important; }
+  #top .hero-offer-stack { grid-template-columns: 1fr !important; }
+  #top .hero-offer-stack::after { white-space: normal; line-height: 1.8; }
+  #erster-monat .sprint-steps, .sensemaking-sprint .sprint-steps { grid-template-columns: 1fr !important; }
+  h1 { font-size: clamp(2.7rem, 14vw, 4.6rem) !important; }
+}

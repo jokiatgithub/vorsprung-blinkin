@@ -1,0 +1,147 @@
+/* Compact case-study layout: every viewport should answer a question. */
+.before-after-hero {
+  padding-block: 42px 34px;
+}
+
+.before-after-hero > div {
+  max-width: var(--page);
+}
+
+.before-after-hero h1 {
+  max-width: 760px;
+  margin-top: 12px;
+  font-size: clamp(42px, 5vw, 70px);
+  line-height: .96;
+}
+
+.before-after-hero > div > p:last-child {
+  max-width: 760px;
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.38;
+}
+
+.before-after-section,
+.before-after-proof {
+  padding-block: 38px;
+}
+
+.before-after-section > .page-width {
+  display: grid;
+  grid-template-columns: minmax(145px, .2fr) minmax(0, .8fr);
+  column-gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+}
+
+.before-after-heading {
+  display: contents;
+}
+
+.before-after-heading > .eyebrow {
+  grid-column: 1;
+  margin-top: 4px;
+  max-width: 22ch;
+  font-size: clamp(.74rem, .85vw, .9rem);
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1.35;
+}
+
+.before-after-heading > div {
+  grid-column: 2;
+}
+
+.before-after-heading h2 {
+  max-width: 760px;
+  font-size: clamp(30px, 3.4vw, 52px);
+  line-height: 1;
+}
+
+.case-context {
+  max-width: 720px;
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.42;
+}
+
+.before-after-grid {
+  grid-column: 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 22px;
+  border-top: 1px solid var(--ink);
+}
+
+.before-after-grid article {
+  min-height: 0;
+  padding: 18px 20px 20px;
+}
+
+.before-after-grid h3 {
+  max-width: 520px;
+  margin-top: 14px;
+  font-size: clamp(21px, 2.1vw, 31px);
+  line-height: 1.08;
+}
+
+.before-after-grid ul {
+  gap: 7px;
+  margin-top: 18px;
+}
+
+.before-after-grid li {
+  font-size: 14px;
+  line-height: 1.36;
+}
+
+.case-meta {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 28px;
+  max-width: 900px;
+  margin-top: 12px;
+}
+
+.case-meta p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.case-impact {
+  max-width: 800px;
+}
+
+.before-after-proof .button-dark {
+  background: var(--yellow, #ffe500);
+  color: var(--ink, #0a0f0d);
+  border-color: var(--ink, #0a0f0d);
+}
+
+.before-after-proof .button-dark:hover {
+  background: var(--purple, #c79af5);
+}
+
+.before-after-proof-grid {
+  gap: 24px;
+}
+
+.before-after-proof-grid h2 {
+  font-size: clamp(30px, 3.4vw, 52px);
+}
+
+.before-after-proof-grid li {
+  padding-block: 13px;
+}
+
+@media (max-width: 760px) {
+  .before-after-hero { padding-block: 30px 26px; }
+  .before-after-hero h1 { font-size: clamp(38px, 11vw, 58px); }
+  .before-after-section > .page-width { display: block; }
+  .before-after-heading > .eyebrow { margin-bottom: 10px; }
+  .before-after-heading h2 { font-size: clamp(28px, 8vw, 42px); }
+  .before-after-grid { grid-template-columns: 1fr; margin-top: 18px; }
+  .before-after-grid article { border-right: 1px solid var(--ink); }
+  .case-meta { grid-template-columns: 1fr; margin-top: 12px; }
+  .case-meta p { font-size: 14px; }
+}
