@@ -102,7 +102,9 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 /* use-case grid alignment: uniform label -> headline -> body rhythm */
 .examples-list .example-row, .examples-list .example-row:nth-child(even) {
   display: flex; flex-direction: column; min-height: 0;
+  padding: clamp(28px, 3.6vw, 50px) 22px clamp(28px, 3.6vw, 50px) 0;
 }
+.examples-list .example-row:nth-child(even) { padding-left: 22px; }
 .example-row span { margin: 0; }
 .example-row h3 { min-height: 2.3em; margin: 10px 0 0; }
 .example-row p { margin: 8px 0 0; }
@@ -340,3 +342,24 @@ main h1 {
 @media (max-width: 900px) {
   main h1 { font-size: clamp(2.2rem, 8.4vw, 3.4rem); }
 }
+
+/* offer cards: primary action reads as a button, not a text link */
+.offer-card .inline-action {
+  display: inline-flex; align-items: center; gap: 9px;
+  margin-top: auto; padding: 12px 18px; border-radius: 8px;
+  font-size: 12px; font-weight: 800; letter-spacing: .05em;
+  text-decoration: none; transition: background .15s ease-out, color .15s ease-out;
+}
+.offer-card .inline-action:hover { text-decoration: none; }
+.offer-card-primary .inline-action { background: #fff; color: var(--accent-blue-deep); }
+.offer-card-primary .inline-action:hover { background: oklch(94% .02 240); }
+.offer-card:not(.offer-card-primary) .inline-action { border: 1px solid var(--ink); color: var(--ink); }
+.offer-card:not(.offer-card-primary) .inline-action:hover { background: var(--ink); color: #fff; }
+.offer-card .offer-footnote { margin-top: 14px; }
+
+/* faq: air, hover feedback, accent marker */
+.faq-list summary { padding: 22px 0; font-size: 16px; transition: color .15s ease-out; }
+.faq-list summary:hover, .faq-list details[open] summary { color: var(--accent-blue-deep); }
+.faq-list summary::after { color: var(--accent-blue-strong); transition: transform .18s ease-out; }
+.faq-list details[open] summary::after { content: "+"; transform: rotate(45deg); }
+.faq-list details p { margin: 0 35px 24px 0; line-height: 1.6; }
