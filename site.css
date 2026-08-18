@@ -102,9 +102,10 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 /* use-case grid alignment: uniform label -> headline -> body rhythm */
 .examples-list .example-row, .examples-list .example-row:nth-child(even) {
   display: flex; flex-direction: column; min-height: 0;
-  padding: clamp(28px, 3.6vw, 50px) 22px clamp(28px, 3.6vw, 50px) 0;
+  padding: clamp(28px, 3.6vw, 50px) 22px;
 }
-.examples-list .example-row:nth-child(even) { padding-left: 22px; }
+/* first column aligns with the section heading; others indent from their cell border */
+.examples-list .example-row:nth-child(3n + 1) { padding-left: 0; }
 .example-row span { margin: 0; }
 .example-row h3 { min-height: 2.3em; margin: 10px 0 0; }
 .example-row p { margin: 8px 0 0; }
