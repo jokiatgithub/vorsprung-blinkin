@@ -368,3 +368,6 @@ main h1 {
 /* offer cards: no hairline border, no white strip in the card gap */
 .offer-card, .offer-board .offer-card, .offer-card + .offer-card { border: 0 !important; }
 .offer-grid.offer-board { background: transparent; }
+
+/* deliverable 03 visual: white text on the active (blue) step */
+.loop-step-active em, .loop-step-active strong, .loop-step-active small { color: #fff !important; }
