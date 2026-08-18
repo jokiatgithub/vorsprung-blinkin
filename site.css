@@ -122,23 +122,61 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 }
 .loop-roles .text-link:hover { text-decoration: underline; }
 
-.loop-weeks { border-bottom: 1px solid var(--line); }
+/* loop weeks: numbered rail that closes back into the repeat block */
+.loop-weeks { counter-reset: week; }
 .loop-week {
-  display: grid; grid-template-columns: minmax(210px, .85fr) 1.7fr;
+  position: relative; counter-increment: week;
+  display: grid; grid-template-columns: 64px minmax(190px, .8fr) 1.7fr;
   gap: 10px clamp(20px, 3vw, 40px);
-  padding: clamp(22px, 2.8vw, 34px) 0; border-top: 1px solid var(--line);
+  padding: clamp(22px, 2.8vw, 34px) 0;
+  border-top: 0;
+  transition: background .18s ease-out;
 }
-.loop-week header span { font-size: 10px; font-weight: 800; letter-spacing: .1em; color: var(--accent-blue-strong); }
-.loop-week h3 { margin: 6px 0 0; font-size: clamp(1.1rem, 1.45vw, 1.35rem); }
+.loop-week:hover { background: oklch(100% 0 0 / .45); }
+.loop-week::before {
+  content: counter(week, decimal-leading-zero);
+  display: grid; place-items: center; width: 40px; height: 40px;
+  border: 1px solid var(--ink); border-radius: 50%;
+  background: var(--surface, #fff); font-size: 12px; font-weight: 800;
+  position: relative; z-index: 1;
+}
+.loop-week::after {
+  content: ""; position: absolute; left: 20px; top: 0; bottom: 0;
+  border-left: 1px solid var(--line); z-index: 0;
+}
+.loop-week:first-child::after { top: 20px; }
+.loop-week header span {
+  display: inline-block; padding: 5px 10px; border-radius: 999px;
+  background: var(--accent-blue-soft); color: var(--ink);
+  font-size: 10px; font-weight: 800; letter-spacing: .09em;
+}
+.loop-week:nth-child(2) header span { background: var(--blue, #dbe9f8); }
+.loop-week:nth-child(3) header span { background: var(--lilac, #e9dff5); }
+.loop-week:nth-child(4) header span { background: var(--mint, #def0e6); }
+.loop-week h3 { margin: 10px 0 0; font-size: clamp(1.1rem, 1.45vw, 1.35rem); }
 .loop-week dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 0; }
 .loop-week dt { font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .loop-week dd { margin: 8px 0 0; color: var(--ink-soft); font-size: 13px; line-height: 1.55; }
-.loop-week .loop-result { margin: 10px 0 0; font-size: 13px; color: var(--ink); }
-.loop-week .loop-result b { font-weight: 800; }
+.loop-week .loop-result {
+  display: inline-block; margin: 12px 0 0; padding: 8px 12px;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--surface, #fff);
+  font-size: 13px; color: var(--ink);
+}
+.loop-week .loop-result b { color: var(--accent-blue-strong); font-weight: 800; }
 
 .loop-repeat {
-  margin-top: clamp(20px, 3vw, 32px); border-top: 1px solid var(--ink);
-  padding-top: 18px;
+  position: relative; margin-top: 0; padding: clamp(18px, 2.4vw, 28px) 0 0 64px;
+  border-top: 0;
+}
+.loop-repeat::before {
+  content: "⟲"; position: absolute; left: 0; top: clamp(14px, 2vw, 22px);
+  display: grid; place-items: center; width: 40px; height: 40px;
+  border-radius: 50%; background: var(--accent-blue-strong); color: #fff;
+  font-size: 17px; font-weight: 800; z-index: 1;
+}
+.loop-repeat::after {
+  content: ""; position: absolute; left: 20px; top: 0; height: clamp(14px, 2vw, 22px);
+  border-left: 1px solid var(--line);
 }
 .loop-repeat > span { font-size: 10px; font-weight: 800; letter-spacing: .12em; color: var(--accent-blue-strong); }
 .loop-chain {
@@ -150,8 +188,11 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 
 @media (max-width: 860px) {
   .loop-roles { grid-template-columns: 1fr; }
-  .loop-week { grid-template-columns: 1fr; }
-  .loop-week dl { grid-template-columns: 1fr; gap: 10px; }
+  .loop-week { grid-template-columns: 48px 1fr; }
+  .loop-week > div { grid-column: 2; }
+  .loop-week dl { grid-template-columns: 1fr; gap: 12px; }
+  .loop-week::after { left: 20px; }
+  .loop-repeat { padding-left: 48px; }
 }
 .sprint-fit-intro { max-width: 62ch; margin-top: 14px; font-size: 15px; line-height: 1.55; color: var(--inverse-muted, #cfd4cf); }
 .build-hero .hero-support { max-width: 60ch; margin-top: 12px; font-size: 15px; line-height: 1.55; color: var(--inverse-muted, #cfd4cf); }
