@@ -372,3 +372,5 @@ main h1 {
 /* deliverable 03 visual: white text on the active (blue) step */
 .loop-step-active em, .loop-step-active strong, .loop-step-active small { color: #fff !important; }
 .offer-card:not(.offer-card-primary) { background: #fff; }
+/* guaranteed gap between bullet list and card button (mobile: auto-margin collapses) */
+.offer-card .offer-includes { margin-bottom: 24px; }
