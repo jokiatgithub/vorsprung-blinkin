@@ -365,5 +365,6 @@ main h1 {
 .faq-list details[open] summary::after { content: "+"; transform: rotate(45deg); }
 .faq-list details p { margin: 0 35px 24px 0; line-height: 1.6; }
 
-/* offer cards: no hairline border — the white surface on beige is enough */
-.offer-card { border: 0; }
+/* offer cards: no hairline border, no white strip in the card gap */
+.offer-card, .offer-board .offer-card, .offer-card + .offer-card { border: 0 !important; }
+.offer-grid.offer-board { background: transparent; }
