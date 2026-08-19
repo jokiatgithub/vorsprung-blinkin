@@ -213,6 +213,8 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 
 /* ---- playground page ---- */
 .pg-hero { color: var(--inverse, #fff); }
+.pg-hero-visual { margin-top: clamp(32px, 4vw, 56px); }
+.pg-hero-visual img { width: 100%; max-height: min(50vh, 480px); object-fit: contain; border-radius: 8px; }
 .pg-hero h1 { max-width: 21ch; }
 .pg-hero .hero-lede { max-width: 62ch; }
 .pg-hero p:not(.eyebrow):not(.hero-lede) { max-width: 68ch; margin-top: 14px; color: var(--inverse-muted, #cfd4cf); font-size: 15px; line-height: 1.55; }
@@ -402,7 +404,7 @@ main h1 {
 
 /* ---- google-doc feedback round ---- */
 /* playground: infra logo loop (ported from about-clean.css) + air under TECHNOLOGIEOFFEN headline */
-.about-infra-logos { padding: 0 0 clamp(64px, 8vw, 104px); }
+.about-infra-logos { padding: clamp(48px, 6vw, 88px) 0 clamp(64px, 8vw, 104px); }
 .infra-logo-loop { overflow: hidden; margin-top: 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .infra-logo-track { display: flex; width: max-content; animation: infra-logo-scroll 28s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .infra-logo-track { animation: none; } }
