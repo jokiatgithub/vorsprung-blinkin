@@ -451,3 +451,35 @@ main h1 {
 
 /* vorher-nachher: white bullets inside the lilac NACHHER boxes */
 .before-after-grid article:has(.eyebrow-purple) li::before { color: #fff; }
+
+/* --- v4: Google-Doc-Korrekturen --- */
+/* Angebots-Karten: Untertitel unter dem Titel */
+.offer-card h3 .offer-tagline {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: normal;
+  color: var(--muted);
+}
+.offer-card-primary h3 .offer-tagline { color: #fff; }
+@media (min-width: 901px) { .offer-card h3 .offer-tagline { min-height: 2.8em; } }
+
+/* Stack-Teaser auf der Startseite */
+.teaser-list {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding-left: 18px;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* Playground: Plattform-Visual auf Schwarz, damit der Text im Bild lesbar bleibt */
+.pg-panel-dark img {
+  background: #000;
+  padding: 12px;
+  border-radius: 8px;
+}

@@ -1,0 +1,75 @@
+/* Keep Build Sprint yellow identical to the live Solution Loop token. */
+:root {
+  --accent: oklch(91% .17 96);
+  --surface-yellow: oklch(91% .17 96);
+}
+
+/* Match the Solution Loop opening: the Build Sprint hero lives on the shared beige canvas. */
+.build-hero {
+  background: var(--paper) !important;
+  color: var(--ink);
+}
+
+.build-hero .eyebrow-yellow {
+  color: oklch(42% .09 305);
+}
+
+.build-hero .hero-lede {
+  color: var(--muted);
+}
+
+.build-offer {
+  border-top-color: var(--line);
+  border-bottom-color: var(--line);
+}
+
+.build-offer p {
+  color: var(--ink);
+}
+
+.build-offer span {
+  color: var(--muted);
+}
+
+.build-offer strong {
+  color: var(--ink) !important;
+}
+
+/* The sprint inputs and hand-off stay on the shared beige canvas. */
+.sprint-fit,
+.build-next {
+  background: var(--paper) !important;
+  color: var(--ink);
+}
+
+.sprint-fit .eyebrow-yellow {
+  color: var(--ink);
+}
+
+.sprint-fit ul {
+  border-top-color: var(--line);
+}
+
+.sprint-fit li {
+  border-bottom-color: var(--line);
+}
+
+.sprint-fit strong {
+  color: var(--ink);
+}
+
+.sprint-fit span {
+  color: var(--ink-soft);
+}
+
+.build-next h2,
+.build-next p,
+.build-next .build-boundary,
+.build-next-link {
+  color: var(--ink);
+}
+
+.build-next-grid > div > p,
+.build-next .build-boundary {
+  color: var(--ink-soft);
+}
