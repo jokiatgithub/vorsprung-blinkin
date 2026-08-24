@@ -1,0 +1,195 @@
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2743ee" />
+  <title>AI Playground | Blinkin</title>
+  <meta name="description" content="Im Blinkin AI Playground entstehen aus realen Prozessen komplette KI-Anwendungen und Workflows – mit flexibler KI, klaren Regeln, Übergaben und menschlicher Kontrolle." />
+  <link rel="icon" href="./assets/blinkin-logo.png" />
+  <link rel="stylesheet" href="./fonts.css" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="./v5.css" />
+</head>
+<body data-release="BLN-2604">
+<!--
+  BLINKIN V5 — DIRECTION CONTRACT (seed key d6909dc5, candidate 5)
+  THESIS: The site is a crate of Tokyo boutique-press record sleeves.
+  Every section is a sleeve face — pale, nearly bare, one geometric mark,
+  one display statement. Everything operational lives on the OBI band:
+  a saturated cobalt paper strip wrapped around the sleeve, printed dense
+  with mono credits, catalog codes, prices and tracklists. The density
+  collision between bare face and crowded band is the whole design.
+  OWN-WORLD: aged paper #f4efe4, inner white #fffefa, warm ink #16130e,
+  one strong hue — cobalt #2743ee — owns every band; a vermillion #d63a12
+  circular hype sticker carries prices. Archivo Expanded Black for the
+  face, Spline Sans Mono for every credit line, one vertical-rl credit
+  column per band. Rotation is punctuation: sleeves tilt ±0.55°, hover
+  straightens them; the obi slides 8px left to peek beneath itself.
+  STORY: The visitor flips through a tightly curated catalog — every offer
+  a numbered release (BLN-2601-A …), the FAQ its tracklist — and trusts
+  the curation enough to book a call.
+  FORM: grounded candidate 5 of 7, assigned by concept-seed roll d6909dc5.
+  CONTENT BASE: v4 verbatim (branch claude/korrektur-v4-ca4160).
+  FINISH: unreviewed and undocumented is unfinished; ends with review,
+  verdict and DESIGN.md.
+-->
+
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="crate-bar">
+    <div class="crate-inner">
+      <a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /><span class="crate-cat mono">Independent KI-Systems · Est. 2019</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menü</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="index.html">AI Office Hours</a><a href="build.html">Build Sprint</a><a href="playground.html" aria-current="page">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a></nav>
+      <a class="nav-action" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">Gespräch buchen <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="pg-title">
+      <div class="page-width">
+        <div class="sleeve tilt-l reveal" style="padding-bottom:clamp(110px,14vw,170px)">
+          <div class="mark" aria-hidden="true"><svg viewBox="0 0 96 96" fill="none"><path d="M48 6L90 82H6L48 6Z" stroke="#16130e" stroke-width="2.5" stroke-linejoin="round"/><path d="M48 34L67 68H29L48 34Z" fill="#2743ee"/></svg></div>
+          <h1 class="display" id="pg-title" style="max-width:15ch;font-size:clamp(2.2rem,5vw,4.6rem)">Von eurem Prozess zur KI-Anwendung – in Minuten.</h1>
+          <p class="catplate"><i aria-hidden="true"></i>Blinkin AI Playground · BLN-2604</p>
+          <p class="lede">Im AI Playground verbindet ihr Unternehmenswissen, Regeln, Eingaben und Oberflächen mit KI und spezialisierten Agents. So entstehen komplette Anwendungen und Workflows, bei denen klar bleibt, was die KI entscheidet, was fest vorgegeben ist und wo Menschen übernehmen.</p>
+          <p class="body-copy" style="margin-top:1em;max-width:70ch">Ihr könnt mit einer einfachen Anwendung starten und daraus Schritt für Schritt komplexere Agenten- und Multi-Agent-Systeme entwickeln – ohne jedes Mal ein neues Softwareprojekt aufzusetzen.</p>
+          <figure class="insert" style="margin-top:clamp(18px,2.6vw,30px)">
+            <img src="./assets/platform-overview.png" alt="Übersicht der Blinkin Plattform mit No-Code Studio, Launchpad, Companion sowie Chatbots und Agents" />
+            <figcaption><span>Plattform-Übersicht</span><span>No-Code Studio · Launchpad · Companion · Agents</span></figcaption>
+          </figure>
+          <div class="obi hero-obli" style="position:absolute;left:-14px;right:-14px;bottom:-14px;border-radius:10px;box-shadow:var(--shadow-lift)">
+            <div class="obi-head"><span class="obi-code">BLN-2604</span><span class="obi-title">Der schnelle Raum</span><span class="obi-rule" aria-hidden="true"></span><span class="obi-meta">Anwendungen in Minuten · Workflows · Agents</span></div>
+            <div class="obi-grid">
+              <span class="obi-vertical" aria-hidden="true">KI arbeitet flexibel · Regeln bleiben fest · Menschen entscheiden an Übergaben</span>
+              <div class="obi-main">
+                <div class="obi-actions" style="margin-top:0">
+                  <a class="btn btn-stamp" href="mailto:hello@blinkin.io?subject=AI%20Playground">Playground im Gespräch erleben <span aria-hidden="true">↗</span></a>
+                  <a class="btn btn-paper" href="#caps">Was der Playground kann</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page-width" id="caps" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="pg-caps-title">
+      <div class="sleeve tilt-r reveal">
+        <h2 class="h2" id="pg-caps-title">Komplette KI-Anwendungen, kein loses Prompten.</h2>
+        <p class="catplate"><i aria-hidden="true"></i>Was der Playground kann</p>
+        <div class="caps">
+          <article class="cap-card reveal">
+            <header><span class="track-no">Cap 01</span><p class="mono" style="margin:6px 0 10px;font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted)">End-to-End statt nur Chat</p><h3 class="h3">Ganze Anwendungen statt einzelner KI-Antworten.</h3></header>
+            <div><p>Vom Input über Wissen, Regeln und KI bis zum Ergebnis und nächsten Schritt: Der Playground verbindet die Bestandteile zu einem durchgängigen Ablauf. Anwendungen können Informationen aufnehmen, prüfen und strukturieren, Entscheidungen vorbereiten und Ergebnisse direkt an den nächsten Schritt im Prozess übergeben.</p>
+              <div class="chips" aria-label="Ablauf einer Anwendung"><span>Input</span><i aria-hidden="true">→</i><span>Wissen &amp; Regeln</span><i aria-hidden="true">→</i><span>KI-Verarbeitung</span><i aria-hidden="true">→</i><span>Ergebnis</span><i aria-hidden="true">→</i><span>Nächster Schritt</span></div>
+            </div>
+          </article>
+          <article class="cap-card reveal">
+            <header><span class="track-no">Cap 02</span><p class="mono" style="margin:6px 0 10px;font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted)">Agents dort einsetzen, wo sie sinnvoll sind</p><h3 class="h3">Spezialisten zu einem gemeinsamen Ablauf verbinden.</h3></header>
+            <div><p>Ein Agent kann recherchieren, ein anderer prüfen, ein weiterer Regeln anwenden oder Ergebnisse formulieren. Mehrere spezialisierte Agents können innerhalb einer Anwendung zusammenarbeiten, während die Nutzung für den Menschen einfach und nachvollziehbar bleibt.</p>
+              <div class="chips" aria-label="Beispiele für spezialisierte Agents"><span>Recherchieren</span><span>Prüfen</span><span>Regeln anwenden</span><span>Formulieren</span></div>
+            </div>
+          </article>
+          <article class="cap-card reveal">
+            <header><span class="track-no">Cap 03</span><p class="mono" style="margin:6px 0 10px;font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted)">Flexibel in der KI, kontrolliert im Prozess</p><h3 class="h3">Freiheit dort, wo sie hilft. Kontrolle dort, wo sie zählt.</h3></header>
+            <div><p>Modelle und Agents können flexibel arbeiten, wo Offenheit und Interpretation sinnvoll sind. Regeln, Freigaben, Datenquellen, Übergaben, Ergebnisformate und menschliche Entscheidungen bleiben dort kontrolliert, wo Verlässlichkeit wichtig ist.</p>
+              <div class="chips" aria-label="Flexible und kontrollierte Bestandteile"><span class="chip-ai">KI arbeitet flexibel</span><span class="chip-fixed">Regeln &amp; Formate fest definiert</span><span class="chip-human">Mensch entscheidet an Übergaben</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="page-width" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="pg-assembly-title">
+      <div class="liner reveal" style="transform:rotate(-.55deg);transition:transform .45s var(--ease-out)">
+        <p class="mono" style="margin:0 0 10px;font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;color:rgb(244 239 228/.55)">So entsteht eine Anwendung</p>
+        <h2 class="display" id="pg-assembly-title" style="color:var(--paper);font-size:clamp(1.9rem,4vw,3.2rem)">Bauen, testen, lernen. Wiederholen.</h2>
+        <div class="split" style="margin-top:clamp(16px,2vw,26px)">
+          <img src="./assets/app-workflow-overview.avif" alt="Aufbau einer Anwendung im AI Playground: Bausteine werden zu einem durchgängigen Workflow verbunden" loading="lazy" style="border-radius:8px;border:1px solid rgb(244 239 228/.25);box-shadow:0 24px 56px rgb(0 0 0/.45)" />
+          <div>
+            <p style="color:rgb(244 239 228/.82);margin:0;font-size:.98rem">Im AI Playground baut ihr spielerisch agentische Systeme, verbindet sie mit eurem Wissen, euren Daten und eurem Markenbild. Ihr baut Anwendungen visuell, nutzt vorkonfigurierte Module und bindet sie über Schnittstellen direkt in eure Umgebung ein.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px" aria-label="Bausteine des AI Playground">
+              <span style="padding:8px 12px;border:1.5px solid var(--obi);border-radius:99px;color:#fff;background:rgb(39 67 238/.35);font-family:'Spline Sans Mono',monospace;font-size:.625rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase">No-Code</span>
+              <span style="padding:8px 12px;border:1.5px solid var(--obi);border-radius:99px;color:#fff;background:rgb(39 67 238/.35);font-family:'Spline Sans Mono',monospace;font-size:.625rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase">Voice Mode</span>
+              <span style="padding:8px 12px;border:1.5px solid var(--obi);border-radius:99px;color:#fff;background:rgb(39 67 238/.35);font-family:'Spline Sans Mono',monospace;font-size:.625rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase">Visuelle KI</span>
+              <span style="padding:8px 12px;border:1.5px solid var(--obi);border-radius:99px;color:#fff;background:rgb(39 67 238/.35);font-family:'Spline Sans Mono',monospace;font-size:.625rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase">Agents & Apps</span>
+              <span style="padding:8px 12px;border:1.5px solid var(--obi);border-radius:99px;color:#fff;background:rgb(39 67 238/.35);font-family:'Spline Sans Mono',monospace;font-size:.625rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase">RAG</span>
+              <span style="padding:8px 12px;border:1.5px solid var(--obi);border-radius:99px;color:#fff;background:rgb(39 67 238/.35);font-family:'Spline Sans Mono',monospace;font-size:.625rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase">API / MCP / Webhooks</span>
+              <span style="padding:8px 12px;border:1.5px solid var(--obi);border-radius:99px;color:#fff;background:rgb(39 67 238/.35);font-family:'Spline Sans Mono',monospace;font-size:.625rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase">Knowledge Graphs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page-width narrow" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="pg-tech-title">
+      <div class="sleeve tilt-r reveal">
+        <h2 class="h2" id="pg-tech-title">Nicht an einen KI-Stack gebunden.</h2>
+        <p class="catplate"><i aria-hidden="true"></i>Technologieoffen</p>
+        <p class="body-copy">Der AI Playground gibt euch Zugriff auf unterschiedliche aktuelle Modelle und Tools. Aber Blinkin ist kein Zwangs-Stack: Wenn für euren Anwendungsfall eine andere Technologie besser passt, arbeiten wir damit.</p>
+        <p class="body-copy" style="margin-bottom:0">Wir testen laufend neue Modelle, Frameworks und Werkzeuge und bringen diese Erfahrungen auch in den AI Office Hours ein. So entscheidet nicht der Anbieter, sondern die Aufgabe, welche Technologie zum Einsatz kommt.</p>
+      </div>
+    </section>
+    <section class="page-width" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="pg-rel-title">
+      <div class="sleeve tilt-l reveal">
+        <div class="mark" aria-hidden="true"><svg viewBox="0 0 96 96" fill="none"><circle cx="48" cy="48" r="46" stroke="#16130e" stroke-width="2.5"/><circle cx="48" cy="48" r="30" stroke="#16130e" stroke-width="1.5"/><circle cx="48" cy="48" r="14" fill="#2743ee"/><circle cx="48" cy="48" r="3.5" fill="#fffefa"/></svg></div>
+        <h2 class="h2" id="pg-rel-title">Drei Bausteine als flexibles System.</h2>
+        <p class="catplate"><i aria-hidden="true"></i>So passt es zusammen</p>
+        <div class="relation">
+          <a class="rel-card reveal" href="index.html"><span>AI Office Hours</span><strong>Die richtigen Ansatzpunkte finden.</strong><p>Findet und priorisiert, wo KI eure reale Arbeit sinnvoll verbessern kann.</p></a>
+          <a class="rel-card reveal reveal-delay-1" href="playground.html" aria-current="true"><span>AI Playground</span><strong>Anwendungen schnell modellieren.</strong><p>Macht aus diesen Use Cases in kurzer Zeit KI-Anwendungen und Workflows.</p></a>
+          <a class="rel-card reveal reveal-delay-2" href="build.html"><span>Build Sprint</span><strong>Fokussiert umsetzen.</strong><p>Wenn ein Use Case fokussierte Konzeption und technische Umsetzung zu einer eigenen Lösung braucht.</p></a>
+        </div>
+        <div style="margin-top:clamp(20px,3vw,30px)"><a class="btn btn-ink" href="mailto:hello@blinkin.io?subject=AI%20Playground">Gespräch buchen <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+    <section class="page-width narrow" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="infra-title">
+      <div class="sleeve tilt-r reveal" style="padding-bottom:clamp(110px,14vw,170px)">
+        <h2 class="visually-hidden" id="infra-title">Flexible Infrastruktur für sichere Bereitstellung</h2>
+        <div class="marquee" aria-label="AWS, Microsoft Azure, Google Cloud, Intel, NVIDIA, Nebius und Hetzner">
+          <div class="marquee-track" style="animation-duration:30s">
+            <div style="display:flex;gap:clamp(28px,4vw,56px);align-items:center;flex:none">
+              <img src="./assets/infra-logos/aws.svg" alt="AWS" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/microsoft-azure.svg" alt="Microsoft Azure" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/google-cloud.svg" alt="Google Cloud" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/intel.svg" alt="Intel" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/nvidia.svg" alt="NVIDIA" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/nebius.svg" alt="Nebius" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/hetzner.svg" alt="Hetzner" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+            </div>
+            <div style="display:flex;gap:clamp(28px,4vw,56px);align-items:center;flex:none" aria-hidden="true">
+              <img src="./assets/infra-logos/aws.svg" alt="" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/microsoft-azure.svg" alt="" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/google-cloud.svg" alt="" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/intel.svg" alt="" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/nvidia.svg" alt="" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/nebius.svg" alt="" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+              <img src="./assets/infra-logos/hetzner.svg" alt="" loading="lazy" style="height:28px;width:auto;opacity:.85" />
+            </div>
+          </div>
+        </div>
+        <div class="obi hero-obli" style="position:absolute;left:-14px;right:-14px;bottom:-14px;border-radius:10px;box-shadow:var(--shadow-lift)">
+          <div class="obi-head"><span class="obi-code">Infra</span><span class="obi-title">Flexible Infrastruktur für sichere Bereitstellung</span><span class="obi-rule" aria-hidden="true"></span><span class="obi-meta">EU · US · Private Cloud</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="back-cover">
+    <div class="back-cover-inner">
+      <div class="credits">
+        <div>
+          <a class="brand" href="index.html" aria-label="Blinkin zurück nach oben"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a>
+          <p class="mono" style="margin:18px 0 0;color:rgb(244 239 228/.6);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase">Blinkin GmbH · KI-Beratung und Plattform<br />Seit 2019 · hello@blinkin.io</p>
+          <span class="eu-chip"><img src="./assets/co-funded-by-eu.png" alt="Co-funded by the European Union" loading="lazy" /></span>
+        </div>
+        <nav class="credit-links" aria-label="Footer-Navigation">
+          <a href="index.html">AI Office Hours</a><a href="build.html">Build Sprint</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a>
+        </nav>
+      </div>
+      <div class="catalog-line"><span>© 2026 Blinkin GmbH</span><span>Pressed in Hamburg · Distributed worldwide</span><span>BLN-2026</span></div>
+    </div>
+  </footer>
+  <script src="./v5.js" defer></script>
+</body>
+</html>

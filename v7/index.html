@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0a10" />
+  <title>Blinkin | Vom Rauschen zur Struktur</title>
+  <meta name="description" content="Blinkin hilft Unternehmen dabei, KI-Potenziale für ihre Arbeit zu verstehen und mit der passenden Technologie umzusetzen." />
+  <link rel="icon" href="./assets/blinkin-logo.png" />
+  <link rel="stylesheet" href="./fonts.css" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="./v7.css" />
+</head>
+<body>
+<!--
+  BLINKIN V7 — DIRECTION CONTRACT
+  THESIS: One-page WebGL storytelling. The visitor watches unstructured
+  knowledge ("Rauschen") travel through Blinkin's method and crystallize
+  into structure. A fixed three.js particle field morphs through ten
+  procedural states as chapters scroll past: noise cloud, twin systems,
+  scanned sphere, report rings, THE LOOP (bright amber torus with four
+  nodes), lattice, six constellations, wave grid, wide drift, converging
+  core. Content panels float above the field like instruments.
+  STORY: Rauschen (all das Wissen in Köpfen, Chats, Dateien) → zwei
+  Angebote → Feststellung des Ist-Zustands → drei Reports → der
+  vierwöchige Loop → Build Sprint als geordnetes Gitter → sechs
+  Anwendungsfelder als Konstellationen → Playground als Wellenfläche →
+  Wirkung im weiten Raum → Rahmen & Herkunft (Scan-Motiv kehrt wieder:
+  Souveränität wird geprüft) → Anlage A → alles läuft im Beschluss zusammen.
+  OWN-WORLD: deep ink #0a0a10, warm text #ece9e1, cobalt glow #3455ff,
+  light accent #93a5ff (8.5:1), signal amber #ffb35c (11:1). Archivo for
+  display/body, Spline Sans Mono for every label. three.js r160
+  self-hosted (vendor/three.module.js) — zero CDN requests.
+  MOTION: scroll-morphed particle positions/colors, slow field spin,
+  camera dolly per chapter, pointer parallax, additive round sprites.
+  DPR capped at 1.75; mobile gets fewer particles; reduced-motion
+  renders a single static frame; WebGL failure falls back to gradient.
+  FORM: single page replaces the five-page IA deliberately — one
+  continuous narrative. All v4 content present as chapters.
+  CONTENT BASE: v4 verbatim (branch claude/korrektur-v4-ca4160).
+  FINISH: unreviewed and undocumented is unfinished.
+-->
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="topbar">
+  <a class="brand" href="#chapter-hero" aria-label="Blinkin — zurück zum Anfang"><img src="./assets/blinkin-logo.png" alt="Blinkin" /></a>
+  <span class="chapter-indicator" id="chapter-indicator" aria-live="polite">Eröffnung</span>
+  <a class="cta-mini" href="#chapter-beschluss">Gespräch buchen</a>
+</header>
+
+<nav class="dots" aria-label="Kapitel"><span class="visually-hidden">Menü</span>
+  <a href="#chapter-hero"><span>Eröffnung</span></a>
+  <a href="#chapter-angebote"><span>Beschlussvorlagen</span></a>
+  <a href="#chapter-check"><span>Ausgangspunkt</span></a>
+  <a href="#chapter-fahrplan"><span>Der Fahrplan</span></a>
+  <a href="#chapter-loop"><span>Der Loop</span></a>
+  <a href="#chapter-build"><span>Build Sprint</span></a>
+  <a href="#chapter-felder"><span>Anwendungsfelder</span></a>
+  <a href="#chapter-playground"><span>AI Playground</span></a>
+  <a href="#chapter-wirkung"><span>Wirkung</span></a>
+  <a href="#chapter-rahmen"><span>Rahmen & Herkunft</span></a>
+  <a href="#chapter-anlage"><span>Anlage A</span></a>
+  <a href="#chapter-beschluss"><span>Beschluss</span></a>
+</nav>
+
+<main id="main">
+
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<section class="chapter wrap" id="chapter-hero" data-state="0" data-name="Eröffnung" aria-labelledby="hero-title">
+  <div style="min-height:min(88vh,760px);display:flex;flex-direction:column;justify-content:center">
+    <h1 class="h-hero reveal" id="hero-title">Baut mit uns euren KI-Vorsprung auf.</h1>
+    <p class="kap-label reveal d1">Protokoll der Reise · Maßgeschneiderte KI-Beratung für komplexe Produkte · Seit 2019</p>
+    <div class="panel narrow reveal d2" style="margin-top:clamp(22px,3vw,36px)">
+      <p class="lede">Blinkin ist ein KI-Unternehmen, das seit 2019 KI-Projekte berät und eine eigene Plattform für KI-Apps baut. Wir helfen führenden Unternehmen dabei, KI-Potenziale für ihre Arbeit zu verstehen und mit der passenden Technologie umzusetzen.</p>
+      <dl class="protokoll-zeilen" style="margin-top:18px">
+        <div><dt>Teilnehmende</dt><dd>Geschäftsführung, Entwickler- und Produktteams auf eurer Seite · Blinkin auf unserer</dd></div>
+        <div><dt>Turnus</dt><dd>Monatlich — 3 Stunden gemeinsame Arbeitszeit, dazwischen übernimmt Blinkin Analyse und Dokumentation</dd></div>
+        <div><dt>Ergebnis</dt><dd>Klarer Fahrplan, Monat für Monat — mit Empfehlung und nächsten besten Schritten</dd></div>
+      </dl>
+      <div class="actions" style="margin-top:20px"><a class="btn btn-glow" href="#chapter-angebote">Die Beschlussvorlagen ansehen <span aria-hidden="true">↓</span></a><a class="btn btn-line" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">Gespräch buchen <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <p class="small-note reveal d3" style="margin-top:16px">Scrollt — ihr seid gerade im Rauschen. Das wird gleich Ordnung.</p>
+  </div>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-angebote" data-state="1" data-name="Beschlussvorlagen" aria-labelledby="angebote-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)">Kapitel 01</span><h2 class="h-big" id="angebote-title" style="margin-top:10px">Zwei Wege aus dem Rauschen.</h2></div>
+  <div class="offers" style="margin-top:clamp(24px,3.4vw,44px)">
+    <article class="offer offer-a reveal"><span class="offer-tag">Monatlich · BLN-2601-A</span>
+      <p class="price-line"><strong>1.900&nbsp;€</strong><span>pro Monat</span></p>
+      <h3 class="h-mid">AI Office Hours</h3>
+      <p class="body-p" style="margin:6px 0 12px;font-style:italic">Der monatliche KI-Fahrplan für Geschäftsführung, Entwickler- und Produktteams.</p>
+      <p class="body-p">Blinkin bringt den Überblick über neueste Technologie, technische Tiefe und klare Lösungswege ein. Euer Team setzt um und wir prüfen gemeinsam, was funktioniert und was als Nächstes dran ist.</p>
+      <ul class="includes">
+        <li><i aria-hidden="true"></i><span><b>Hebel identifizieren:</b> KI-Vorhaben mit dem größten wirtschaftlichen Hebel auswählen</span></li>
+        <li><i aria-hidden="true"></i><span><b>KI-Lernkurve beschleunigen:</b> Praktische Lösungswege festlegen, bevor Monate mit Trial &amp; Error verlorengehen</span></li>
+        <li><i aria-hidden="true"></i><span><b>Wirkung skalieren:</b> Ergebnisse kontinuierlich prüfen und erfolgreiche KI-Workflows im Unternehmen ausrollen</span></li>
+      </ul>
+      <div class="actions"><a class="btn btn-glow" href="mailto:hello@blinkin.io?subject=AI%20Office%20Hours%20starten">AI Office Hours starten <span aria-hidden="true">↗</span></a></div>
+      <p class="fussnote">2 × 90 Minuten oder 4 × 45 Minuten gemeinsame Umsetzung, Ausarbeitung und Review · Laufende Einordnung von KI-Entwicklungen, Werkzeugen und Methoden · Monatlich kündbar.</p>
+    </article>
+    <article class="offer offer-b reveal d1"><span class="offer-tag">Nach Bedarf · BLN-2601-B</span>
+      <p class="price-line"><strong>9.900&nbsp;€</strong><span>einmalig</span></p>
+      <h3 class="h-mid">Build Sprint</h3>
+      <p class="body-p" style="margin:6px 0 12px;font-style:italic">In 4 Wochen vom ersten Prototypen zum getesteten KI-Workflow.</p>
+      <p class="body-p">Wir übernehmen die Konzeption und technische Umsetzung eines klar abgegrenzten Anwendungsfalls. Statt monatelanger Entwicklungszyklen bauen, testen und optimieren wir von Tag 1 an gemeinsam mit euch an echten Praxisfällen.</p>
+      <ul class="includes">
+        <li><i aria-hidden="true"></i><span><b>Schnell prototypen:</b> Erste Komponenten sofort testbar, sukzessive angereichert mit euren Daten und Regeln</span></li>
+        <li><i aria-hidden="true"></i><span><b>Agil testen &amp; iterieren:</b> Fortlaufende Feedback-Schleifen mit relevanten Nutzern, um die Anwendung im Prozess zu schärfen</span></li>
+        <li><i aria-hidden="true"></i><span><b>Informiert entscheiden:</b> Mit einem validierten Prototyp, technischer Dokumentation und einer fundierten Empfehlung für den produktiven Einsatz</span></li>
+      </ul>
+      <div class="actions"><a class="btn btn-amber" href="mailto:hello@blinkin.io?subject=Build%20Sprint%20reservieren">Build Sprint reservieren <span aria-hidden="true">↗</span></a></div>
+      <p class="fussnote">Üblicherweise 4 Wochen. Produktion und Live-Integrationen separat.</p>
+    </article>
+  </div>
+  <p class="small-note reveal d2" style="margin-top:18px">Beide lassen sich verbinden: Die AI Office Hours identifizieren kontinuierlich die richtigen Vorhaben, der Build Sprint setzt sie um.</p>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-check" data-state="2" data-name="Ausgangspunkt" aria-labelledby="check-title">
+  <div class="panel narrow">
+    <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)">Kapitel 02 · Der Feld wird abgetastet</span>
+    <h2 class="h-big" id="check-title" style="margin-top:10px">Startet dort, wo ihr mit KI gerade seid.</h2></div>
+    <p class="body-p reveal d1" style="margin-top:14px">Ihr müsst weder eine fertige Idee noch ein vollständiges Konzept mitbringen. Ein konkreter Ablauf und die Bereitschaft, ihn gemeinsam anzusehen, reichen.</p>
+    <div class="check reveal d2" style="margin-top:20px">
+      <div class="check-head"><span>Unser Ausgangspunkt</span><span>Ist-Zustand · Selbst-Check</span></div>
+      <fieldset style="border:0;margin:0;padding:0">
+        <legend class="visually-hidden">Aktuelle Ausgangspunkte</legend>
+        <label><input type="checkbox" name="ist-zustand" /><span class="kasten" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 2l7 7M9 2l-7 7" stroke="#ffb35c" stroke-width="2.2" stroke-linecap="round"/></svg></span><span>Es gibt einen wiederkehrenden Ablauf, der heute unnötig viel Zeit kostet.</span></label>
+        <label><input type="checkbox" name="ist-zustand" /><span class="kasten" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 2l7 7M9 2l-7 7" stroke="#ffb35c" stroke-width="2.2" stroke-linecap="round"/></svg></span><span>Wissen steckt in Köpfen, Chats, Dateien und Tabellen, aber nicht im Prozess.</span></label>
+        <label><input type="checkbox" name="ist-zustand" /><span class="kasten" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 2l7 7M9 2l-7 7" stroke="#ffb35c" stroke-width="2.2" stroke-linecap="round"/></svg></span><span>Es gibt mehr KI-Ideen als Klarheit über den besten Anfang.</span></label>
+        <label><input type="checkbox" name="ist-zustand" /><span class="kasten" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 2l7 7M9 2l-7 7" stroke="#ffb35c" stroke-width="2.2" stroke-linecap="round"/></svg></span><span>Ein Pilot bleibt stecken, weil Verantwortung, Daten oder der nächste Schritt unklar sind.</span></label>
+        <label><input type="checkbox" name="ist-zustand" /><span class="kasten" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 2l7 7M9 2l-7 7" stroke="#ffb35c" stroke-width="2.2" stroke-linecap="round"/></svg></span><span>Ihr wollt eine Lösung nicht nur zeigen, sondern an echten Fällen prüfen.</span></label>
+      </fieldset>
+      <div class="check-foot"><strong id="ist-zustand-count" aria-live="polite">0 von 5 markiert</strong><p id="ist-zustand-message">Markiert, was heute zutrifft.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-fahrplan" data-state="3" data-name="Der Fahrplan" aria-labelledby="fahrplan-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)">Kapitel 03 · Das Rauschen ordnet sich zu Ringen</span>
+  <h2 class="h-big" id="fahrplan-title" style="margin-top:10px">Euer klarer Fahrplan, Monat für Monat.</h2>
+  <p class="body-p" style="margin-top:14px">Das bekommt ihr in den AI Office Hours. In jeder Session erstellen wir mit und für euch zur ausgewählten Problemstellung Reports in wiederkehrenden Formaten. Sie dienen der Dokumentation und enthalten nachvollziehbare Anleitungen zur Umsetzung für eure Teams.</p></div>
+  <ol class="punkte" style="margin-top:clamp(22px,3vw,36px)">
+    <li class="punkt reveal"><div class="punkt-head"><span class="punkt-nr">A1 · Analyse</span><h3 class="h-mid">Ist-Zustand</h3></div>
+      <p class="body-p">Feststellung eures Ist-Zustands. Auslöser, Beteiligte, Systeme, Daten, Übergaben und gewünschtes Ergebnis werden zu einer gemeinsamen Arbeitsgrundlage.</p>
+      <div class="diagramm" role="img" aria-label="Ablauf-Report: Aus Input wie Dokumente, Gespräche und Systeme entsteht ein Bild des Arbeitsablaufs mit Menschen, Schritten und Übergaben — das Ergebnis ist der Report mit Klarheit">
+        <div class="diagramm-kopf"><span>Report</span><b>Ablauf-Report · 01 / 03</b></div>
+        <div class="d-flow"><span style="display:flex;flex-direction:column;align-items:flex-start;gap:6px;border:0;padding-left:0"><b>Input</b><span class="d-inputs"><b>Dokumente</b><b>Gespräche</b><b>Systeme</b></span></span><i aria-hidden="true">→</i><span>Arbeitsablauf<small style="display:block;font-weight:400;letter-spacing:.05em;color:var(--ink-muted)">Menschen · Schritte · Übergaben</small></span><i aria-hidden="true">→</i><span style="background:rgb(52 85 255/.85);border-color:transparent;font-weight:700">Report &amp; Klarheit</span></div>
+        <div style="display:flex;gap:14px;margin-top:10px;font-family:var(--mono);font-size:.5625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted)"><span>Was kommt hinein?</span><b style="color:var(--ink)">Was soll am Ende besser sein?</b></div>
+      </div>
+      <p class="ergebnis"><b>Ergebnis:</b> Dokumentierte Arbeitsgrundlage für alle weiteren Schritte.</p>
+    </li>
+    <li class="punkt reveal"><div class="punkt-head"><span class="punkt-nr">A2 · Auswertung</span><h3 class="h-mid">Hebel</h3></div>
+      <p class="body-p">Identifikation der möglichen Hebel. Wir bewerten Häufigkeit, Entlastung, Machbarkeit und Risiko und ordnen die Optionen nach Priorität.</p>
+      <div class="diagramm" role="img" aria-label="Hebel-Score: Häufigkeit hoch, Entlastung hoch, Machbarkeit gut, Risiko prüfen — Empfehlung für den ersten Test bei hohem Nutzen und vertretbarem Aufwand">
+        <div class="diagramm-kopf"><span>Score</span><b>Hebel-Score · Priorität</b></div>
+        <div class="d-score">
+          <div class="d-row"><span>Häufigkeit</span><i class="d-bar"><em style="width:86%"></em></i><b>hoch</b></div>
+          <div class="d-row"><span>Entlastung</span><i class="d-bar"><em style="width:72%"></em></i><b>hoch</b></div>
+          <div class="d-row"><span>Machbarkeit</span><i class="d-bar"><em style="width:78%"></em></i><b>gut</b></div>
+          <div class="d-row"><span>Risiko</span><i class="d-bar"><em style="width:32%;background:var(--amber)"></em></i><b>prüfen</b></div>
+        </div>
+        <div class="d-callout"><strong>Empfehlung für den ersten Test</strong>hoher Nutzen · vertretbarer Aufwand</div>
+      </div>
+      <p class="ergebnis"><b>Ergebnis:</b> Priorisierte Optionen mit begründeter Reihenfolge.</p>
+    </li>
+    <li class="punkt reveal"><div class="punkt-head"><span class="punkt-nr">A3 · Empfehlung</span><h3 class="h-mid">Nächste Schritte</h3></div>
+      <p class="body-p">Eine Empfehlung mit nächsten besten Schritten. Wir skizzieren den passenden Lösungsweg, definieren den Test und halten fest, woran ihr Wirkung und Entscheidung messt.</p>
+      <div class="diagramm" role="img" aria-label="Empfohlener Weg: Ausgangslage als echter Fall, dann die passende KI-Option, menschliches Review, am Ende die Entscheidung für den nächsten Schritt">
+        <div class="diagramm-kopf"><span>Fahrplan</span><b>Empfohlener Weg · Entscheidung</b></div>
+        <div class="d-track">
+          <span class="d-step"><em>01</em><strong>Ausgangslage</strong><small>echter Fall</small></span><i aria-hidden="true">→</i>
+          <span class="d-step d-active"><em>02</em><strong>KI-Option</strong><small>passender Hebel</small></span><i aria-hidden="true">→</i>
+          <span class="d-step"><em>03</em><strong>Review</strong><small>menschlich prüfen</small></span><i aria-hidden="true">→</i>
+          <span class="d-step d-final"><em>04</em><strong>Entscheidung</strong><small>nächster Schritt</small></span>
+        </div>
+        <div style="display:flex;gap:14px;margin-top:10px;font-family:var(--mono);font-size:.5625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted)"><span>prüfen</span><b style="color:var(--ink)">lernen</b><span>weitergehen</span></div>
+      </div>
+      <p class="ergebnis"><b>Ergebnis:</b> Empfehlung mit nächsten besten Schritten.</p>
+    </li>
+  </ol>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-loop" data-state="4" data-name="Der Loop" aria-labelledby="loop-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)">Kapitel 04 · Das Herzstück zündet</span>
+  <h2 class="h-big" id="loop-title" style="margin-top:10px">Jede Session folgt demselben klaren Rahmen.</h2>
+  <p class="body-p" style="margin-top:14px">So arbeiten wir in den AI Office Hours. Euer Team bringt die operative Realität, echte Fälle und fachliche Entscheidungen ein. Blinkin strukturiert die Situation, bewertet das Potenzial, definiert den Lösungsraum und überprüft, was sich tatsächlich verändert.</p></div>
+  <div class="rollen reveal" style="margin-top:clamp(20px,3vw,32px)">
+    <div class="rolle-box rolle-team"><span class="tag">Euer Team</span><p>Bringt einen aktuellen Schmerzpunkt, echte Arbeitsabläufe, Beispiele, beteiligte Menschen und fachliche Entscheidungen ein.</p></div>
+    <div class="rolle-mitte" aria-hidden="true"><span>Ist-Situation beschreiben →</span></div>
+    <div class="rolle-box rolle-blinkin"><span class="tag">Blinkin</span><p>Strukturiert die Situation, sortiert die KI-Hebel, entwickelt den Lösungsraum und überprüft die Wirkung.</p></div>
+  </div>
+  <div class="wochen">
+    <article class="woche reveal">
+      <div class="woche-tab"><span class="no">Woche 01 · Situation aufnehmen</span></div>
+      <div class="woche-body"><p class="frage-zeile">Wie läuft die Arbeit heute?<small>Live · 45 Minuten</small></p>
+        <p class="body-p" style="margin-bottom:.6em">Wir gehen Aufgabe, Menschen, Systeme, Daten, Übergaben und den wiederkehrenden Schmerzpunkt gemeinsam durch.</p>
+        <dl class="protokoll-zeilen">
+          <div><dt>Euer Team async</dt><dd>Fehlende Beispiele ergänzen und den Ablauf mit den beteiligten Personen bestätigen.</dd></div>
+          <div><dt>Blinkin async</dt><dd>Den Ist-Ablauf abbilden, Doppelarbeit und Engpässe markieren und eine messbare Ausgangslage festhalten.</dd></div>
+        </dl>
+        <p class="ergebnis"><b>Ergebnis</b>Ein gemeinsames, überprüftes Bild der heutigen Arbeit.</p>
+      </div>
+    </article>
+    <article class="woche reveal">
+      <div class="woche-tab"><span class="no">Woche 02 · Potenzial priorisieren</span></div>
+      <div class="woche-body"><p class="frage-zeile">Wo kann KI tatsächlich Arbeit bewegen?<small>Live · 45 Minuten</small></p>
+        <p class="body-p" style="margin-bottom:.6em">Wir vergleichen die möglichen Hebel und wählen denjenigen aus, der die größte sinnvolle Verbesserung verspricht.</p>
+        <dl class="protokoll-zeilen">
+          <div><dt>Euer Team async</dt><dd>Priorität, fachliche Grenzen, Testfälle und Qualitätsanforderungen bestätigen.</dd></div>
+          <div><dt>Blinkin async</dt><dd>Die Hebel nach Wirkung, Aufwand und Risiko bewerten und eine konkrete Empfehlung für den sinnvollsten Lösungsweg ausarbeiten.</dd></div>
+        </dl>
+        <p class="ergebnis"><b>Ergebnis</b>Ein priorisierter KI-Hebel mit klarer Testhypothese.</p>
+      </div>
+    </article>
+    <article class="woche reveal">
+      <div class="woche-tab"><span class="no">Woche 03 · Lösungsweg festlegen</span></div>
+      <div class="woche-body"><p class="frage-zeile">Was ist der nächste kontrollierte Schritt?<small>Live · 45 Minuten</small></p>
+        <p class="body-p" style="margin-bottom:.6em">Wir konkretisieren den empfohlenen Lösungsweg: Wie passt er in den bestehenden Ablauf, wo bleibt menschliche Kontrolle und welche Fälle werden getestet?</p>
+        <dl class="protokoll-zeilen">
+          <div><dt>Euer Team async</dt><dd>Den vereinbarten ersten Schritt im eigenen Ablauf umsetzen, Fälle testen und Ergebnisse, Fehler und Ausnahmen festhalten.</dd></div>
+          <div><dt>Blinkin async</dt><dd>Die Umsetzung fachlich begleiten, Ergebnisse analysieren und daraus den Lösungsweg weiter schärfen.</dd></div>
+        </dl>
+        <p class="ergebnis"><b>Ergebnis</b>Ein getesteter erster Schritt im echten Arbeitsablauf und eine klare Empfehlung für das weitere Vorgehen.</p>
+      </div>
+    </article>
+    <article class="woche reveal">
+      <div class="woche-tab"><span class="no">Woche 04 · Wirkung prüfen</span></div>
+      <div class="woche-body"><p class="frage-zeile">Was hat sich messbar verändert?<small>Live · 45 Minuten</small></p>
+        <p class="body-p" style="margin-bottom:.6em">Wir vergleichen die Ergebnisse mit der Ausgangslage, besprechen Blinkins Empfehlung und entscheiden gemeinsam über das weitere Vorgehen: verbessern, ausweiten, stoppen oder einen anderen Weg wählen.</p>
+        <dl class="protokoll-zeilen">
+          <div><dt>Euer Team async</dt><dd>Den beschlossenen nächsten Schritt anstoßen und den nächsten relevanten Schmerzpunkt einbringen.</dd></div>
+          <div><dt>Blinkin async</dt><dd>Ergebnisse und Erkenntnisse dokumentieren, eine Empfehlung für das weitere Vorgehen ableiten und die nächsten AI Office Hours vorbereiten.</dd></div>
+        </dl>
+        <p class="ergebnis"><b>Ergebnis</b>Eine belastbare Entscheidung zum weiteren Vorgehen und ein klarer Ausgangspunkt für die nächsten AI Office Hours.</p>
+      </div>
+    </article>
+    <article class="loop-card reveal">
+      <svg class="loop-glyph" viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="30" stroke="#ffb35c" stroke-width="3" stroke-dasharray="10 7"/><circle cx="40" cy="10" r="5.5" fill="#ffb35c"/><circle cx="70" cy="40" r="4" fill="#93a5ff"/><circle cx="40" cy="70" r="4" fill="#93a5ff"/><circle cx="10" cy="40" r="4" fill="#93a5ff"/></svg>
+      <h3 class="h-mid">Monat 02 · Die nächste Session</h3>
+      <div class="loop-chain"><span>Neue Situation erfassen → Potenzial priorisieren → Lösung umsetzen → Wirkung prüfen</span><i aria-hidden="true">⟲</i></div>
+      <p class="body-p" style="margin:0">Bestehende Vorhaben werden im Review weiter beobachtet. Gleichzeitig startet der nächste priorisierte Schmerzpunkt durch dasselbe Framework.</p>
+    </article>
+  </div>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-build" data-state="5" data-name="Build Sprint" aria-labelledby="build-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)">Kapitel 05 · Das Rauschen wird Gitter — 9.900&nbsp;€ einmalig · 4 Wochen · Ein Sprint · Vom Briefing zum Test</span>
+  <h2 class="h-big" id="build-title" style="margin-top:10px">In vier Wochen zur testbaren KI-Lösung.</h2></div>
+  <div class="panel narrow reveal d1" style="margin-top:clamp(20px,3vw,34px)">
+    <p class="lede">Der Build Sprint setzt dort an, wo ein konkreter Anwendungsfall bereit für die Umsetzung ist – aus den AI Office Hours oder direkt aus eurem Unternehmen. Gemeinsam schärfen wir Ablauf und Anforderungen. Blinkin übernimmt dann die Konzeption und technische Umsetzung und baut daraus den ersten KI-Prototypen für eure Tests.</p>
+    <p class="body-p" style="margin-top:12px">So könnt ihr in den AI Office Hours kontinuierlich die richtigen Vorhaben identifizieren und mit einem Build Sprint gezielt die Lösungen umsetzen, die den größten Hebel für euch haben.</p>
+    <p class="small-note" style="margin-top:12px">Brief → Workflow → Nachweis</p>
+    <div class="actions" style="margin-top:18px"><a class="btn btn-amber" href="mailto:hello@blinkin.io?subject=Build%20Sprint%20reservieren">Build Sprint reservieren <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <div class="panel reveal" style="margin-top:clamp(18px,2.6vw,30px)">
+    <span class="kap-label">Ihr bringt den Anwendungsfall. Wir bauen die erste Lösung. — Was ihr in den Sprint mitbringt</span>
+    <p class="body-p" style="margin-top:12px">Der Build Sprint startet mit einem klar abgegrenzten Anwendungsfall. Der kann aus den AI Office Hours kommen – oder bei euch bereits klar genug sein, um direkt in die Umsetzung zu gehen.</p>
+    <dl class="protokoll-zeilen" style="margin-top:14px">
+      <div><dt>Problem und Ziel</dt><dd>Was heute nicht gut funktioniert und was durch die Lösung besser werden soll.</dd></div>
+      <div><dt>Fachwissen und Regeln</dt><dd>Was wir über euren Kontext, eure Abläufe, Kunden, Produkte und Grenzen wissen und beachten müssen.</dd></div>
+      <div><dt>Echte Fälle und Daten</dt><dd>Dokumente, Anfragen, Bilder, Daten oder typische Beispiele, mit denen wir die Lösung aufbauen und testen können.</dd></div>
+      <div><dt>Fachliche Verantwortung</dt><dd>Eine Person oder ein kleines Team, das Fragen klärt und fachliche Entscheidungen im Sprint mitträgt.</dd></div>
+    </dl>
+  </div>
+  <div class="reveal" style="margin-top:clamp(24px,3.4vw,40px)"><span class="kap-label" style="margin-top:0">Das entsteht im Sprint</span>
+  <h3 class="h-big" style="font-size:clamp(1.5rem,3vw,2.4rem);margin-top:8px">Aus einem klaren Anwendungsfall wird eine testbare KI-Lösung.</h3>
+  <p class="body-p" style="margin-top:12px">Was wir bauen. Im Build Sprint konzentrieren wir uns auf eine erste Version, die in vier Wochen gebaut und an echten Fällen getestet werden kann. Blinkin übernimmt die Konzeption und technische Umsetzung.</p></div>
+  <ol class="punkte" style="margin-top:clamp(18px,2.6vw,30px)">
+    <li class="punkt reveal"><div class="punkt-head"><span class="punkt-nr">Schritt 01</span><h3 class="h-mid">Anwendungsfall schärfen & Prototyp starten</h3></div>
+      <p class="body-p">Wir übersetzen euer Problem in ein fokussiertes Test-Setup: Welche Eingaben braucht das System? Welche Regeln gelten? Welches Ergebnis erwarten die Nutzer? Ihr erhaltet ab Tag 1 Zugang, um erste Annahmen an echten Fällen zu prüfen.</p>
+      <p class="ergebnis"><b>Ihr erhaltet: Eine erste testbare Version ab Tag 1.</b></p>
+    </li>
+    <li class="punkt reveal"><div class="punkt-head"><span class="punkt-nr">Schritt 02</span><h3 class="h-mid">Prototyp auf eurem Stack aufbauen</h3></div>
+      <p class="body-p">Wir binden eure Fachlogik und ersten Beispieldaten ein und setzen den Workflow auf eurem bevorzugten Tech-Stack auf. Anhand des laufenden Feedbacks aus dem Fachbereich feilen wir an Prompts, Modell-Instruktionen und der ersten Benutzeroberfläche.</p>
+      <p class="ergebnis"><b>Ihr erhaltet: Einen funktionsfähigen Prototyp mit euren Daten, eurer Logik und voller Transparenz.</b></p>
+    </li>
+    <li class="punkt reveal"><div class="punkt-head"><span class="punkt-nr">Schritt 03</span><h3 class="h-mid">Im Praxiseinsatz validieren & übergeben</h3></div>
+      <p class="body-p">Eure Fachbereiche testen das Setup an echten Alltagsaufgaben. Wir werten die Genauigkeit aus, dokumentieren den Aufbau und übergeben euch die Bausteine und Testergebnisse als Basis für die nächsten Schritte.</p>
+      <p class="ergebnis"><b>Ihr erhaltet: Einen validierten KI-Prototyp mit umfassender Dokumentation als Entscheidungsgrundlage für den möglichen Rollout.</b></p>
+    </li>
+  </ol>
+  <div class="panel reveal" style="margin-top:clamp(24px,3.4vw,40px);border-color:rgb(255 179 92/.4)">
+    <span class="kap-label" style="color:var(--amber)">Outro · Nach dem Sprint</span>
+    <h3 class="h-mid" style="margin-top:10px">Die erste Lösung ist getestet. Jetzt entscheidet ihr, wie es weitergeht.</h3>
+    <p class="body-p" style="margin-top:12px">Nach vier Wochen wisst ihr nicht nur, ob die Idee technisch funktioniert. Ihr habt die Lösung an echten Fällen getestet und könnt beurteilen, wo sie Nutzen bringt und was für den nächsten Schritt noch fehlt.</p>
+    <p class="body-p" style="margin-top:10px">Je nach Ergebnis könnt ihr die Lösung weiterentwickeln, in den Betrieb überführen oder den nächsten Anwendungsfall angehen. In den AI Office Hours behaltet ihr weitere Potenziale und bestehende Lösungen kontinuierlich im Blick.</p>
+    <p class="small-note" style="margin-top:12px;border-left:3px solid var(--amber);padding-left:13px">Die erste Version ist noch kein Produktionssystem. Live-Integration, Security-Härtung, Datenmigration, Hosting, Betrieb und Support planen wir bei Bedarf als nächsten Schritt.</p>
+    <div class="actions" style="margin-top:18px"><a class="btn btn-line" href="#chapter-wirkung">Vorher–Nachher ansehen <span aria-hidden="true">↓</span></a><a class="btn btn-glow" href="mailto:hello@blinkin.io?subject=N%C3%A4chsten%20Schritt%20besprechen">Nächsten Schritt besprechen <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-felder" data-state="6" data-name="Anwendungsfelder" aria-labelledby="felder-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)">Kapitel 06 · Sechs Konstellationen</span>
+  <h2 class="h-big" id="felder-title" style="margin-top:10px">Von einzelnen KI-Hebeln bis zum KI-System im Unternehmen.</h2>
+  <p class="body-p" style="margin-top:14px">Womit ihr zu Blinkin kommen könnt. Wir arbeiten an einem breiten Spektrum von Herausforderungen, von konkreten Arbeitsabläufen bis zur Frage, wie KI in einer Organisation sicher und wirksam skaliert.</p></div>
+  <ul class="felder" style="margin-top:clamp(20px,3vw,34px)">
+    <li class="feld reveal"><span class="feld-no">01 · Vertrieb</span><div><h3>Angebote und Antworten schneller vorbereiten</h3><p>Wiederverwendbares Wissen in prüfbare Entwürfe bringen, ohne Fachlichkeit aus dem Prozess zu verlieren.</p></div><span class="feld-arrow" aria-hidden="true">→</span></li>
+    <li class="feld reveal"><span class="feld-no">02 · Service</span><div><h3>Anfragen und Fälle sinnvoll vorsortieren</h3><p>Kontext sammeln, Fälle strukturieren und Antworten vorbereiten, damit Teams schneller beim eigentlichen Problem sind.</p></div><span class="feld-arrow" aria-hidden="true">→</span></li>
+    <li class="feld reveal"><span class="feld-no">03 · Operations</span><div><h3>Arbeiten mit KI strukturiert dokumentieren</h3><p>Bilder, Sprachnotizen, Videos und Dokumente von ausgeführten Arbeiten zu standardisierten Reports verbinden und als strukturierte Daten ablegen.</p></div><span class="feld-arrow" aria-hidden="true">→</span></li>
+    <li class="feld reveal"><span class="feld-no">04 · Erfahrung</span><div><h3>Praktisches Wissen skalieren</h3><p>Praxiswissen aus Gesprächen und Dokumenten so aufbereiten, dass es im richtigen Moment bei den richtigen Menschen ankommt.</p></div><span class="feld-arrow" aria-hidden="true">→</span></li>
+    <li class="feld reveal"><span class="feld-no">05 · Organisation</span><div><h3>Wiederkehrende Arbeit für viele zugänglich machen</h3><p>Fragen, Übergaben und Standards verlässlich unterstützen, damit viele Teams davon profitieren und KI-unterstützte Teams ihr Tempo behalten.</p></div><span class="feld-arrow" aria-hidden="true">→</span></li>
+    <li class="feld reveal"><span class="feld-no">06 · Delivery</span><div><h3>Vibe-Coding und Agents in echte Anwendungen bringen</h3><p>Prototypen in verantwortbare Produktion überführen und Agents in neue und bestehende Anwendungen integrieren.</p></div><span class="feld-arrow" aria-hidden="true">→</span></li>
+  </ul>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-playground" data-state="7" data-name="AI Playground" aria-labelledby="pg-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)">Kapitel 07 · Blinkin AI Playground · BLN-2604</span>
+  <h2 class="h-big" id="pg-title" style="margin-top:10px">Von eurem Prozess zur KI-Anwendung – in Minuten.</h2>
+  <p class="body-p" style="margin-top:14px">Im AI Playground verbindet ihr Unternehmenswissen, Regeln, Eingaben und Oberflächen mit KI und spezialisierten Agents. So entstehen komplette Anwendungen und Workflows, bei denen klar bleibt, was die KI entscheidet, was fest vorgegeben ist und wo Menschen übernehmen.</p></div>
+  <figure class="bildrahmen reveal d1">
+    <img src="./assets/platform-overview.png" alt="Übersicht der Blinkin Plattform mit No-Code Studio, Launchpad, Companion sowie Chatbots und Agents" loading="lazy" />
+    <figcaption><span>Plattform-Übersicht</span><span>No-Code Studio · Launchpad · Companion · Agents</span></figcaption>
+  </figure>
+  <p class="body-p reveal" style="margin-top:16px">Ihr könnt mit einer einfachen Anwendung starten und daraus Schritt für Schritt komplexere Agenten- und Multi-Agent-Systeme entwickeln – ohne jedes Mal ein neues Softwareprojekt aufzusetzen.</p>
+  <div class="reveal" style="margin-top:clamp(22px,3vw,36px)"><span class="kap-label" style="margin-top:0">Was der Playground kann</span>
+  <h3 class="h-big" style="font-size:clamp(1.5rem,3vw,2.4rem);margin-top:8px">Komplette KI-Anwendungen, kein loses Prompten.</h3></div>
+  <div class="caps" style="margin-top:clamp(18px,2.6vw,30px)">
+    <article class="cap reveal"><span class="cap-no">Cap 01</span><div><h3 class="h-mid">End-to-End statt nur Chat</h3>
+      <p class="body-p" style="margin-top:6px;font-style:italic">Ganze Anwendungen statt einzelner KI-Antworten.</p>
+      <p class="body-p" style="margin-top:8px">Vom Input über Wissen, Regeln und KI bis zum Ergebnis und nächsten Schritt: Der Playground verbindet die Bestandteile zu einem durchgängigen Ablauf. Anwendungen können Informationen aufnehmen, prüfen und strukturieren, Entscheidungen vorbereiten und Ergebnisse direkt an den nächsten Schritt im Prozess übergeben.</p>
+      <div class="chips" role="list"><span>Input</span><i aria-hidden="true">→</i><span>Wissen &amp; Regeln</span><i aria-hidden="true">→</i><span>KI-Verarbeitung</span><i aria-hidden="true">→</i><span>Ergebnis</span><i aria-hidden="true">→</i><span>Nächster Schritt</span></div>
+    </div></article>
+    <article class="cap reveal"><span class="cap-no">Cap 02</span><div><h3 class="h-mid">Agents dort einsetzen, wo sie sinnvoll sind</h3>
+      <p class="body-p" style="margin-top:6px;font-style:italic">Spezialisten zu einem gemeinsamen Ablauf verbinden.</p>
+      <p class="body-p" style="margin-top:8px">Ein Agent kann recherchieren, ein anderer prüfen, ein weiterer Regeln anwenden oder Ergebnisse formulieren. Mehrere spezialisierte Agents können innerhalb einer Anwendung zusammenarbeiten, während die Nutzung für den Menschen einfach und nachvollziehbar bleibt.</p>
+      <div class="chips" role="list"><span>Recherchieren</span><span>Prüfen</span><span>Regeln anwenden</span><span>Formulieren</span></div>
+    </div></article>
+    <article class="cap reveal"><span class="cap-no">Cap 03</span><div><h3 class="h-mid">Flexibel in der KI, kontrolliert im Prozess</h3>
+      <p class="body-p" style="margin-top:6px;font-style:italic">Freiheit dort, wo sie hilft. Kontrolle dort, wo sie zählt.</p>
+      <p class="body-p" style="margin-top:8px">Modelle und Agents können flexibel arbeiten, wo Offenheit und Interpretation sinnvoll sind. Regeln, Freigaben, Datenquellen, Übergaben, Ergebnisformate und menschliche Entscheidungen bleiben dort kontrolliert, wo Verlässlichkeit wichtig ist.</p>
+      <div class="chips" role="list"><span class="chip-ai">KI arbeitet flexibel</span><span class="chip-fixed">Regeln &amp; Formate fest definiert</span><span class="chip-human">Mensch entscheidet an Übergaben</span></div>
+    </div></article>
+  </div>
+  <figure class="bildrahmen reveal" style="margin-top:clamp(24px,3.4vw,40px)">
+    <img src="./assets/app-workflow-overview.avif" alt="Aufbau einer Anwendung im AI Playground: Bausteine werden zu einem durchgängigen Workflow verbunden" loading="lazy" />
+    <figcaption><span>Anwendungs-Workflow</span><span>Visuell aufgebaut · Modul für Modul</span></figcaption>
+  </figure>
+  <div class="panel narrow reveal" style="margin-top:clamp(18px,2.6vw,30px)">
+    <h3 class="h-mid">Bauen, testen, lernen. Wiederholen.</h3>
+    <p class="body-p" style="margin-top:10px">So entsteht eine Anwendung. Im AI Playground baut ihr spielerisch agentische Systeme, verbindet sie mit eurem Wissen, euren Daten und eurem Markenbild. Ihr baut Anwendungen visuell, nutzt vorkonfigurierte Module und bindet sie über Schnittstellen direkt in eure Umgebung ein.</p>
+    <div class="chips" style="margin-top:14px"><span>No-Code</span><span>Voice Mode</span><span>Visuelle KI</span><span>Agents & Apps</span><span>RAG</span><span>API / MCP / Webhooks</span><span>Knowledge Graphs</span></div>
+    <h4 class="h-mid" style="margin-top:16px;font-size:1.15rem">Nicht an einen KI-Stack gebunden.</h4>
+    <p class="body-p" style="margin-top:10px">Der AI Playground gibt euch Zugriff auf unterschiedliche aktuelle Modelle und Tools. Aber Blinkin ist kein Zwangs-Stack: Wenn für euren Anwendungsfall eine andere Technologie besser passt, arbeiten wir damit. Wir testen laufend neue Modelle, Frameworks und Werkzeuge und bringen diese Erfahrungen auch in den AI Office Hours ein. So entscheidet nicht der Anbieter, sondern die Aufgabe, welche Technologie zum Einsatz kommt.</p>
+  </div>
+  <div class="reveal" style="margin-top:clamp(26px,3.6vw,44px)"><h3 class="h-big" style="font-size:clamp(1.5rem,3vw,2.4rem);margin-top:8px">Drei Bausteine als flexibles System.</h3>
+  <p class="kap-label">So passt es zusammen</p></div>
+  <div class="bausteine" style="margin-top:clamp(14px,2vw,22px)">
+    <a class="bs reveal" href="#chapter-loop"><span>AI Office Hours</span><strong>Die richtigen Ansatzpunkte finden.</strong><p>Findet und priorisiert, wo KI eure reale Arbeit sinnvoll verbessern kann.</p></a>
+    <a class="bs reveal d1" href="#chapter-playground" aria-current="true"><span>AI Playground</span><strong>Anwendungen schnell modellieren.</strong><p>Macht aus diesen Use Cases in kurzer Zeit KI-Anwendungen und Workflows.</p></a>
+    <a class="bs reveal d2" href="#chapter-build"><span>Build Sprint</span><strong>Fokussiert umsetzen.</strong><p>Wenn ein Use Case fokussierte Konzeption und technische Umsetzung zu einer eigenen Lösung braucht.</p></a>
+  </div>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-wirkung" data-state="8" data-name="Wirkung" aria-labelledby="wirkung-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)">Kapitel 08 · Der weite Raum — Nachweise</span>
+  <h2 class="h-big" id="wirkung-title" style="margin-top:10px">Was KI im Unternehmen konkret verbessert.</h2>
+  <p class="body-p" style="margin-top:14px">Vier reale Szenarien zeigen, wie aus verstreutem Wissen, manuellen Übergaben und Nacharbeit bessere Abläufe werden.</p></div>
+  <div style="margin-top:clamp(20px,3vw,34px)">
+    <p class="kap-label reveal" style="margin-top:0">KI-Lösungen für reale Prozesse, Produkte und Services. — Mit starken Marken zusammengearbeitet</p>
+    <div class="logos reveal d1" role="list" aria-label="Auswahl von Unternehmen, mit denen Blinkin gearbeitet hat">
+      <span role="listitem"><img src="./assets/client-logos/abb.svg" alt="ABB" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/bosch.avif" alt="Bosch" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/wilo.avif" alt="Wilo" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/viega.avif" alt="Viega" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/tata.avif" alt="Tata" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/larsen-toubro.avif" alt="Larsen & Toubro" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/segmenta.svg" alt="segmenta" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/huber-ranner.svg" alt="Huber & Ranner" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/peri.webp" alt="PERI" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/telekom.avif" alt="Telekom" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/miele.png" alt="Miele" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/stellantis.avif" alt="Stellantis" loading="lazy" /></span>
+      <span role="listitem"><img src="./assets/client-logos/gebr-heinemann.png" alt="Gebr. Heinemann" loading="lazy" /></span>
+      <span role="listitem"><b>Henkel</b></span>
+      <span role="listitem"><b>Maruti Suzuki</b></span>
+    </div>
+  </div>
+  <figure class="zitat reveal">
+    <blockquote>“Blinkin is a perfect example of how Stellantis digital transformation is improving our responsiveness to customer needs.”</blockquote>
+    <figcaption>Xavier Chereau · Transformation Officer, Stellantis</figcaption>
+  </figure>
+  <div class="cases" style="margin-top:clamp(26px,3.6vw,46px)">
+    <article class="case reveal"><div class="case-kopf"><span class="case-no">Fall A</span><span class="case-branche">Handel · Internationale Filialen · BLN-2603-A</span></div>
+      <h3 class="h-mid">Internationale Produkt- und Serviceinformationen im Kundengespräch</h3>
+      <p class="ausgangslage" style="margin-top:8px"><strong>Ausgangslage:</strong> Mitarbeitende in internationalen Shops müssen im Gespräch verlässliche Auskünfte zu Regeln, Produkten und Services geben, obwohl Informationen je nach Land unterschiedlich sind.</p>
+      <div class="vn-grid">
+        <div class="vn-card vn-before"><span class="vn-tag">Vorher</span><ul><li>Teams recherchieren Regeln, Produktwissen und Übersetzungen aus verschiedenen Systemen.</li><li>Je nach Zielmarkt gelten andere Vorgaben, die sich ändern können.</li><li>Die Antwort muss im Gespräch erst gesucht und verständlich aufbereitet werden.</li><li>Wichtige Informationen sind nicht an einem Ort und nicht für alle direkt zugänglich.</li></ul></div>
+        <div class="vn-card vn-after"><span class="vn-tag">Nachher</span><ul><li>KI-Assistenten liefern die passende Information im richtigen Moment.</li><li>Nach Auswahl des Landes erscheinen die relevanten Angaben direkt im Kontext.</li><li>Informationen lassen sich für internationale Kunden verständlich übersetzen.</li><li>Produktwissen, Umrechnung und interner Support können in einer Oberfläche zusammenkommen.</li></ul></div>
+      </div>
+      <div class="sw-zeilen">
+        <div class="sw"><b>Scope:</b>Länderlogik, Übersetzungen, Produktwissen und Kundenservice in einer gemeinsamen Oberfläche.</div>
+        <div class="sw" style="border-left-color:var(--amber);background:rgb(255 179 92/.07)"><b style="color:var(--amber)">Wirkung:</b>Weniger Recherche im Kundengespräch, konsistentere Auskünfte über Länder hinweg und schnellerer Zugang zu aktuellem Wissen.</div>
+      </div>
+    </article>
+    <article class="case reveal"><div class="case-kopf"><span class="case-no">Fall B</span><span class="case-branche">Elektronikhersteller · Kundenservice · BLN-2603-B</span></div>
+      <h3 class="h-mid">Produktfragen und Supportwissen im Kundenservice</h3>
+      <p class="ausgangslage" style="margin-top:8px"><strong>Ausgangslage:</strong> Produktfragen kommen über Chat und Tickets bei einem kleinen Support-Team an. FAQ, aktuelle Antworten und neue Problemfälle liegen getrennt vor.</p>
+      <div class="vn-grid">
+        <div class="vn-card vn-before"><span class="vn-tag">Vorher</span><ul><li>Dieselben Fragen werden immer wieder beantwortet.</li><li>Antworten müssen aus unterschiedlichen Quellen zusammengesucht werden.</li><li>Komplexe Fälle unterbrechen den Ablauf und bleiben schwer nachvollziehbar.</li><li>Wiederkehrende Lücken in der Wissensbasis werden erst spät sichtbar.</li></ul></div>
+        <div class="vn-card vn-after"><span class="vn-tag">Nachher</span><ul><li>Ein Kundenassistent beantwortet Standardfragen und lernt aus gelösten Fällen.</li><li>Eine gepflegte Wissensbasis gibt die passende Antwort direkt aus.</li><li>Komplexe Fälle werden mit Kontext an das Support-Team übergeben.</li><li>Gelöste Anfragen zeigen, welche Inhalte fehlen oder ergänzt werden müssen.</li></ul></div>
+      </div>
+      <div class="sw-zeilen">
+        <div class="sw"><b>Scope:</b>Kundenchat, Support-Übergabe und laufend verbesserte FAQ.</div>
+        <div class="sw" style="border-left-color:var(--amber);background:rgb(255 179 92/.07)"><b style="color:var(--amber)">Wirkung:</b>Weniger wiederholte Anfragen, schnellere Orientierung im Support und eine Wissensbasis, die aus gelösten Fällen wächst.</div>
+      </div>
+    </article>
+    <article class="case reveal"><div class="case-kopf"><span class="case-no">Fall C</span><span class="case-branche">Industrie-Service · Technischer Außendienst · BLN-2603-C</span></div>
+      <h3 class="h-mid">Mobile Einsatzdokumentation im technischen Außendienst</h3>
+      <p class="ausgangslage" style="margin-top:8px"><strong>Ausgangslage:</strong> Einsätze werden unterwegs in Stichworten dokumentiert. Danach müssen Berichte abgetippt, vereinheitlicht und für Kunden oder interne Teams aufbereitet werden.</p>
+      <div class="vn-grid">
+        <div class="vn-card vn-before"><span class="vn-tag">Vorher</span><ul><li>Wichtige Details gehen zwischen Einsatz und Bericht verloren.</li><li>Techniker halten Informationen unter Zeitdruck nur unvollständig fest.</li><li>Die Nachbereitung kostet Zeit und schafft zusätzliche Übergaben.</li><li>Berichte sind je nach Person unterschiedlich aufgebaut und schwer vergleichbar.</li></ul></div>
+        <div class="vn-card vn-after"><span class="vn-tag">Nachher</span><ul><li>Aus Sprache entsteht direkt ein strukturierter, prüfbarer Bericht.</li><li>Techniker sprechen ein, was vor Ort getan wurde.</li><li>Der Bericht wird strukturiert, ergänzt und vor der Übergabe geprüft.</li><li>Bestehende Systeme erhalten die Informationen im passenden Format.</li></ul></div>
+      </div>
+      <div class="sw-zeilen">
+        <div class="sw"><b>Scope:</b>Mobile Erfassung, mehrsprachige Berichte und Übergabe an Serviceprozesse.</div>
+        <div class="sw" style="border-left-color:var(--amber);background:rgb(255 179 92/.07)"><b style="color:var(--amber)">Wirkung:</b>Vollständigere Berichte, weniger Nacharbeit und konsistente Dokumentation direkt nach dem Einsatz.</div>
+      </div>
+    </article>
+    <article class="case reveal"><div class="case-kopf"><span class="case-no">Fall D</span><span class="case-branche">Industrieanlagen · Regulierte Instandhaltung · BLN-2603-D</span></div>
+      <h3 class="h-mid">Nachweise für regulierte Instandhaltung</h3>
+      <p class="ausgangslage" style="margin-top:8px"><strong>Ausgangslage:</strong> Fotos, gesprochene Hinweise und technische Daten entstehen bei einem Einsatz getrennt. Für Dokumentation, Prüfung und Freigabe müssen sie später aus mehreren Quellen zusammengesucht werden.</p>
+      <div class="vn-grid">
+        <div class="vn-card vn-before"><span class="vn-tag">Vorher</span><ul><li>Die Dokumentation beginnt erst nach dem Einsatz.</li><li>Bild, Sprache und technische Angaben sind nicht miteinander verbunden.</li><li>Für Prüfung und Freigabe fehlt ein vollständiger Überblick.</li><li>Nachgelagerte Systeme erhalten Daten verspätet oder unvollständig.</li></ul></div>
+        <div class="vn-card vn-after"><span class="vn-tag">Nachher</span><ul><li>Alle Nachweise werden direkt am Auftrag zusammengeführt.</li><li>Bild, Sprache und technische Angaben bilden einen gemeinsamen Datensatz.</li><li>Fachleute prüfen und ergänzen den Vorgang an einer Stelle.</li><li>Nachgelagerte Systeme können die dokumentierten Informationen übernehmen.</li></ul></div>
+      </div>
+      <div class="sw-zeilen">
+        <div class="sw"><b>Scope:</b>Multimodale Erfassung, fachliche Prüfung und dokumentierte Übergabe.</div>
+        <div class="sw" style="border-left-color:var(--amber);background:rgb(255 179 92/.07)"><b style="color:var(--amber)">Wirkung:</b>Nachweise bleiben vollständig verbunden, Prüfungen werden einfacher und die Dokumentation ist direkt weiterverwendbar.</div>
+      </div>
+    </article>
+  </div>
+  <div class="panel narrow reveal" style="margin-top:clamp(28px,4vw,50px);border-color:rgb(255 179 92/.45);text-align:center">
+    <h3 class="h-big" style="font-size:clamp(1.6rem,3.2vw,2.5rem);margin-inline:auto">Gute KI beginnt mit einem besseren Ablauf.</h3>
+    <p class="body-p" style="margin:14px auto 20px;max-width:52ch">Die Beispiele zeigen keine fertigen Versprechen. Sie zeigen, wie ein konkreter Ablauf klarer, prüfbarer und direkt nutzbarer werden kann.</p>
+    <a class="btn btn-amber" href="mailto:hello@blinkin.io?subject=Eigenen%20Ablauf%20besprechen">Eigenen Ablauf besprechen <span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="startpunkte">
+    <div class="sp reveal"><h3>Ein konkreter Startpunkt</h3><p>Wir beginnen bei einem wiederkehrenden Ablauf, nicht bei einer abstrakten Tool-Frage.</p></div>
+    <div class="sp reveal d1"><h3>Ein nachvollziehbarer Vergleich</h3><p>Vorher und Nachher machen sichtbar, wo Wissen, Review und Übergaben besser zusammenspielen.</p></div>
+    <div class="sp reveal d2"><h3>Ein sinnvoller nächster Schritt</h3><p>Aus dem konkreten Ablauf ergibt sich, was als Nächstes sinnvoll geprüft oder umgesetzt werden sollte.</p></div>
+  </div>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-rahmen" data-state="2" data-name="Rahmen & Herkunft" aria-labelledby="rahmen-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)">Kapitel 09 · Das Scan-Motiv kehrt zurück — alles wird geprüft</span>
+  <h2 class="h-big" id="rahmen-title" style="margin-top:10px">Der richtige Stack für euer Business.</h2>
+  <p class="body-p" style="margin-top:14px"><strong style="font-family:var(--mono);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)">Technologieoffen</strong> — Kein Lock-in, keine System-Falle. Wir bauen auf der Technologie auf, die zu eurer IT-Strategie passt, und teilen mit euch unsere Praxis-Erfahrungen mit Claude, Codex, DeepSeek, Grok, Azure, AWS oder Open-Source-Setups. Ihr entscheidet, welche Tools, Bausteine und IP ihr selbst besitzen und steuern wollt.</p></div>
+  <div class="rollen" style="margin-top:clamp(18px,2.6vw,30px)">
+    <div class="rolle-box reveal" style="grid-column:auto"><span class="tag" style="background:rgb(255 179 92/.15);color:var(--amber);box-shadow:inset 0 0 0 1px rgb(255 179 92/.42)">Freie Stack-Wahl:</span><p>Nahtlose Integration in eure bestehende Software- und Cloud-Infrastruktur</p></div>
+    <div class="rolle-box reveal d1" style="grid-column:auto"><span class="tag" style="background:rgb(255 179 92/.15);color:var(--amber);box-shadow:inset 0 0 0 1px rgb(255 179 92/.42)">Echtes Ownership:</span><p>Ihr bestimmt, was in eurem Haus entwickelt, betrieben und gehalten wird</p></div>
+    <div class="rolle-box reveal d2" style="grid-column:auto"><span class="tag" style="background:rgb(255 179 92/.15);color:var(--amber);box-shadow:inset 0 0 0 1px rgb(255 179 92/.42)">Volle Souveränität:</span><p>Maximale Freiheit bei Datenschutz, Hosting und Vendor-Wechseln</p></div>
+  </div>
+  <div style="margin-top:clamp(20px,3vw,34px)">
+    <p class="kap-label reveal" style="margin-top:0">Flexible Infrastruktur für sichere Bereitstellung</p>
+    <div class="logos reveal d1" role="list" aria-label="AWS, Microsoft Azure, Google Cloud, Intel, NVIDIA, Nebius und Hetzner — EU · US · Private Cloud">
+      <span role="listitem"><img src="./assets/infra-logos/aws.svg" alt="AWS" loading="lazy" style="max-height:25px" /></span>
+      <span role="listitem"><img src="./assets/infra-logos/microsoft-azure.svg" alt="Microsoft Azure" loading="lazy" style="max-height:25px" /></span>
+      <span role="listitem"><img src="./assets/infra-logos/google-cloud.svg" alt="Google Cloud" loading="lazy" style="max-height:25px" /></span>
+      <span role="listitem"><img src="./assets/infra-logos/intel.svg" alt="Intel" loading="lazy" style="max-height:25px" /></span>
+      <span role="listitem"><img src="./assets/infra-logos/nvidia.svg" alt="NVIDIA" loading="lazy" style="max-height:25px" /></span>
+      <span role="listitem"><img src="./assets/infra-logos/nebius.svg" alt="Nebius" loading="lazy" style="max-height:25px" /></span>
+      <span role="listitem"><img src="./assets/infra-logos/hetzner.svg" alt="Hetzner" loading="lazy" style="max-height:25px" /></span>
+    </div>
+    <p class="small-note reveal d2">EU · US · Private Cloud</p>
+  </div>
+  <div class="panel narrow reveal" style="margin-top:clamp(26px,3.6vw,44px);border-color:rgb(147 165 255/.4)">
+    <span class="kap-label" style="margin-top:0">Herkunft · Über Blinkin · BLN-2605</span>
+    <h3 class="h-mid" style="margin-top:10px">Damit KI da ankommt, wo ihr arbeitet.</h3>
+    <p class="body-p" style="margin-top:12px">Blinkin verbindet euer Wissen, eure Business-Logik und passende KI zu Anwendungen, die im Alltag funktionieren. Seit 2019 beschäftigen wir uns mit derselben Frage: Wie kommt neue Technologie näher an die Menschen, die Produkte, Prozesse und reale Probleme am besten kennen? Früher waren das AR-Video und Computer Vision, heute sind es Agenten und KI-Workflows.</p>
+    <p class="body-p" style="margin-top:10px">Dabei endet KI für uns nicht am Desktop. Sie muss dort nutzbar sein, wo Arbeit tatsächlich passiert – im Büro, in der Produktion, im Service, unterwegs und beim Kunden. Deshalb bauen wir KI-Anwendungen, die sich mit anderen teilen lassen, und die nicht nur Antworten geben, sondern sehen, hören und nächste Schritte anleiten können.</p>
+    <p class="body-p" style="margin-top:10px">Entscheidend ist dabei, wie gut sich KI in die jeweilige Situation einfügt. Wir arbeiten direkt mit den Menschen aus euren Fachbereichen, die Produkte, Abläufe und tägliche Reibungspunkte kennen – und geben ihnen die Werkzeuge, mit denen Anwendungen schnell gebaut, getestet und weiterentwickelt werden können.</p>
+    <h4 class="h-mid" style="margin-top:16px;font-size:1.15rem">Wir bringen KI vom ersten Versuch in die tägliche Arbeit.</h4>
+    <p class="kap-label">Was Blinkin einbringt</p>
+    <dl class="protokoll-zeilen" style="margin-top:14px">
+      <div><dt>Expertise verfügbar machen:</dt><dd>Wissen erreicht die richtige Person im richtigen Moment, statt in Postfächern, Köpfen oder Tabellen zu verschwinden.</dd></div>
+      <div><dt>Komplexität produktiv machen:</dt><dd>Wir verbinden vorhandene Systeme und Daten mit einer klaren Oberfläche, einem Workflow oder einer KI-Anwendung.</dd></div>
+      <div><dt>Vom Pilot zum Einsatz:</dt><dd>Wir bauen nicht für die Demo, sondern für Teams, Regionen und Rollen, die eine Lösung tatsächlich nutzen sollen.</dd></div>
+    </dl>
+  </div>
+  <div class="eu-box reveal" style="margin-top:clamp(20px,3vw,34px)">
+    <div class="eu-head"><span class="badge"><img src="./assets/co-funded-by-eu.png" alt="Co-funded by the European Union" loading="lazy" /></span><span class="mono" style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)">Europäisch geförderte Technologie</span></div>
+    <h3 class="h-mid">Souveräne KI für den Mittelstand.</h3>
+    <p class="body-p" style="margin-top:10px">Unternehmen brauchen die Freiheit, Modelle und Provider passend zum jeweiligen Anwendungsfall zu wählen – ohne bei Daten, Governance und Verantwortung kritische Kompromisse zu machen.</p>
+    <p class="body-p" style="margin-top:8px">Blinkin arbeitet daran als Deeptech-Unternehmen – mit eigener Forschung und Entwicklung. Der European Innovation Council unterstützt Blinkin mit 2,5 Mio.&nbsp;€, um genau dafür die technische Basis weiterzuentwickeln: nachvollziehbare KI-Assistenz, zukunftsfähige LLM-Setups, menschliche Kontrolle in den Workflows und KI-Anwendungen, die sich sicher in anspruchsvolle Arbeitsabläufe integrieren lassen.</p>
+  </div>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap" id="chapter-anlage" data-state="8" data-name="Anlage A" aria-labelledby="faq-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)">Kapitel 10 · Anlage A · Seite A und B</span>
+  <h2 class="h-big" id="faq-title" style="margin-top:10px">FAQs</h2>
+  <p class="body-p" style="margin-top:12px">Vor dem Start — alle Fragen. <a href="mailto:hello@blinkin.io?subject=Frage%20zur%20Reise" style="color:var(--amber)">Noch eine Frage? Schreibt uns →</a></p></div>
+  <div class="fragen reveal d1" style="margin-top:clamp(20px,3vw,34px)">
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">A1</span><span class="frage-titel">Was genau sind die AI Office Hours?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Die AI Office Hours sind unsere laufende Zusammenarbeit für KI-Vorhaben. Wir nehmen einen konkreten Ablauf oder Schmerzpunkt auf, bewerten mögliche Hebel und entwickeln einen klaren Lösungsweg mit den nächsten sinnvollen Schritten.</p>
+      <p>Pro Monat arbeiten wir 3 Stunden gemeinsam – entweder 2 × 90 Minuten oder 4 × 45 Minuten. Dazwischen analysiert und dokumentiert Blinkin, bereitet Entscheidungen und Tests vor und hält den Lösungsweg fest.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">A2</span><span class="frage-titel">Müssen wir schon wissen, welchen KI-Anwendungsfall wir angehen wollen?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Nein. Ihr braucht keine fertige KI-Idee. Ein realer Ablauf, ein wiederkehrender Schmerzpunkt oder ein Ziel, das ihr verbessern wollt, reicht.</p>
+      <p>Gemeinsam klären wir, was heute passiert, wo der größte Hebel liegt und welcher nächste Schritt sinnvoll ist.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">A3</span><span class="frage-titel">Seid ihr auf bestimmte Modelle oder Tools festgelegt?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Nein. Wir arbeiten mit dem, was für euren Anwendungsfall sinnvoll ist – bestehenden Enterprise-Tools genauso wie aktuellen Modellen, Agenten, Frameworks oder individuellen Lösungen.</p>
+      <p>Wir testen neue Technologien laufend selbst und bringen diese Erfahrungen in den AI Office Hours ein. Entscheidend ist nicht der Anbieter, sondern was eure Arbeit tatsächlich verbessert.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">A4</span><span class="frage-titel">Müssen wir zuerst neue KI-Infrastruktur aufbauen?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Nein. Wir starten mit dem, was bei euch bereits vorhanden ist: Prozessen, Systemen, Datenquellen, Cloud-Umgebungen und eingesetzten KI-Werkzeugen.</p>
+      <p>Erst wenn für einen konkreten Lösungsweg etwas fehlt, klären wir, was ergänzt, verbunden oder neu aufgebaut werden sollte.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">A5</span><span class="frage-titel">Welche Rolle spielt der AI Playground?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Der AI Playground ist ein schneller Raum, um Lösungsansätze mit eurem Wissen, euren Regeln und realen Fällen auszuprobieren. Dort können in kurzer Zeit KI-Anwendungen, Workflows und agentische Abläufe entstehen und getestet werden.</p>
+      <p>Er ist ein Werkzeug in den AI Office Hours – kein vorgeschriebener Ziel-Stack. Wenn eine andere Technologie für euren Fall besser passt, arbeiten wir damit.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">A6</span><span class="frage-titel">Wie viel Zeit müssen wir einplanen?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Fix sind 3 Stunden gemeinsame Arbeitszeit pro Monat – entweder 2 × 90 Minuten oder 4 × 45 Minuten.</p>
+      <p>Zwischen den Terminen braucht es auf eurer Seite normalerweise etwas Zeit, um Beispiele bereitzustellen, fachliche Fragen zu beantworten oder einen vereinbarten Test durchzuführen. Den größeren Teil der Analyse, Strukturierung, Recherche und Dokumentation übernimmt Blinkin.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">A7</span><span class="frage-titel">Wer sollte auf unserer Seite dabei sein?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Ihr braucht kein großes KI-Team. Wichtig ist mindestens eine Person, die den betrachteten Ablauf wirklich kennt und fachliche Entscheidungen dazu treffen kann.</p>
+      <p>Je nach Thema holen wir gezielt weitere Menschen dazu – etwa aus Produkt, Operations, Service, Vertrieb oder IT. Sie müssen nicht bei jedem Termin teilnehmen.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">A8</span><span class="frage-titel">Was bekommen wir aus den AI Office Hours konkret heraus?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Für jeden betrachteten Ablauf entsteht eine nachvollziehbare Arbeitsgrundlage: der Ist-Zustand, die priorisierten KI-Hebel, eine Empfehlung für den Lösungsweg sowie klare Kriterien für Test und nächste Entscheidung.</p>
+      <p>Damit soll nicht einfach eine weitere Liste von KI-Ideen entstehen, sondern ein konkreter Weg, den euer Team weiterverfolgen kann.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">B1</span><span class="frage-titel">Welchen Business Impact können wir erwarten?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Das hängt vom Anwendungsfall ab. Deshalb legen wir möglichst früh fest, woran eine Verbesserung erkennbar sein soll – zum Beispiel an Zeitaufwand, Durchsatz, Qualität, Kosten oder neuen Möglichkeiten.</p>
+      <p>Eine pauschale ROI-Zahl wäre unseriös. Entscheidend ist, ob sich die konkrete Arbeit messbar verbessert.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">B2</span><span class="frage-titel">Wann ist ein Build Sprint sinnvoll?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Wenn ein Anwendungsfall klar genug ist und daraus eine eigene testbare KI-Lösung entstehen soll.</p>
+      <p>In den AI Office Hours wird der richtige Hebel eingeordnet und geschärft. Im Build Sprint übernimmt Blinkin die technische Umsetzung einer klar abgegrenzten ersten Lösung, üblicherweise innerhalb von vier Wochen.</p>
+      <p>Ein Build Sprint kann aus den AI Office Hours entstehen – oder direkt starten, wenn der Anwendungsfall bei euch bereits ausreichend klar ist.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">B3</span><span class="frage-titel">Was verstehen wir unter einem Prototyp?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Mit Prototyp meinen wir keine Präsentation oder klickbare Demo, sondern eine funktionierende erste Version. Sie verarbeitet echte Eingaben, nutzt die relevanten Daten, Regeln und KI-Komponenten und kann mit realen Fällen getestet werden.</p>
+      <p>Der Fokus liegt auf dem Kern des Anwendungsfalls – nicht darauf, bereits jede Ausnahme, Integration oder Betriebsanforderung abzudecken.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">B4</span><span class="frage-titel">Ist der Prototyp schon produktionsreif?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Das hängt vom Anwendungsfall ab. Bei klar abgegrenzten Lösungen kann der Prototyp bereits sehr nah an einer produktiven Anwendung sein – zum Beispiel bei einer eigenständigen App für eine konkrete Aufgabe oder einem Wissensassistenten auf Basis klar definierter Quellen.</p>
+      <p>Bei komplexeren Anwendungen ist der Weg länger. Wenn eine Lösung beispielsweise tief in ERP- oder CRM-Systeme eingreift, unterschiedliche Nutzerrollen und Berechtigungen braucht oder automatisiert geschäftskritische Aktionen ausführt, müssen vor dem produktiven Einsatz zusätzliche Integrationen, Sicherheitsprüfungen, Monitoring und Betriebsprozesse umgesetzt werden.</p>
+      <p>Der Build Sprint zeigt also nicht nur, ob eine Idee funktioniert, sondern auch, was noch fehlt, um sie sicher produktiv einzusetzen.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">B5</span><span class="frage-titel">Ist individuelle Entwicklung in den AI Office Hours enthalten?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Nein, die AI Office Hours sind keine laufende Softwareentwicklung. Wir analysieren, priorisieren, entwickeln Lösungswege und begleiten kontrollierte Tests.</p>
+      <p>Wenn Blinkin eine eigene Lösung für euch bauen soll, ist dafür der Build Sprint gedacht. Größere Integrationen, Produktivsetzung und laufender Betrieb werden bei Bedarf separat geplant.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">B6</span><span class="frage-titel">Wie geht ihr mit Datenschutz, EU AI Act und vertraulichen Daten um?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Datenschutz, Informationssicherheit und KI-Governance berücksichtigen wir bei der Auswahl des Lösungswegs von Anfang an. Dazu gehören unter anderem die verwendeten Daten, geeignete Modelle und Provider, Zugriffsrechte, menschliche Kontrolle und Nachvollziehbarkeit.</p>
+      <p>Welche Maßnahmen konkret nötig sind, hängt vom Anwendungsfall und eurer bestehenden Umgebung ab. Anforderungen wie private Modelle, besondere Security-Vorgaben oder individuelle Integrationen planen wir entsprechend mit ein.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">B7</span><span class="frage-titel">Was passiert, wenn wir die AI Office Hours beenden?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Die AI Office Hours sind monatlich kündbar. Die erarbeiteten Analysen, Reports, Entscheidungen und Lösungswege bleiben bei euch und sind nicht an einen bestimmten Anbieter oder ein bestimmtes Modell gebunden.</p>
+      <p>Unser Ziel ist, dass mit jeder Session nicht nur ein Vorhaben weiterkommt, sondern auch eure Fähigkeit wächst, KI selbst fundierter einzusetzen.</p>
+    </div>
+  </div>
+  <div class="frage" data-open="false">
+    <h3 style="margin:0"><button class="frage-kopf" type="button" aria-expanded="false"><span class="frage-nr">B8</span><span class="frage-titel">Was passiert im ersten Gespräch?</span><span class="frage-zeichen" aria-hidden="true">+</span></button></h3>
+    <div class="frage-body">
+      <p>Wir schauen auf eure aktuelle Situation, relevante Abläufe und die Vorhaben, die gerade auf dem Tisch liegen.</p>
+      <p>Danach sollte klar sein, was der sinnvollste nächste Schritt ist: kontinuierlich in den AI Office Hours weiterarbeiten, einen bereits klaren Anwendungsfall im Build Sprint umsetzen oder zunächst einen anderen Weg wählen.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<div class="breather" aria-hidden="true"></div>
+
+<section class="chapter wrap finale" id="chapter-beschluss" data-state="9" data-name="Beschluss" aria-labelledby="finale-title">
+  <div class="reveal"><span class="mono" style="display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)">Kapitel 11 · Alles läuft zusammen</span></div>
+  <h2 class="h-hero reveal d1" id="finale-title" style="margin-top:14px">Welchen Ablauf wollt ihr verbessern?</h2>
+  <p class="lede reveal d2"><strong>Zeigt uns die Arbeit, die euch gerade Zeit, Qualität oder Geschwindigkeit kostet.</strong> Ihr müsst noch nicht wissen, welche KI, welches Modell oder welche Lösung dafür die richtige ist. In den AI Office Hours schauen wir gemeinsam auf den konkreten Ablauf, finden die sinnvollsten Ansatzpunkte und klären, welcher nächste Schritt sich wirklich lohnt.</p>
+  <p class="lede reveal d2" style="margin-top:14px"><strong>Bereit, KI konkret zu machen?</strong> Wählt euren ersten Anwendungsfall, der wirklich etwas verändert. Ob ihr einen Prozess beschleunigen, Expertise zugänglich machen oder ein neues Angebot bauen wollt: Wir zeigen euch den nächsten klaren Schritt und setzen ihn mit euch um.</p>
+  <div class="actions reveal d3">
+    <a class="btn btn-glow" href="mailto:hello@blinkin.io?subject=AI%20Office%20Hours%20starten">AI Office Hours starten <span aria-hidden="true">↗</span></a>
+    <a class="btn btn-amber" href="mailto:hello@blinkin.io?subject=Build%20Sprint%20reservieren">Build Sprint reservieren <span aria-hidden="true">↗</span></a>
+    <a class="btn btn-line" href="mailto:hello@blinkin.io?subject=Erstgespr%C3%A4ch%20buchen">Erstgespräch buchen <span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="ende" aria-hidden="true"><span>Ende der Reise</span></div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="brand" href="#chapter-hero" aria-label="Blinkin — zurück zum Anfang"><img src="./assets/blinkin-logo.png" alt="Blinkin" /></a>
+      <p class="footer-meta">Blinkin GmbH · KI-Beratung und Plattform<br />Seit 2019 · Hamburg · hello@blinkin.io</p>
+      <span style="display:inline-block;margin-top:16px;padding:9px 13px;background:rgb(236 233 225/.96);border-radius:6px"><img src="./assets/co-funded-by-eu.png" alt="Co-funded by the European Union" loading="lazy" style="height:34px;width:auto" /></span>
+    </div>
+    <nav class="footer-links" aria-label="Kapitel und Rechtliches">
+      <a href="#chapter-hero">Eröffnung</a>
+      <a href="#chapter-angebote">Beschlussvorlagen</a>
+      <a href="#chapter-check">Ausgangspunkt</a>
+      <a href="#chapter-fahrplan">Der Fahrplan</a>
+      <a href="#chapter-loop">Der Loop</a>
+      <a href="#chapter-build">Build Sprint</a>
+      <a href="#chapter-felder">Anwendungsfelder</a>
+      <a href="#chapter-playground">AI Playground</a>
+      <a href="#chapter-wirkung">Wirkung</a>
+      <a href="#chapter-rahmen">Rahmen & Herkunft</a>
+      <a href="#chapter-anlage">Anlage A</a>
+      <a href="mailto:hello@blinkin.io">hello@blinkin.io</a>
+      <a href="https://blinkin.io/imprint">Impressum</a>
+      <a href="https://blinkin.io/privacy-policy">Datenschutz</a>
+    </nav>
+  </div>
+  <div style="max-width:1120px;margin:0 auto;padding:0 clamp(18px,4vw,44px) 24px"><p class="mono" style="margin:0;padding-top:14px;border-top:1px solid var(--line);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-muted);display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between"><span>© 2026 Blinkin GmbH</span><span>Pressed in Hamburg · Distributed worldwide</span><span>BLN-2026</span></p></div>
+</footer>
+<script type="module" src="./v7.js"></script>
+<script src="./version-picker.js" defer></script>
+</body>
+</html>
