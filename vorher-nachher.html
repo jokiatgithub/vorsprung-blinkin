@@ -17,10 +17,10 @@
   <body class="build-page">
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Blinkin Solution Loop Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a>
+      <a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menü</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
-      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="index.html">Solution Loop</a><a href="build.html">Build Sprint</a><a href="vorher-nachher.html" aria-current="page">Vorher–Nachher</a><a href="about.html">Über Blinkin</a></nav>
-      <a class="nav-action" href="mailto:hello@blinkin.io?subject=Build%20Sprint%20starten">Build Sprint starten <span aria-hidden="true">↗</span></a>
+      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="index.html">AI Office Hours</a><a href="build.html">Build Sprint</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a></nav>
+      <a class="nav-action" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">GESPRÄCH BUCHEN <span aria-hidden="true">↗</span></a>
     </header>
     <main id="main">
       <section class="before-after-hero dark-band" aria-labelledby="before-after-title">
@@ -85,69 +85,19 @@
 
       <section class="before-after-proof light-section" aria-labelledby="proof-title">
         <div class="page-width before-after-proof-grid reveal">
-          <div><p class="eyebrow">WAS DIE BEISPIELE ZEIGEN</p><h2 id="proof-title">Gute KI beginnt mit einem besseren Ablauf.</h2><p class="case-cta-copy">Die Beispiele zeigen keine fertigen Versprechen. Sie zeigen, wie ein konkreter Ablauf klarer, prüfbarer und direkt nutzbarer werden kann.</p></div>
+          <div><h2 id="proof-title">Gute KI beginnt mit einem besseren Ablauf.</h2><p class="case-cta-copy">Die Beispiele zeigen keine fertigen Versprechen. Sie zeigen, wie ein konkreter Ablauf klarer, prüfbarer und direkt nutzbarer werden kann.</p></div>
           <ul>
             <li><strong>Ein konkreter Startpunkt</strong><span>Wir beginnen bei einem wiederkehrenden Ablauf, nicht bei einer abstrakten Tool-Frage.</span></li>
             <li><strong>Ein nachvollziehbarer Vergleich</strong><span>Vorher und Nachher machen sichtbar, wo Wissen, Review und Übergaben besser zusammenspielen.</span></li>
-            <li><strong>Ein sinnvoller nächster Schritt</strong><span>Ihr entscheidet, ob Beratung, ein begrenzter Prototyp oder etwas anderes passt.</span></li>
+            <li><strong>Ein sinnvoller nächster Schritt</strong><span>Aus dem konkreten Ablauf ergibt sich, was als Nächstes sinnvoll geprüft oder umgesetzt werden sollte.</span></li>
           </ul>
           <a class="button button-dark" href="mailto:hello@blinkin.io?subject=Eigenen%20Ablauf%20besprechen">Eigenen Ablauf besprechen <span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </main>
-    <footer class="site-footer dark-band"><div class="footer-about"><a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a><span>Seit 2019 · 2,5 Mio. € EIC Funding · Stellantis &amp; Bosch Awards · international im Einsatz</span></div><img class="eu-badge" src="./assets/co-funded-by-eu.png" alt="Co-funded by the European Union" /><div class="footer-meta"><div class="footer-links"><a href="index.html">Solution Loop</a><a href="build.html">Build Sprint</a><a href="about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a></div><p>© 2026 Blinkin GmbH</p></div></footer>
+    <footer class="site-footer dark-band"><div class="footer-about"><a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a></div><img class="eu-badge" src="./assets/co-funded-by-eu.png" alt="Co-funded by the European Union" /><div class="footer-meta"><div class="footer-links"><a href="index.html">AI Office Hours</a><a href="build.html">Build Sprint</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a></div><p>© 2026 Blinkin GmbH</p></div></footer>
     <script src="./app.js"></script>
-<script>
-  (() => {
-    const cta = document.querySelector('.site-header .nav-action, header .nav-action, .nav-action');
-    const reference = cta ? getComputedStyle(cta).backgroundColor : 'rgb(255, 229, 0)';
-
-    const isYellow = (value) => {
-      const channels = value && value.match(/\d+(?:\.\d+)?/g);
-      if (!channels || channels.length < 3) return false;
-      const [r, g, b] = channels.map(Number);
-      return r > 170 && g > 120 && b < 150 && r > b * 1.4 && g > b * 1.25;
-    };
-
-    const properties = [
-      'color', 'backgroundColor', 'borderTopColor', 'borderRightColor',
-      'borderBottomColor', 'borderLeftColor', 'outlineColor', 'textDecorationColor',
-      'fill', 'stroke', 'accentColor'
-    ];
-
-    document.querySelectorAll('*').forEach((element) => {
-      const styles = getComputedStyle(element);
-      properties.forEach((property) => {
-        if (isYellow(styles[property])) {
-          element.style.setProperty(property, reference, 'important');
-        }
-      });
-    });
-  })();
-</script>
-<script>
-  (() => {
-    const cta = document.querySelector('.site-header .nav-action, header .nav-action, .nav-action');
-    const reference = cta ? getComputedStyle(cta).backgroundColor : 'rgb(255, 229, 0)';
-    const isYellow = (value) => {
-      const channels = value && value.match(/\d+(?:\.\d+)?/g);
-      if (!channels || channels.length < 3) return false;
-      const [r, g, b] = channels.map(Number);
-      return r > 170 && g > 120 && b < 150 && r > b * 1.4 && g > b * 1.25;
-    };
-    const properties = [
-      'color', 'backgroundColor', 'borderTopColor', 'borderRightColor',
-      'borderBottomColor', 'borderLeftColor', 'outlineColor', 'textDecorationColor',
-      'fill', 'stroke', 'accentColor'
-    ];
-    document.querySelectorAll('*').forEach((element) => {
-      const styles = getComputedStyle(element);
-      properties.forEach((property) => {
-        if (isYellow(styles[property])) element.style.setProperty(property, reference, 'important');
-      });
-    });
-  })();
-</script>
-<link rel="stylesheet" href="scaling-overrides.css">
-</body>
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+<script src="/version-picker.js" defer></script></body>
 </html>

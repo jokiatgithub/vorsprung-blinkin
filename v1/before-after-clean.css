@@ -1,0 +1,55 @@
+/* Stable case-study layout. Keep the left context rail and the comparison content aligned. */
+.before-after-section {
+  background: var(--paper) !important;
+}
+
+/* Keep the four case studies distinct without adding another card treatment. */
+.before-after-section + .before-after-section {
+  border-top: 1px solid var(--line);
+}
+
+.before-after-section > .page-width {
+  display: grid !important;
+  grid-template-columns: minmax(190px, .26fr) minmax(0, .74fr) !important;
+  column-gap: clamp(32px, 5vw, 72px) !important;
+  align-items: start !important;
+}
+
+.before-after-heading {
+  display: grid !important;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(190px, .26fr) minmax(0, .74fr) !important;
+  column-gap: clamp(32px, 5vw, 72px) !important;
+  align-items: start !important;
+  margin-bottom: 0 !important;
+}
+
+.before-after-heading > .eyebrow,
+.before-after-heading > div {
+  grid-column: auto !important;
+  min-width: 0;
+}
+
+.before-after-heading > .eyebrow { margin-top: 4px; }
+.before-after-heading h2 { max-width: none !important; }
+.before-after-grid,
+.case-meta { grid-column: 2 !important; min-width: 0; width: 100%; }
+.before-after-grid { margin-top: 28px !important; }
+.before-after-grid > article { min-width: 0; }
+.case-meta { max-width: none !important; }
+.case-meta p { min-width: 0; overflow-wrap: break-word; }
+
+.before-after-proof-grid { align-items: start !important; }
+.case-cta-copy { max-width: 34ch; margin-top: 22px; color: var(--ink-soft); font-size: 17px; line-height: 1.45; }
+.before-after-proof-grid .button { margin-top: 18px; }
+
+@media (max-width: 760px) {
+  .before-after-section > .page-width,
+  .before-after-heading { display: block !important; }
+  .before-after-heading > .eyebrow { margin-bottom: 12px; }
+  .before-after-grid,
+  .case-meta { grid-column: auto !important; }
+  .before-after-grid { margin-top: 22px !important; }
+  .case-meta { margin-top: 14px; }
+  .case-cta-copy { max-width: 60ch; }
+}
