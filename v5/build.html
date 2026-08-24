@@ -1,0 +1,172 @@
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2743ee" />
+  <title>Build Sprint | Blinkin</title>
+  <meta name="description" content="Blinkin baut in einem Build Sprint einen Prototypen für eure konkrete Problemstellung, vom Briefing bis zum Test." />
+  <link rel="icon" href="./assets/blinkin-logo.png" />
+  <link rel="stylesheet" href="./fonts.css" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="./v5.css" />
+</head>
+<body data-release="BLN-2602">
+<!--
+  BLINKIN V5 — DIRECTION CONTRACT (seed key d6909dc5, candidate 5)
+  THESIS: The site is a crate of Tokyo boutique-press record sleeves.
+  Every section is a sleeve face — pale, nearly bare, one geometric mark,
+  one display statement. Everything operational lives on the OBI band:
+  a saturated cobalt paper strip wrapped around the sleeve, printed dense
+  with mono credits, catalog codes, prices and tracklists. The density
+  collision between bare face and crowded band is the whole design.
+  OWN-WORLD: aged paper #f4efe4, inner white #fffefa, warm ink #16130e,
+  one strong hue — cobalt #2743ee — owns every band; a vermillion #d63a12
+  circular hype sticker carries prices. Archivo Expanded Black for the
+  face, Spline Sans Mono for every credit line, one vertical-rl credit
+  column per band. Rotation is punctuation: sleeves tilt ±0.55°, hover
+  straightens them; the obi slides 8px left to peek beneath itself.
+  STORY: The visitor flips through a tightly curated catalog — every offer
+  a numbered release (BLN-2601-A …), the FAQ its tracklist — and trusts
+  the curation enough to book a call.
+  FORM: grounded candidate 5 of 7, assigned by concept-seed roll d6909dc5.
+  CONTENT BASE: v4 verbatim (branch claude/korrektur-v4-ca4160).
+  FINISH: unreviewed and undocumented is unfinished; ends with review,
+  verdict and DESIGN.md.
+-->
+
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="crate-bar">
+    <div class="crate-inner">
+      <a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /><span class="crate-cat mono">Independent KI-Systems · Est. 2019</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menü</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="index.html">AI Office Hours</a><a href="build.html" aria-current="page">Build Sprint</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a></nav>
+      <a class="nav-action" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">Gespräch buchen <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- RELEASE · BUILD SPRINT -->
+    <section class="hero" id="top" aria-labelledby="build-title">
+      <div class="page-width">
+        <div class="sleeve tilt-l reveal" style="padding-bottom:clamp(120px,15vw,180px)">
+          <div class="sticker"><strong>9.900&nbsp;€</strong><span>einmalig</span></div>
+          <div class="mark" aria-hidden="true"><svg viewBox="0 0 96 96" fill="none"><rect x="4" y="4" width="88" height="88" stroke="#16130e" stroke-width="2.5"/><rect x="22" y="22" width="52" height="52" fill="#2743ee"/><rect x="36" y="36" width="24" height="24" fill="#fffefa"/></svg></div>
+          <h1 class="display" id="build-title" style="max-width:14ch">In vier Wochen zur testbaren KI-Lösung.</h1>
+          <p class="catplate"><i aria-hidden="true"></i>Build Sprint · BLN-2602</p>
+          <div class="split" style="margin-top:clamp(10px,1.6vw,18px)">
+            <div>
+              <p class="lede">Der Build Sprint setzt dort an, wo ein konkreter Anwendungsfall bereit für die Umsetzung ist – aus den AI Office Hours oder direkt aus eurem Unternehmen.</p>
+              <p class="body-copy" style="margin-top:1em">Gemeinsam schärfen wir Ablauf und Anforderungen. <strong>Blinkin übernimmt dann die Konzeption und technische Umsetzung</strong> und baut daraus den ersten KI-Prototypen für eure Tests.</p>
+              <p class="body-copy">So könnt ihr in den AI Office Hours kontinuierlich die richtigen Vorhaben identifizieren und mit einem Build Sprint gezielt die Lösungen umsetzen, die den größten Hebel für euch haben.</p>
+            </div>
+            <figure class="insert">
+              <img src="./assets/studio-canvas.png" alt="Blinkin Studio Canvas zum Aufbau eines KI-Workflows" />
+              <figcaption><span>Das entsteht im Sprint</span><span>Brief → Workflow → Nachweis · 4 Wochen</span></figcaption>
+            </figure>
+          </div>
+          <div class="obi hero-obli" style="position:absolute;left:-14px;right:-14px;bottom:-14px;border-radius:10px;box-shadow:var(--shadow-lift)">
+            <div class="obi-head"><span class="obi-code">BLN-2602</span><span class="obi-title">Der Deal</span><span class="obi-rule" aria-hidden="true"></span><span class="obi-meta">Limitierte Kapazität pro Quartal</span></div>
+            <div class="obi-grid">
+              <span class="obi-vertical" aria-hidden="true">Build Sprint · 4 Wochen · Ein Sprint · Vom Briefing zum Test</span>
+              <div class="obi-main">
+                <p><strong>4 Wochen · ein Sprint · vom Briefing zum Test.</strong> Konzeption und technische Umsetzung durch Blinkin, getestet an euren echten Fällen.</p>
+                <div class="obi-actions">
+                  <a class="btn btn-stamp" href="mailto:hello@blinkin.io?subject=Build%20Sprint%20reservieren">Build Sprint reservieren <span aria-hidden="true">↗</span></a>
+                  <a class="btn btn-paper" href="index.html">AI Office Hours ansehen</a>
+                </div>
+              </div>
+              <p class="obi-meta">Üblicherweise 4 Wochen<br />Produktion &amp; Live-<br />Integrationen separat</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page-width" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="what-you-bring-title">
+      <div class="sleeve tilt-r reveal">
+        <h2 class="h2" id="what-you-bring-title">Ihr bringt den Anwendungsfall. Wir bauen die erste Lösung.</h2>
+        <p class="catplate"><i aria-hidden="true"></i>Was ihr in den Sprint mitbringt</p>
+        <p class="body-copy">Der Build Sprint startet mit einem klar abgegrenzten Anwendungsfall. Der kann aus den AI Office Hours kommen – oder bei euch bereits klar genug sein, um direkt in die Umsetzung zu gehen.</p>
+        <dl class="credit-rows" style="margin-top:clamp(16px,2vw,24px)">
+          <div><dt>Problem und Ziel</dt><dd>Was heute nicht gut funktioniert und was durch die Lösung besser werden soll.</dd></div>
+          <div><dt>Fachwissen und Regeln</dt><dd>Was wir über euren Kontext, eure Abläufe, Kunden, Produkte und Grenzen wissen und beachten müssen.</dd></div>
+          <div><dt>Echte Fälle und Daten</dt><dd>Dokumente, Anfragen, Bilder, Daten oder typische Beispiele, mit denen wir die Lösung aufbauen und testen können.</dd></div>
+          <div><dt>Fachliche Verantwortung</dt><dd>Eine Person oder ein kleines Team, das Fragen klärt und fachliche Entscheidungen im Sprint mitträgt.</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section class="page-width narrow" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="method-title">
+      <div class="sleeve tilt-l reveal">
+        <div class="mark" aria-hidden="true"><svg viewBox="0 0 96 96" fill="none"><circle cx="48" cy="48" r="46" stroke="#16130e" stroke-width="2.5"/><circle cx="48" cy="48" r="30" stroke="#16130e" stroke-width="1.5"/><circle cx="48" cy="48" r="14" fill="#2743ee"/><circle cx="48" cy="48" r="3.5" fill="#fffefa"/></svg></div>
+        <h2 class="h2" id="method-title">Aus einem klaren Anwendungsfall wird eine testbare KI-Lösung.</h2>
+        <p class="catplate"><i aria-hidden="true"></i>Was wir bauen</p>
+        <p class="body-copy">Im Build Sprint konzentrieren wir uns auf eine erste Version, die in vier Wochen gebaut und an echten Fällen getestet werden kann. Blinkin übernimmt die Konzeption und technische Umsetzung.</p>
+        <div class="weeks">
+          <article class="week reveal">
+            <div class="week-tab"><span class="no">Schritt 01</span><span class="tag">Build</span></div>
+            <div class="week-body">
+              <h3 class="h3">Anwendungsfall schärfen & Prototyp starten</h3>
+              <p class="body-copy" style="font-size:.95rem;margin:0 0 12px">Wir übersetzen euer Problem in ein fokussiertes Test-Setup: Welche Eingaben braucht das System? Welche Regeln gelten? Welches Ergebnis erwarten die Nutzer? Ihr erhaltet ab Tag 1 Zugang, um erste Annahmen an echten Fällen zu prüfen.</p>
+              <p class="week-result"><b>Ihr erhaltet: Eine erste testbare Version ab Tag 1.</b></p>
+            </div>
+          </article>
+          <article class="week reveal">
+            <div class="week-tab"><span class="no">Schritt 02</span><span class="tag">Build</span></div>
+            <div class="week-body">
+              <h3 class="h3">Prototyp auf eurem Stack aufbauen</h3>
+              <p class="body-copy" style="font-size:.95rem;margin:0 0 12px">Wir binden eure Fachlogik und ersten Beispieldaten ein und setzen den Workflow auf eurem bevorzugten Tech-Stack auf. Anhand des laufenden Feedbacks aus dem Fachbereich feilen wir an Prompts, Modell-Instruktionen und der ersten Benutzeroberfläche.</p>
+              <p class="week-result"><b>Ihr erhaltet: Einen funktionsfähigen Prototyp mit euren Daten, eurer Logik und voller Transparenz.</b></p>
+            </div>
+          </article>
+          <article class="week reveal">
+            <div class="week-tab"><span class="no">Schritt 03</span><span class="tag">Build</span></div>
+            <div class="week-body">
+              <h3 class="h3">Im Praxiseinsatz validieren & übergeben</h3>
+              <p class="body-copy" style="font-size:.95rem;margin:0 0 12px">Eure Fachbereiche testen das Setup an echten Alltagsaufgaben. Wir werten die Genauigkeit aus, dokumentieren den Aufbau und übergeben euch die Bausteine und Testergebnisse als Basis für die nächsten Schritte.</p>
+              <p class="week-result"><b>Ihr erhaltet: Einen validierten KI-Prototyp mit umfassender Dokumentation als Entscheidungsgrundlage für den möglichen Rollout.</b></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="page-width" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="build-next-title">
+      <div class="liner reveal" style="transform:rotate(-.55deg);transition:transform .45s var(--ease-out)">
+        <p class="mono" style="margin:0 0 14px;font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;color:rgb(244 239 228/.55)">Outro · Nach dem Sprint</p>
+        <h2 class="display" id="build-next-title" style="color:var(--paper);font-size:clamp(1.9rem,4vw,3.4rem);max-width:20ch">Die erste Lösung ist getestet. Jetzt entscheidet ihr, wie es weitergeht.</h2>
+        <div class="split" style="margin-top:8px">
+          <div>
+            <p style="color:rgb(244 239 228/.82);margin:0 0 1em;font-size:.98rem">Nach vier Wochen wisst ihr nicht nur, ob die Idee technisch funktioniert. Ihr habt die Lösung an echten Fällen getestet und könnt beurteilen, wo sie Nutzen bringt und was für den nächsten Schritt noch fehlt.</p>
+            <p style="color:rgb(244 239 228/.82);margin:0;font-size:.98rem">Je nach Ergebnis könnt ihr die Lösung weiterentwickeln, in den Betrieb überführen oder den nächsten Anwendungsfall angehen. In den AI Office Hours behaltet ihr weitere Potenziale und bestehende Lösungen kontinuierlich im Blick.</p>
+          </div>
+          <div>
+            <div class="boundary">Die erste Version ist noch kein Produktionssystem. Live-Integration, Security-Härtung, Datenmigration, Hosting, Betrieb und Support planen wir bei Bedarf als nächsten Schritt.</div>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:18px">
+              <a class="btn btn-paper" href="mailto:hello@blinkin.io?subject=N%C3%A4chsten%20Schritt%20besprechen">Nächsten Schritt besprechen <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-obi" href="vorher-nachher.html">Vorher–Nachher ansehen <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="back-cover">
+    <div class="back-cover-inner">
+      <div class="credits">
+        <div>
+          <a class="brand" href="index.html" aria-label="Blinkin zurück nach oben"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a>
+          <p class="mono" style="margin:18px 0 0;color:rgb(244 239 228/.6);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase">Blinkin GmbH · KI-Beratung und Plattform<br />Seit 2019 · hello@blinkin.io</p>
+          <span class="eu-chip"><img src="./assets/co-funded-by-eu.png" alt="Co-funded by the European Union" loading="lazy" /></span>
+        </div>
+        <nav class="credit-links" aria-label="Footer-Navigation">
+          <a href="index.html">AI Office Hours</a><a href="build.html">Build Sprint</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a>
+        </nav>
+      </div>
+      <div class="catalog-line"><span>© 2026 Blinkin GmbH</span><span>Pressed in Hamburg · Distributed worldwide</span><span>BLN-2026</span></div>
+    </div>
+  </footer>
+  <script src="./v5.js" defer></script>
+</body>
+</html>

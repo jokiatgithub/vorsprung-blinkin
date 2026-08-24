@@ -1,0 +1,193 @@
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2743ee" />
+  <title>Vorher–Nachher | Blinkin</title>
+  <meta name="description" content="Was ein Build Sprint in 4 Wochen an einem konkreten Ablauf verändert." />
+  <link rel="icon" href="./assets/blinkin-logo.png" />
+  <link rel="stylesheet" href="./fonts.css" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="./v5.css" />
+</head>
+<body data-release="BLN-2603">
+<!--
+  BLINKIN V5 — DIRECTION CONTRACT (seed key d6909dc5, candidate 5)
+  THESIS: The site is a crate of Tokyo boutique-press record sleeves.
+  Every section is a sleeve face — pale, nearly bare, one geometric mark,
+  one display statement. Everything operational lives on the OBI band:
+  a saturated cobalt paper strip wrapped around the sleeve, printed dense
+  with mono credits, catalog codes, prices and tracklists. The density
+  collision between bare face and crowded band is the whole design.
+  OWN-WORLD: aged paper #f4efe4, inner white #fffefa, warm ink #16130e,
+  one strong hue — cobalt #2743ee — owns every band; a vermillion #d63a12
+  circular hype sticker carries prices. Archivo Expanded Black for the
+  face, Spline Sans Mono for every credit line, one vertical-rl credit
+  column per band. Rotation is punctuation: sleeves tilt ±0.55°, hover
+  straightens them; the obi slides 8px left to peek beneath itself.
+  STORY: The visitor flips through a tightly curated catalog — every offer
+  a numbered release (BLN-2601-A …), the FAQ its tracklist — and trusts
+  the curation enough to book a call.
+  FORM: grounded candidate 5 of 7, assigned by concept-seed roll d6909dc5.
+  CONTENT BASE: v4 verbatim (branch claude/korrektur-v4-ca4160).
+  FINISH: unreviewed and undocumented is unfinished; ends with review,
+  verdict and DESIGN.md.
+-->
+
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="crate-bar">
+    <div class="crate-inner">
+      <a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /><span class="crate-cat mono">Independent KI-Systems · Est. 2019</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menü</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="index.html">AI Office Hours</a><a href="build.html">Build Sprint</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html" aria-current="page">Vorher–Nachher</a><a href="about.html">Über Blinkin</a></nav>
+      <a class="nav-action" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">Gespräch buchen <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- RELEASE · VIER PRESSESPRINGE -->
+    <section class="hero" id="top" aria-labelledby="before-after-title">
+      <div class="page-width narrow">
+        <div class="sleeve tilt-l reveal" style="padding-bottom:clamp(110px,14vw,170px)">
+          <div class="mark" aria-hidden="true"><svg viewBox="0 0 96 96" fill="none"><circle cx="48" cy="48" r="44" stroke="#16130e" stroke-width="2.5"/><path d="M48 4a44 44 0 010 88z" fill="#2743ee"/><path d="M48 18v60" stroke="#fffefa" stroke-width="2.5"/></svg></div>
+          <h1 class="display" id="before-after-title" style="max-width:13ch">Was KI im Unternehmen konkret verbessert.</h1>
+          <p class="catplate"><i aria-hidden="true"></i>Vorher–Nachher · Vier reale Szenarien</p>
+          <p class="lede">Vier reale Szenarien zeigen, wie aus verstreutem Wissen, manuellen Übergaben und Nacharbeit bessere Abläufe werden.</p>
+          <div class="obi hero-obli" style="position:absolute;left:-14px;right:-14px;bottom:-14px;border-radius:10px;box-shadow:var(--shadow-lift)">
+            <div class="obi-head"><span class="obi-code">BLN-2603</span><span class="obi-title">Vier Szenarien · Seite A und B</span><span class="obi-rule" aria-hidden="true"></span><span class="obi-meta">Handel · Service · Außendienst · Instandhaltung</span></div>
+            <div class="obi-main"><p>Jedes Szenario als Presseprung: der Ablauf vorher, der Ablauf danach — und was am Ende messbar besser ist.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page-width narrow" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="bln-2603-a-title">
+      <div class="sleeve tilt-r reveal">
+        <h2 class="h2" id="bln-2603-a-title">Internationale Produkt- und Serviceinformationen im Kundengespräch</h2>
+        <p class="catplate"><i aria-hidden="true"></i>Handel · Internationale Filialen · BLN-2603-A</p>
+        <p class="body-copy"><strong>Ausgangslage:</strong> Mitarbeitende in internationalen Shops müssen im Gespräch verlässliche Auskünfte zu Regeln, Produkten und Services geben, obwohl Informationen je nach Land unterschiedlich sind.</p>
+        <div class="vn" style="margin-top:clamp(16px,2.4vw,26px)">
+          <article class="vn-card vn-before">
+            <span class="vn-tag">Vorher</span>
+            <h3>Teams recherchieren Regeln, Produktwissen und Übersetzungen aus verschiedenen Systemen.</h3>
+            <ul><li>Je nach Zielmarkt gelten andere Vorgaben, die sich ändern können.</li><li>Die Antwort muss im Gespräch erst gesucht und verständlich aufbereitet werden.</li><li>Wichtige Informationen sind nicht an einem Ort und nicht für alle direkt zugänglich.</li></ul>
+          </article>
+          <article class="vn-card vn-after">
+            <span class="vn-tag">Nachher</span>
+            <h3>KI-Assistenten liefern die passende Information im richtigen Moment.</h3>
+            <ul><li>Nach Auswahl des Landes erscheinen die relevanten Angaben direkt im Kontext.</li><li>Informationen lassen sich für internationale Kunden verständlich übersetzen.</li><li>Produktwissen, Umrechnung und interner Support können in einer Oberfläche zusammenkommen.</li></ul>
+          </article>
+        </div>
+        <div class="case-meta">
+          <p><strong>Scope:</strong> Länderlogik, Übersetzungen, Produktwissen und Kundenservice in einer gemeinsamen Oberfläche.</p>
+          <p><strong>Wirkung:</strong> Weniger Recherche im Kundengespräch, konsistentere Auskünfte über Länder hinweg und schnellerer Zugang zu aktuellem Wissen.</p>
+        </div>
+      </div>
+    </section>
+    <section class="page-width narrow" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="bln-2603-b-title">
+      <div class="sleeve tilt-l reveal">
+        <h2 class="h2" id="bln-2603-b-title">Produktfragen und Supportwissen im Kundenservice</h2>
+        <p class="catplate"><i aria-hidden="true"></i>Elektronikhersteller · Kundenservice · BLN-2603-B</p>
+        <p class="body-copy"><strong>Ausgangslage:</strong> Produktfragen kommen über Chat und Tickets bei einem kleinen Support-Team an. FAQ, aktuelle Antworten und neue Problemfälle liegen getrennt vor.</p>
+        <div class="vn" style="margin-top:clamp(16px,2.4vw,26px)">
+          <article class="vn-card vn-before">
+            <span class="vn-tag">Vorher</span>
+            <h3>Dieselben Fragen werden immer wieder beantwortet.</h3>
+            <ul><li>Antworten müssen aus unterschiedlichen Quellen zusammengesucht werden.</li><li>Komplexe Fälle unterbrechen den Ablauf und bleiben schwer nachvollziehbar.</li><li>Wiederkehrende Lücken in der Wissensbasis werden erst spät sichtbar.</li></ul>
+          </article>
+          <article class="vn-card vn-after">
+            <span class="vn-tag">Nachher</span>
+            <h3>Ein Kundenassistent beantwortet Standardfragen und lernt aus gelösten Fällen.</h3>
+            <ul><li>Eine gepflegte Wissensbasis gibt die passende Antwort direkt aus.</li><li>Komplexe Fälle werden mit Kontext an das Support-Team übergeben.</li><li>Gelöste Anfragen zeigen, welche Inhalte fehlen oder ergänzt werden müssen.</li></ul>
+          </article>
+        </div>
+        <div class="case-meta">
+          <p><strong>Scope:</strong> Kundenchat, Support-Übergabe und laufend verbesserte FAQ.</p>
+          <p><strong>Wirkung:</strong> Weniger wiederholte Anfragen, schnellere Orientierung im Support und eine Wissensbasis, die aus gelösten Fällen wächst.</p>
+        </div>
+      </div>
+    </section>
+    <section class="page-width narrow" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="bln-2603-c-title">
+      <div class="sleeve tilt-r reveal">
+        <h2 class="h2" id="bln-2603-c-title">Mobile Einsatzdokumentation im technischen Außendienst</h2>
+        <p class="catplate"><i aria-hidden="true"></i>Industrie-Service · Technischer Außendienst · BLN-2603-C</p>
+        <p class="body-copy"><strong>Ausgangslage:</strong> Einsätze werden unterwegs in Stichworten dokumentiert. Danach müssen Berichte abgetippt, vereinheitlicht und für Kunden oder interne Teams aufbereitet werden.</p>
+        <div class="vn" style="margin-top:clamp(16px,2.4vw,26px)">
+          <article class="vn-card vn-before">
+            <span class="vn-tag">Vorher</span>
+            <h3>Wichtige Details gehen zwischen Einsatz und Bericht verloren.</h3>
+            <ul><li>Techniker halten Informationen unter Zeitdruck nur unvollständig fest.</li><li>Die Nachbereitung kostet Zeit und schafft zusätzliche Übergaben.</li><li>Berichte sind je nach Person unterschiedlich aufgebaut und schwer vergleichbar.</li></ul>
+          </article>
+          <article class="vn-card vn-after">
+            <span class="vn-tag">Nachher</span>
+            <h3>Aus Sprache entsteht direkt ein strukturierter, prüfbarer Bericht.</h3>
+            <ul><li>Techniker sprechen ein, was vor Ort getan wurde.</li><li>Der Bericht wird strukturiert, ergänzt und vor der Übergabe geprüft.</li><li>Bestehende Systeme erhalten die Informationen im passenden Format.</li></ul>
+          </article>
+        </div>
+        <div class="case-meta">
+          <p><strong>Scope:</strong> Mobile Erfassung, mehrsprachige Berichte und Übergabe an Serviceprozesse.</p>
+          <p><strong>Wirkung:</strong> Vollständigere Berichte, weniger Nacharbeit und konsistente Dokumentation direkt nach dem Einsatz.</p>
+        </div>
+      </div>
+    </section>
+    <section class="page-width narrow" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="bln-2603-d-title">
+      <div class="sleeve tilt-l reveal">
+        <h2 class="h2" id="bln-2603-d-title">Nachweise für regulierte Instandhaltung</h2>
+        <p class="catplate"><i aria-hidden="true"></i>Industrieanlagen · Regulierte Instandhaltung · BLN-2603-D</p>
+        <p class="body-copy"><strong>Ausgangslage:</strong> Fotos, gesprochene Hinweise und technische Daten entstehen bei einem Einsatz getrennt. Für Dokumentation, Prüfung und Freigabe müssen sie später aus mehreren Quellen zusammengesucht werden.</p>
+        <div class="vn" style="margin-top:clamp(16px,2.4vw,26px)">
+          <article class="vn-card vn-before">
+            <span class="vn-tag">Vorher</span>
+            <h3>Die Dokumentation beginnt erst nach dem Einsatz.</h3>
+            <ul><li>Bild, Sprache und technische Angaben sind nicht miteinander verbunden.</li><li>Für Prüfung und Freigabe fehlt ein vollständiger Überblick.</li><li>Nachgelagerte Systeme erhalten Daten verspätet oder unvollständig.</li></ul>
+          </article>
+          <article class="vn-card vn-after">
+            <span class="vn-tag">Nachher</span>
+            <h3>Alle Nachweise werden direkt am Auftrag zusammengeführt.</h3>
+            <ul><li>Bild, Sprache und technische Angaben bilden einen gemeinsamen Datensatz.</li><li>Fachleute prüfen und ergänzen den Vorgang an einer Stelle.</li><li>Nachgelagerte Systeme können die dokumentierten Informationen übernehmen.</li></ul>
+          </article>
+        </div>
+        <div class="case-meta">
+          <p><strong>Scope:</strong> Multimodale Erfassung, fachliche Prüfung und dokumentierte Übergabe.</p>
+          <p><strong>Wirkung:</strong> Nachweise bleiben vollständig verbunden, Prüfungen werden einfacher und die Dokumentation ist direkt weiterverwendbar.</p>
+        </div>
+      </div>
+    </section>
+    <section class="page-width" style="margin-top:clamp(36px,5vw,64px)" aria-labelledby="proof-title">
+      <div class="liner reveal" style="transform:rotate(-.55deg);transition:transform .45s var(--ease-out)">
+        <div class="split">
+          <div>
+            <h2 class="display" id="proof-title" style="color:var(--paper);font-size:clamp(1.9rem,4vw,3.2rem)">Gute KI beginnt mit einem besseren Ablauf.</h2>
+            <p style="color:rgb(244 239 228/.78);margin:0 0 22px;font-size:.98rem">Die Beispiele zeigen keine fertigen Versprechen. Sie zeigen, wie ein konkreter Ablauf klarer, prüfbarer und direkt nutzbarer werden kann.</p>
+            <a class="btn btn-stamp" href="mailto:hello@blinkin.io?subject=Eigenen%20Ablauf%20besprechen">Eigenen Ablauf besprechen <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul style="list-style:none;margin:0;padding:0">
+            <li style="border-top:1px solid rgb(244 239 228/.2);padding:12px 0"><strong style="font-family:'Spline Sans Mono',monospace;font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;display:block;margin-bottom:4px">Ein konkreter Startpunkt</strong><span style="color:rgb(244 239 228/.72);font-size:.92rem">Wir beginnen bei einem wiederkehrenden Ablauf, nicht bei einer abstrakten Tool-Frage.</span></li>
+            <li style="border-top:1px solid rgb(244 239 228/.2);padding:12px 0"><strong style="font-family:'Spline Sans Mono',monospace;font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;display:block;margin-bottom:4px">Ein nachvollziehbarer Vergleich</strong><span style="color:rgb(244 239 228/.72);font-size:.92rem">Vorher und Nachher machen sichtbar, wo Wissen, Review und Übergaben besser zusammenspielen.</span></li>
+            <li style="border-top:1px solid rgb(244 239 228/.2);border-bottom:1px solid rgb(244 239 228/.2);padding:12px 0"><strong style="font-family:'Spline Sans Mono',monospace;font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;display:block;margin-bottom:4px">Ein sinnvoller nächster Schritt</strong><span style="color:rgb(244 239 228/.72);font-size:.92rem">Aus dem konkreten Ablauf ergibt sich, was als Nächstes sinnvoll geprüft oder umgesetzt werden sollte.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="back-cover">
+    <div class="back-cover-inner">
+      <div class="credits">
+        <div>
+          <a class="brand" href="index.html" aria-label="Blinkin zurück nach oben"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a>
+          <p class="mono" style="margin:18px 0 0;color:rgb(244 239 228/.6);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase">Blinkin GmbH · KI-Beratung und Plattform<br />Seit 2019 · hello@blinkin.io</p>
+          <span class="eu-chip"><img src="./assets/co-funded-by-eu.png" alt="Co-funded by the European Union" loading="lazy" /></span>
+        </div>
+        <nav class="credit-links" aria-label="Footer-Navigation">
+          <a href="index.html">AI Office Hours</a><a href="build.html">Build Sprint</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a>
+        </nav>
+      </div>
+      <div class="catalog-line"><span>© 2026 Blinkin GmbH</span><span>Pressed in Hamburg · Distributed worldwide</span><span>BLN-2026</span></div>
+    </div>
+  </footer>
+  <script src="./v5.js" defer></script>
+</body>
+</html>
