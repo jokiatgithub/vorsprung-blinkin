@@ -1,7 +1,10 @@
 .git
 .claude
+.wrangler
 node_modules
 dist
+tests
+worker.js
 wrangler.toml
 .assetsignore
 *.md

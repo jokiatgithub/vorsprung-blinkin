@@ -1,11 +1,18 @@
 name = "vorsprung-blinkin-site"
+main = "worker.js"
 compatibility_date = "2026-08-18"
 
 [assets]
 directory = "."
+binding = "ASSETS"
 not_found_handling = "404-page"
 
 [[routes]]
 pattern = "vorsprung.blinkin.de"
 custom_domain = true
 zone_name = "blinkin.de"
+
+[[routes]]
+pattern = "vorsprung.blinkin.io"
+custom_domain = true
+zone_name = "blinkin.io"
