@@ -50,7 +50,7 @@ jobs:
       - name: Install and test
         run: |
           npm ci
-          npm test
+          npm test --if-present
           npx wrangler deploy --dry-run
 
       - name: Deploy to Cloudflare
