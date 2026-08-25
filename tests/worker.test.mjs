@@ -1,9 +1,12 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 import worker from '../worker.js';
 
 test('redirects the .io host and serves assets on .de', async () => {
+  assert.match(await readFile(new URL('../wrangler.toml', import.meta.url), 'utf8'), /run_worker_first = true/);
+
   const redirect = await worker.fetch(new Request('https://vorsprung.blinkin.io/v10/?from=io'));
   assert.equal(redirect.status, 301);
   assert.equal(redirect.headers.get('location'), 'https://vorsprung.blinkin.de/v10/?from=io');
