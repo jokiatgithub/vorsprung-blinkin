@@ -66,7 +66,7 @@ jobs:
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
             --output /dev/null https://vorsprung.blinkin.de/
 
-          for path in package.json .git/config .wrangler; do
+          for path in package.json .git/config .github/workflows/deploy.yml .wrangler; do
             status="$(curl --silent --output /dev/null --write-out '%{http_code}' \
               "https://vorsprung.blinkin.de/$path?deploy=$GITHUB_RUN_ID")"
             test "$status" = "404"
