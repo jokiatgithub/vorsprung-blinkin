@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       commit_sha:
-        description: Full SHA of the approved commit on main
+        description: Full SHA of the commit to deploy from main
         required: true
         type: string
 
