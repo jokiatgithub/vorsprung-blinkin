@@ -1,0 +1,73 @@
+name: Deploy website
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: Full SHA of the approved commit on main
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy exact commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: production
+      url: https://vorsprung.blinkin.de
+
+    steps:
+      - name: Check out requested commit
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ inputs.commit_sha }}
+          fetch-depth: 0
+
+      - name: Verify commit is on main
+        env:
+          DEPLOY_SHA: ${{ inputs.commit_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$DEPLOY_SHA" =~ ^[0-9a-f]{40}$ ]]
+          test "$(git rev-parse HEAD)" = "$DEPLOY_SHA"
+          git fetch origin main:refs/remotes/origin/main
+          git merge-base --is-ancestor "$DEPLOY_SHA" origin/main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install and test
+        run: |
+          npm ci
+          npm test --if-present
+          npx wrangler deploy --dry-run
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --message "GitHub deploy ${{ inputs.commit_sha }}"
+
+      - name: Verify live website
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --retry 5 --retry-delay 2 \
+            --output /dev/null https://vorsprung.blinkin.de/
+
+          for path in package.json .git/config .wrangler; do
+            status="$(curl --silent --output /dev/null --write-out '%{http_code}' \
+              "https://vorsprung.blinkin.de/$path?deploy=$GITHUB_RUN_ID")"
+            test "$status" = "404"
+          done
