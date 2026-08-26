@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#111312" />
+    <meta name="theme-color" content="#000000" />
     <title>Über Blinkin | KI-Anwendungen für reale Arbeit</title>
     <meta name="description" content="Blinkin verbindet Unternehmenswissen, Business-Logik und passende Modelle zu nutzbaren KI-Anwendungen für reale Arbeit." />
     <link rel="icon" type="image/png" href="./assets/favicon.png" />
@@ -11,25 +11,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./about-clean.css?v=20260817-2" />
+    <link rel="stylesheet" href="./site.css" />
+    <link rel="stylesheet" href="./about-clean.css?v=20260826-1" />
   </head>
   <body class="about-page">
+    <!--
+      THESIS: Blinkin verbindet Forschung mit realer Arbeit; die Seite verweigert eine generische Unternehmenschronik.
+      OWN-WORLD: Schwarzer menschlicher Auftakt, ruhiges Papier, Flächen in Lavendel, Blau und Mint, klare Linien und gelb-pfirsichfarbene Aktionen.
+      STORY: Motivation verstehen, Kundenbeleg sehen, technologische Souveränität einordnen, Blinkins Rolle erkennen und ein Gespräch beginnen.
+      FIRST VIEWPORT: Große Aussage und Aktion links, echte Arbeitssituation rechts; die Geschichte läuft darunter in drei redaktionellen Spalten weiter.
+      FORM: Beleggeführtes Unternehmensporträt, Struktur 6, Seed 9e3b1678.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
-    <header class="site-header"><a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menü</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button><nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="index.html">KI-Begleitung</a><a href="build.html">Build Sprint</a><a href="forward-deployed-engineering.html">Forward Deployed Engineering</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a></nav><a class="nav-action" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">GESPRÄCH BUCHEN <span aria-hidden="true">↗</span></a></header>
+    <header class="site-header"><a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menü</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button><nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="index.html">KI-Begleitung</a><a href="build.html">Build Sprint</a><a href="forward-deployed-engineering.html">Forward Deployed Engineering</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html" aria-current="page">Über Blinkin</a></nav><a class="nav-action" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">GESPRÄCH BUCHEN <span aria-hidden="true">↗</span></a></header>
     <main id="main">
-      <section class="about-hero light-section">
+      <section class="about-hero dark-band">
         <div class="page-width about-hero-grid">
           <div class="about-hero-copy reveal">
             <p class="eyebrow eyebrow-yellow">ÜBER BLINKIN</p>
             <h1>Damit KI da ankommt, wo ihr arbeitet.</h1>
             <p class="hero-lede">Blinkin verbindet euer Wissen, eure Business-Logik und passende KI zu Anwendungen, die im Alltag funktionieren.</p>
-            <p class="hero-support">Seit 2019 besch&auml;ftigt uns dieselbe Frage: Wie kommt neue Technologie n&auml;her an die Menschen, die Produkte, Prozesse und reale Probleme am besten kennen? Fr&uuml;her mit AR und Computer Vision, heute mit Agenten und KI-Workflows.</p>
-            <p class="hero-support">F&uuml;r uns endet KI nicht am Desktop. Sie soll dort helfen, wo Arbeit passiert: im B&uuml;ro, in der Produktion, im Service oder beim Kunden. Deshalb bauen wir teilbare Anwendungen, die antworten, sehen, h&ouml;ren und n&auml;chste Schritte anleiten k&ouml;nnen.</p>
-            <p class="hero-support">Gemeinsam mit euren Fachbereichen entstehen L&ouml;sungen, die schnell gebaut, getestet und weiterentwickelt werden k&ouml;nnen. Nah an der tats&auml;chlichen Arbeit.</p>
+            <a class="button button-primary" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">Gespräch buchen <span aria-hidden="true">↗</span></a>
           </div>
           <figure class="about-hero-image reveal reveal-delay-1">
             <img src="./assets/be-like-tim.jpeg" alt="Blinkin Team im Gespr&auml;ch vor einem KI-Workflow im No-Code Studio" />
           </figure>
+          <div class="about-story reveal">
+            <p>Seit 2019 besch&auml;ftigt uns dieselbe Frage: Wie kommt neue Technologie n&auml;her an die Menschen, die Produkte, Prozesse und reale Probleme am besten kennen? Fr&uuml;her mit AR und Computer Vision, heute mit Agenten und KI-Workflows.</p>
+            <p>F&uuml;r uns endet KI nicht am Desktop. Sie soll dort helfen, wo Arbeit passiert: im B&uuml;ro, in der Produktion, im Service oder beim Kunden. Deshalb bauen wir teilbare Anwendungen, die antworten, sehen, h&ouml;ren und n&auml;chste Schritte anleiten k&ouml;nnen.</p>
+            <p>Gemeinsam mit euren Fachbereichen entstehen L&ouml;sungen, die schnell gebaut, getestet und weiterentwickelt werden k&ouml;nnen. Nah an der tats&auml;chlichen Arbeit.</p>
+          </div>
         </div>
       </section>
       <section class="about-logos light-section"><div class="page-width"><div class="section-intro reveal"><p class="eyebrow">MIT STARKEN MARKEN ZUSAMMENGEARBEITET</p><h2>KI-Lösungen für reale Prozesse, Produkte und Services.</h2></div><div class="logo-wall reveal" aria-label="Auswahl von Unternehmen, mit denen Blinkin gearbeitet hat"><figure class="logo-cell"><img src="./assets/client-logos/abb.svg" alt="ABB" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/bosch.avif" alt="Bosch" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/wilo.avif" alt="Wilo" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/viega.avif" alt="Viega" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/tata.avif" alt="Tata" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/larsen-toubro.avif" alt="Larsen &amp; Toubro" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/gebr-heinemann.png" alt="Gebr. Heinemann" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/huber-ranner.svg" alt="Huber &amp; Ranner" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/peri.webp" alt="PERI" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/telekom.avif" alt="Telekom" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/miele.png" alt="Miele" loading="lazy" /></figure><figure class="logo-cell"><img src="./assets/client-logos/stellantis.avif" alt="Stellantis" loading="lazy" /></figure></div></div></section>
@@ -40,7 +52,7 @@
     </main>
     <footer class="site-footer dark-band"><div class="footer-about"><a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a></div><img class="eu-badge" src="./assets/co-funded-by-eu.png" alt="Co-funded by the European Union" /><div class="footer-meta"><div class="footer-links"><a href="index.html">AI Office Hours</a><a href="build.html">Build Sprint</a><a href="forward-deployed-engineering.html">Forward Deployed Engineering</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a></div><p>© 2026 Blinkin GmbH</p></div></footer>
     <script src="./app.js"></script>
-<link rel="stylesheet" href="site.css">
-<script src="site.js" defer></script>
-<script src="/version-picker.js" defer></script></body>
+    <script src="site.js" defer></script>
+    <script src="/version-picker.js" defer></script>
+  </body>
 </html>
