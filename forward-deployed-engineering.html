@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111312" />
+  <title>Forward Deployed Engineering | Blinkin</title>
+  <meta name="description" content="Unsere AI Engineers gehen mit euch in Produktion: Senior-Team, embedded in euren Teams, End-to-End verantwortlich von Architektur bis Betrieb." />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/landing.css" />
+  <link rel="stylesheet" href="/landing-content-fixes.css" />
+  <style>
+    /* FDE-Seite: eigener dunkler Hero + Sektionen, eigene Klassen (fdep-*) gegen Kaskaden-Überraschungen */
+    .fdep-hero{background:var(--ink);color:var(--paper);padding:clamp(56px,7vw,104px) 0 clamp(44px,5.5vw,80px)}
+    .fdep-hero .eyebrow{color:#7BC4DF;margin-bottom:16px}
+    .fdep-hero h1{max-width:820px;margin:0;color:var(--paper);font-size:clamp(38px,5vw,66px);font-weight:800;letter-spacing:-.05em;line-height:1.02;text-wrap:balance}
+    .fdep-lede{max-width:74ch;margin:22px 0 0;color:var(--muted-dark);font-size:clamp(16px,1.8vw,19px);line-height:1.55}
+    .fdep-lede strong{color:var(--paper)}
+    .fdep-hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+    .fdep-badge{display:inline-block;margin-top:26px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid oklch(100% 0 0/.35);border-radius:999px;padding:6px 14px}
+    .fdep-section{padding:clamp(56px,7vw,100px) 0}
+    .fdep-section h2{margin:0 0 14px;font-size:clamp(28px,3.6vw,44px);font-weight:700;letter-spacing:-.045em;line-height:1.05;text-wrap:balance}
+    .fdep-section-lede{max-width:70ch;margin:0;color:var(--muted);font-size:16px}
+    .fdep-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,28px);margin-top:clamp(28px,3.6vw,48px)}
+    .fdep-pillars article{padding:clamp(22px,3vw,32px);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+    .fdep-pillars h3{margin:0 0 8px;font-size:17px;letter-spacing:-.02em}
+    .fdep-pillars p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+    .fdep-proof{background:var(--ink);color:var(--paper)}
+    .fdep-proof h2{color:var(--paper)}
+    .fdep-proof .fdep-section-lede{color:var(--muted-dark)}
+    .fdep-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+    .fdep-chips span{font-size:11px;font-weight:800;letter-spacing:.06em;padding:7px 11px;border:1px solid oklch(100% 0 0/.28);border-radius:6px;color:var(--muted-dark)}
+    .fdep-proof-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,28px);margin-top:clamp(28px,3.6vw,44px);padding-top:clamp(20px,2.6vw,32px);border-top:1px solid oklch(100% 0 0/.18)}
+    .fdep-proof-facts div{display:grid;gap:6px}
+    .fdep-proof-facts strong{font-size:15px;color:var(--paper)}
+    .fdep-proof-facts span{color:var(--muted-dark);font-size:13.5px;line-height:1.5}
+    .fdep-proof .trust-logo-bar{margin-top:clamp(28px,3.6vw,48px)}
+    .fdep-proof .trust-logo-label{color:var(--muted-dark)}
+    @media(max-width:900px){.fdep-pillars,.fdep-proof-facts{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Blinkin Startseite"><img src="/assets/blinkin-logo-dark.png" alt="Blinkin" /></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menü</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="/">AI Office Hours</a><a href="/build.html">Build Sprint</a><a href="/forward-deployed-engineering.html" aria-current="page">Forward Deployed Engineering</a><a href="/playground.html">AI Playground</a><a href="/vorher-nachher.html">Vorher–Nachher</a><a href="/about.html">Über Blinkin</a></nav>
+    <a class="nav-action" href="mailto:hello@blinkin.io?subject=Forward%20Deployed%20Engineering">GESPRÄCH BUCHEN <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="fdep-hero" id="top" aria-labelledby="fde-title">
+      <div class="page-width">
+        <p class="eyebrow">FÜR GRÖSSERE VORHABEN · FORWARD DEPLOYED ENGINEERING</p>
+        <h1 id="fde-title">Unsere AI Engineers gehen mit euch in Produktion.</h1>
+        <p class="fdep-lede">Für größere KI-Vorhaben stellen wir ein Senior-Team zusammen, das direkt mit euren Fachbereichen, Entwicklern und Entscheidern arbeitet – von Architektur und Prototyping über Integrationen bis zum produktiven Rollout. <strong>Nicht nur beraten. Nicht nur einen Prototyp übergeben. Gemeinsam bauen, integrieren und in eure Organisation bringen.</strong></p>
+        <div class="fdep-hero-actions">
+          <a class="button button-yellow" href="mailto:hello@blinkin.io?subject=Forward%20Deployed%20Engineering">Forward Deployed Engineering anfragen <span aria-hidden="true">↗</span></a>
+        </div>
+        <span class="fdep-badge">Individuelles Engagement</span>
+      </div>
+    </section>
+
+    <section class="fdep-section light-section" aria-labelledby="how-title">
+      <div class="page-width">
+        <h2 id="how-title">So arbeiten Forward Deployed Engineers mit euch.</h2>
+        <p class="fdep-section-lede">Wenn aus einem Experiment ein geschäftskritisches System werden soll, arbeitet unser Team nicht neben, sondern in eurer Organisation.</p>
+        <div class="fdep-pillars">
+          <article><h3>Embedded in eurem Team</h3><p>Engineers arbeiten direkt mit Fachbereich, IT und Produkt an realen Prozessen und Systemen.</p></article>
+          <article><h3>End-to-End verantwortlich</h3><p>Architektur, AI Engineering, Agents, Daten, Integrationen, Security, Deployment und Betrieb.</p></article>
+          <article><h3>Built to stay</h3><p>Wissen, Code und Infrastruktur bleiben nicht bei einer externen Einzelperson hängen. Wir bauen Systeme, die euer Unternehmen weiterentwickeln und selbst betreiben kann.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fdep-section fdep-proof" aria-labelledby="proof-title">
+      <div class="page-width">
+        <h2 id="proof-title">Kein Experimentierteam. Ein AI Engineering Partner.</h2>
+        <p class="fdep-section-lede">Seit 2019 bauen wir KI-Produkte und KI-Systeme.</p>
+        <div class="fdep-chips"><span>AI Engineering</span><span>Product Engineering</span><span>Cloud &amp; Security</span><span>Agents</span><span>Multimodal AI</span><span>Enterprise Integration</span></div>
+        <div class="fdep-proof-facts">
+          <div><strong>Eigene AI-Plattform entwickelt</strong><span>Wir betreiben selbst, was wir bauen — und kennen den Weg von der Idee in den Betrieb.</span></div>
+          <div><strong>Mit führenden Industrieunternehmen gearbeitet</strong><span>Komplexe Produkte, gewachsene Systeme, echte Sicherheits- und Integrationsanforderungen.</span></div>
+          <div><strong>Von der ersten Idee bis zum produktiven System</strong><span>AI Office Hours und Build Sprint sind der Einstieg — Forward Deployed Engineering bringt das System in Produktion.</span></div>
+        </div>
+        <div class="trust-logo-bar" aria-label="Auswahl von Unternehmen, mit denen Blinkin gearbeitet hat">
+          <p class="trust-logo-label">MIT STARKEN MARKEN ZUSAMMENGEARBEITET</p>
+          <div class="trust-marquee">
+            <div class="trust-logo-track">
+              <div class="trust-logo-list">
+                <img src="/assets/client-logos/abb.svg" alt="ABB" loading="lazy" />
+                <img src="/assets/client-logos/bosch.avif" alt="Bosch" loading="lazy" />
+                <img src="/assets/client-logos/huber-ranner.svg" alt="Huber-Ranner" loading="lazy" />
+                <span class="trust-logo-wordmark henkel-logo" role="img" aria-label="Henkel">Henkel</span>
+                <img src="/assets/client-logos/gebr-heinemann.png" alt="Gebr. Heinemann" loading="lazy" />
+                <img src="/assets/client-logos/larsen-toubro.avif" alt="Larsen &amp; Toubro" loading="lazy" />
+                <span class="trust-logo-wordmark maruti-logo" role="img" aria-label="Maruti Suzuki">MARUTI SUZUKI</span>
+                <img src="/assets/client-logos/miele.png" alt="Miele" loading="lazy" />
+                <img src="/assets/client-logos/peri.webp" alt="PERI" loading="lazy" />
+                <img src="/assets/client-logos/segmenta.svg" alt="Segmenta" loading="lazy" />
+                <img src="/assets/client-logos/stellantis.avif" alt="Stellantis" loading="lazy" />
+                <img src="/assets/client-logos/t-systems.svg" alt="T-Systems" loading="lazy" />
+                <img src="/assets/client-logos/tata.avif" alt="Tata" loading="lazy" />
+                <img src="/assets/client-logos/telekom.avif" alt="Telekom" loading="lazy" />
+                <img src="/assets/client-logos/viega.avif" alt="Viega" loading="lazy" />
+                <img src="/assets/client-logos/wilo.avif" alt="Wilo" loading="lazy" />
+              </div>
+              <div class="trust-logo-list" aria-hidden="true">
+                <img src="/assets/client-logos/abb.svg" alt="" loading="lazy" />
+                <img src="/assets/client-logos/bosch.avif" alt="" loading="lazy" />
+                <img src="/assets/client-logos/huber-ranner.svg" alt="" loading="lazy" />
+                <span class="trust-logo-wordmark henkel-logo" aria-hidden="true">Henkel</span>
+                <img src="/assets/client-logos/gebr-heinemann.png" alt="" loading="lazy" />
+                <img src="/assets/client-logos/larsen-toubro.avif" alt="" loading="lazy" />
+                <span class="trust-logo-wordmark maruti-logo" aria-hidden="true">MARUTI SUZUKI</span>
+                <img src="/assets/client-logos/miele.png" alt="" loading="lazy" />
+                <img src="/assets/client-logos/peri.webp" alt="" loading="lazy" />
+                <img src="/assets/client-logos/segmenta.svg" alt="" loading="lazy" />
+                <img src="/assets/client-logos/stellantis.avif" alt="" loading="lazy" />
+                <img src="/assets/client-logos/t-systems.svg" alt="" loading="lazy" />
+                <img src="/assets/client-logos/tata.avif" alt="" loading="lazy" />
+                <img src="/assets/client-logos/telekom.avif" alt="" loading="lazy" />
+                <img src="/assets/client-logos/viega.avif" alt="" loading="lazy" />
+                <img src="/assets/client-logos/wilo.avif" alt="" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta dark-band" id="kontakt" aria-labelledby="cta-title"><div class="page-width final-cta-inner"><p class="eyebrow eyebrow-yellow">DER NÄCHSTE SCHRITT</p><h2 id="cta-title">Welches System wollt ihr in Produktion bringen?</h2><p class="cta-lead"><strong>Zeigt uns das Vorhaben, das mehr braucht als einen Prototyp.</strong></p><p>Im ersten Gespräch klären wir Umfang, Team-Setup und den sinnvollsten Einstieg — ob direkt oder über AI Office Hours und Build Sprint.</p><a class="button button-yellow" href="mailto:hello@blinkin.io?subject=Forward%20Deployed%20Engineering">Forward Deployed Engineering anfragen <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+
+  <footer class="site-footer dark-band"><div class="footer-about"><a class="brand" href="/" aria-label="Blinkin zurück nach oben"><img src="/assets/blinkin-logo-dark.png" alt="Blinkin" /></a></div><img class="eu-badge" src="/assets/co-funded-by-eu.png" alt="Co-funded by the European Union" /><div class="footer-meta"><div class="footer-links"><a href="/">AI Office Hours</a><a href="/build.html">Build Sprint</a><a href="/forward-deployed-engineering.html">Forward Deployed Engineering</a><a href="/playground.html">AI Playground</a><a href="/vorher-nachher.html">Vorher–Nachher</a><a href="/about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a></div><p>© 2026 Blinkin GmbH</p></div></footer>
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="/site.js" defer></script>
+<link rel="stylesheet" href="/site.css">
+</body>
+</html>
