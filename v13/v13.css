@@ -70,6 +70,12 @@ body .fde-banner:hover {
   color: var(--v12-ink);
 }
 
+.loop-step-active em,
+.loop-step-active strong,
+.loop-step-active small {
+  color: var(--v12-ink) !important;
+}
+
 @media (min-width: 1061px) {
   .offer-crate .obi {
     margin-top: auto;
