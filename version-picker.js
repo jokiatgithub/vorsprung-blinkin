@@ -1,26 +1,30 @@
-// ponytail: one shared switcher for the current v10 and archived versions
+// ponytail: one shared switcher for the current and archived versions
 (function () {
-  var versions = ['v11', 'v10', 'v9', 'v8', 'v7', 'v6', 'v5', 'v3', 'v2', 'v1'];
-  var m = location.pathname.match(/^\/(v10|v1|v2|v3|v5|v6|v7|v8|v9)(\/|$)/);
+  var versions = ['v13', 'v12', 'v11', 'v10', 'v9', 'v8', 'v7', 'v6', 'v5', 'v3', 'v2', 'v1'];
+  var m = location.pathname.match(/^\/(v13|v12|v10|v1|v2|v3|v5|v6|v7|v8|v9)(\/|$)/);
   var cur = m ? m[1] : 'v11';
-  var page = location.pathname.replace(/^\/(v10|v1|v2|v3|v5|v6|v7|v8|v9)\/?/, '/').replace(/^\/+/, '/');
+  var page = location.pathname.replace(/^\/(v13|v12|v10|v1|v2|v3|v5|v6|v7|v8|v9)\/?/, '/').replace(/^\/+/, '/');
   if (page === '/' || page === '') page = '/index.html';
   var multiPage = { '/index.html': 1, '/build.html': 1, '/playground.html': 1, '/vorher-nachher.html': 1, '/about.html': 1 };
   function href(v) {
+    if (v === 'v13') return '/v13/';
+    if (v === 'v12') return '/v12/';
     if (v === 'v11') return page;
     if (v === 'v1' || v === 'v2' || v === 'v3') return multiPage[page] ? '/' + v + page : '/' + v + '/';
     return '/' + v + '/';
   }
   var items = versions.map(function (v) {
     return v === cur
-      ? '<span style="font-weight:700;color:#ff7714;white-space:nowrap">' + v.toUpperCase() + '</span>'
-      : '<a href="' + href(v) + '" style="color:#7ad0ff;text-decoration:none;opacity:.9;white-space:nowrap">' + v.toUpperCase() + '</a>';
-  }).join('<span style="opacity:.3">·</span>');
+      ? '<span class="version-picker__current">' + v.toUpperCase() + '</span>'
+      : '<a class="version-picker__link" href="' + href(v) + '">' + v.toUpperCase() + '</a>';
+  }).join('<span class="version-picker__separator">·</span>');
+  var stylesheet = document.createElement('link');
+  stylesheet.rel = 'stylesheet';
+  stylesheet.href = '/version-picker.css';
+  document.head.appendChild(stylesheet);
   var el = document.createElement('div');
   el.innerHTML =
-    '<div role="navigation" aria-label="Versionsauswahl" style="position:fixed;bottom:14px;right:14px;z-index:9999;' +
-    'font:12px/1 Manrope,system-ui,sans-serif;background:#111;color:#fff;border-radius:999px;padding:7px 12px;' +
-    'display:flex;gap:8px;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:calc(100vw - 28px);flex-wrap:wrap">' +
-    '<span style="opacity:.6">Version</span>' + items + '</div>';
+    '<nav class="version-picker" aria-label="Versionsauswahl">' +
+    '<span class="version-picker__label">Version</span>' + items + '</nav>';
   document.body.appendChild(el.firstChild);
 })();
