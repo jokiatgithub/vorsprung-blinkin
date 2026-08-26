@@ -290,6 +290,22 @@ p, li { font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.62; }
 
 /* one logo size everywhere */
 .site-header .brand img { height: 28px; width: auto; }
+.site-header .brand {
+  width: max-content !important;
+  gap: 11px;
+  text-decoration: none;
+}
+.site-header .brand::after {
+  content: "VORSPRUNG\A EDITION";
+  padding-left: 11px;
+  border-left: 1px solid oklch(98% .006 94 / .34);
+  color: var(--inverse, #f7f6f0);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  line-height: 1.25;
+  white-space: pre;
+}
 
 /* primary offer card: white text on accent blue */
 .offer-card-primary { background: var(--accent-blue); border-color: var(--accent-blue); }
