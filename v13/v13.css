@@ -36,6 +36,15 @@ body #top.hero-v11 .trust-logo-bar {
   margin-top: 30px;
 }
 
+.hero-v11 .trust-logo-list img[src*="huber-ranner.svg"],
+.hero-v11 .trust-logo-list img[src*="miele.png"],
+.hero-v11 .trust-logo-list img[src*="peri.webp"],
+.hero-v11 .trust-logo-list img[src*="segmenta.svg"],
+.hero-v11 .trust-logo-list img[src*="tata.avif"],
+.hero-v11 .trust-logo-list img[src*="viega.avif"] {
+  filter: grayscale(1);
+}
+
 body .offers-section {
   padding-top: clamp(38px, 4vw, 56px);
 }
