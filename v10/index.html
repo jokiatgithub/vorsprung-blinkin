@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/landing.css" />
   <link rel="stylesheet" href="/landing-content-fixes.css" />
-  <link rel="stylesheet" href="/v11.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -20,23 +19,27 @@
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Blinkin Startseite"><img src="/assets/blinkin-logo-dark.png" alt="Blinkin" /></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menü</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
-    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="/">AI Office Hours</a><a href="/build.html">Build Sprint</a><a href="/forward-deployed-engineering.html">Forward Deployed Engineering</a><a href="/playground.html">AI Playground</a><a href="/vorher-nachher.html">Vorher–Nachher</a><a href="/about.html">Über Blinkin</a></nav>
+    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="/v10/">AI Office Hours</a><a href="/build.html">Build Sprint</a><a href="/playground.html">AI Playground</a><a href="/vorher-nachher.html">Vorher–Nachher</a><a href="/about.html">Über Blinkin</a></nav>
     <a class="nav-action" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">GESPRÄCH BUCHEN <span aria-hidden="true">↗</span></a>
   </header>
 
   <main id="main">
-    <section class="hero-v11 light-section" id="top" aria-labelledby="hero-title">
-      <div class="page-width">
-        <div class="hero-v11-copy reveal">
-          <p class="eyebrow">MASSGESCHNEIDERTE KI-BERATUNG FÜR KOMPLEXE PRODUKTE</p>
+    <section class="hero dark-band" id="top" aria-labelledby="hero-title">
+      <div class="page-width hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow eyebrow-yellow">MASSGESCHNEIDERTE KI-BERATUNG FÜR KOMPLEXE PRODUKTE</p>
           <h1 id="hero-title">Baut mit uns euren KI-Vorsprung auf.</h1>
-          <p class="hero-v11-lede">Blinkin ist ein KI-Unternehmen, das seit 2019 KI-Projekte berät und eine eigene Plattform für KI-Apps baut. Wir helfen führenden Unternehmen dabei, KI-Potenziale für ihre Arbeit zu verstehen und mit der passenden Technologie umzusetzen.</p>
-          <div class="hero-v11-actions">
-            <a class="button button-yellow" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">Gespräch buchen <span aria-hidden="true">↗</span></a>
-            <a class="button button-ghost" href="#angebote">Zu den Angeboten <span aria-hidden="true">↓</span></a>
-          </div>
+          <p class="hero-lede">Blinkin ist ein KI-Unternehmen, das seit 2019 KI-Projekte berät und eine eigene Plattform für KI-Apps baut. Wir helfen führenden Unternehmen dabei, KI-Potenziale für ihre Arbeit zu verstehen und mit der passenden Technologie umzusetzen.</p>
         </div>
-        
+      </div>
+    </section>
+
+    <section class="offers-section light-section" id="angebote" aria-label="Angebote">
+      <div class="page-width">
+        <div class="offer-grid offer-board">
+          <article class="offer-card offer-card-primary reveal"><div class="offer-card-top"><span class="offer-label">MONATLICH</span><span class="offer-price">1.900 &euro;</span></div><h3>AI Office Hours<span class="offer-tagline">Der monatliche KI-Fahrplan f&uuml;r Gesch&auml;ftsf&uuml;hrung, Entwickler- und Produktteams</span></h3><p class="offer-lede">Blinkin bringt den &Uuml;berblick &uuml;ber neueste Technologie, technische Tiefe und klare L&ouml;sungswege ein. Euer Team setzt um und wir pr&uuml;fen gemeinsam, was funktioniert und was als N&auml;chstes dran ist.</p><ul class="offer-includes" aria-label="In den AI Office Hours enthalten"><li><b>Hebel identifizieren:</b> KI-Vorhaben mit dem gr&ouml;&szlig;ten wirtschaftlichen Hebel ausw&auml;hlen</li><li><b>KI-Lernkurve beschleunigen:</b> Praktische L&ouml;sungswege festlegen, bevor Monate mit Trial &amp; Error verlorengehen</li><li><b>Wirkung skalieren:</b> Ergebnisse kontinuierlich pr&uuml;fen und erfolgreiche KI-Workflows im Unternehmen ausrollen</li></ul><a class="inline-action" href="mailto:hello@blinkin.io?subject=AI%20Office%20Hours%20starten">AI OFFICE HOURS STARTEN <span aria-hidden="true">&rarr;</span></a><p class="offer-footnote">2 &times; 90 Minuten oder 4 &times; 45 Minuten gemeinsame Umsetzung, Ausarbeitung und Review &middot; Laufende Einordnung von KI-Entwicklungen, Werkzeugen und Methoden &middot; Monatlich k&uuml;ndbar.</p></article>
+      <article class="offer-card reveal reveal-delay-1"><div class="offer-card-top"><span class="offer-label">NACH BEDARF</span><span class="offer-price">9.900 &euro;</span></div><h3>Build Sprint<span class="offer-tagline">In 4 Wochen vom ersten Prototypen zum getesteten KI-Workflow</span></h3><p class="offer-lede">Wir &uuml;bernehmen die Konzeption und technische Umsetzung eines klar abgegrenzten Anwendungsfalls. Statt monatelanger Entwicklungszyklen bauen, testen und optimieren wir von Tag 1 an gemeinsam mit euch an echten Praxisf&auml;llen.</p><ul class="offer-includes" aria-label="Im Build Sprint enthalten"><li><b>Schnell prototypen:</b> Erste Komponenten sofort testbar, sukzessive angereichert mit euren Daten und Regeln</li><li><b>Agil testen &amp; iterieren:</b> Fortlaufende Feedback-Schleifen mit relevanten Nutzern, um die Anwendung im Prozess zu sch&auml;rfen</li><li><b>Informiert entscheiden:</b> Mit einem validierten Prototyp, technischer Dokumentation und einer fundierten Empfehlung f&uuml;r den produktiven Einsatz</li></ul><a class="inline-action" href="mailto:hello@blinkin.io?subject=Build%20Sprint%20reservieren">BUILD SPRINT RESERVIEREN <span aria-hidden="true">&rarr;</span></a><p class="offer-footnote">&Uuml;blicherweise 4 Wochen. Produktion und Live-Integrationen separat.</p></article>
+        </div>
         <div class="trust-logo-bar reveal" aria-label="Auswahl von Unternehmen, mit denen Blinkin gearbeitet hat">
           <p class="trust-logo-label">MIT STARKEN MARKEN ZUSAMMENGEARBEITET</p>
           <div class="trust-marquee" aria-label="Unternehmen, mit denen Blinkin gearbeitet hat">
@@ -80,55 +83,10 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="offers-section light-section" id="angebote" aria-label="Angebote">
-      <div class="page-width">
-        <div class="offer-crate">
-      <article class="sleeve reveal">
-        <div class="sticker"><strong>1.900&nbsp;€</strong><span>pro Monat</span></div>
-        <h3>AI Office Hours</h3>
-        <p class="offer-lede"><strong>Der monatliche KI-Fahrplan für Geschäftsführung, Entwickler- und Produktteams.</strong> Blinkin bringt den Überblick über neueste Technologie, technische Tiefe und klare Lösungswege ein. Euer Team setzt um und wir prüfen gemeinsam, was funktioniert und was als Nächstes dran ist.</p>
-        <ul class="offer-includes">
-          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="1" y="1" width="13" height="13" rx="3" stroke-width="1.8"/><path d="M4.2 7.8l2.2 2.2 4.4-4.6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Hebel identifizieren:</b> KI-Vorhaben mit dem größten wirtschaftlichen Hebel auswählen</span></li>
-          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="1" y="1" width="13" height="13" rx="3" stroke-width="1.8"/><path d="M4.2 7.8l2.2 2.2 4.4-4.6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>KI-Lernkurve beschleunigen:</b> Praktische Lösungswege festlegen, bevor Monate mit Trial &amp; Error verlorengehen</span></li>
-          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="1" y="1" width="13" height="13" rx="3" stroke-width="1.8"/><path d="M4.2 7.8l2.2 2.2 4.4-4.6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Wirkung skalieren:</b> Ergebnisse kontinuierlich prüfen und erfolgreiche KI-Workflows im Unternehmen ausrollen</span></li>
-        </ul>
-        <div class="obi">
-          <div class="obi-head"><span class="obi-title">Im Monatsabo enthalten</span><span class="obi-rule" aria-hidden="true"></span></div>
-          <div class="obi-actions"><a class="btn-stamp" href="mailto:hello@blinkin.io?subject=AI%20Office%20Hours%20starten">AI Office Hours starten <span aria-hidden="true">→</span></a></div>
-          <p class="obi-meta">2 × 90 Minuten oder 4 × 45 Minuten gemeinsame Umsetzung, Ausarbeitung und Review · Laufende Einordnung von KI-Entwicklungen, Werkzeugen und Methoden · Monatlich kündbar.</p>
-        </div>
-      </article>
-
-      <article class="sleeve reveal reveal-delay-1">
-        <div class="sticker"><strong>9.900&nbsp;€</strong><span>einmalig</span></div>
-        <h3>Build Sprint</h3>
-        <p class="offer-lede"><strong>In 4 Wochen vom ersten Prototypen zum getesteten KI-Workflow.</strong> Wir übernehmen die Konzeption und technische Umsetzung eines klar abgegrenzten Anwendungsfalls. Statt monatelanger Entwicklungszyklen bauen, testen und optimieren wir von Tag 1 an gemeinsam mit euch an echten Praxisfällen.</p>
-        <ul class="offer-includes">
-          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="1" y="1" width="13" height="13" rx="3" stroke-width="1.8"/><path d="M4.2 7.8l2.2 2.2 4.4-4.6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Schnell prototypen:</b> Erste Komponenten sofort testbar, sukzessive angereichert mit euren Daten und Regeln</span></li>
-          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="1" y="1" width="13" height="13" rx="3" stroke-width="1.8"/><path d="M4.2 7.8l2.2 2.2 4.4-4.6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Agil testen &amp; iterieren:</b> Fortlaufende Feedback-Schleifen mit relevanten Nutzern, um die Anwendung im Prozess zu schärfen</span></li>
-          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="1" y="1" width="13" height="13" rx="3" stroke-width="1.8"/><path d="M4.2 7.8l2.2 2.2 4.4-4.6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Informiert entscheiden:</b> Mit einem validierten Prototyp, technischer Dokumentation und einer fundierten Empfehlung für den produktiven Einsatz</span></li>
-        </ul>
-        <div class="obi">
-          <div class="obi-head"><span class="obi-title">Im Sprint enthalten</span><span class="obi-rule" aria-hidden="true"></span></div>
-          <div class="obi-actions"><a class="btn-stamp" href="mailto:hello@blinkin.io?subject=Build%20Sprint%20reservieren">Build Sprint reservieren <span aria-hidden="true">→</span></a></div>
-          <p class="obi-meta">Üblicherweise 4 Wochen. Produktion und Live-Integrationen separat.</p>
-        </div>
-      </article>
-      </div>
-                
-        <a class="fde-banner reveal" href="/forward-deployed-engineering.html">
-          <span class="fde-banner-hook">Größere Vorhaben?</span>
-          <span class="fde-banner-text">Vom validierten Use Case zum produktiven KI-System — mit unserem Senior-Team direkt in euren Teams.</span>
-          <span class="fde-banner-cta">Forward Deployed Engineering <span aria-hidden="true">→</span></span>
-        </a>
         <figure class="trust-quote reveal">
           <blockquote>“Blinkin is a perfect example of how Stellantis digital transformation is improving our responsiveness to customer needs.”</blockquote>
           <figcaption>Xavier Chereau · Transformation Officer, Stellantis</figcaption>
         </figure>
-        
       </div>
     </section>
 
@@ -209,7 +167,7 @@
 <section class="final-cta dark-band" id="kontakt" aria-labelledby="cta-title"><div class="page-width final-cta-inner reveal"><p class="eyebrow eyebrow-yellow">DER NÄCHSTE SCHRITT</p><h2 id="cta-title">Welchen Ablauf wollt ihr verbessern?</h2><p class="cta-lead"><strong>Zeigt uns die Arbeit, die euch gerade Zeit, Qualität oder Geschwindigkeit kostet.</strong></p><p>Ihr müsst noch nicht wissen, welche KI, welches Modell oder welche Lösung dafür die richtige ist. In den AI Office Hours schauen wir gemeinsam auf den konkreten Ablauf, finden die sinnvollsten Ansatzpunkte und klären, welcher nächste Schritt sich wirklich lohnt.</p><a class="button button-yellow" href="mailto:hello@blinkin.io?subject=AI%20Office%20Hours%20starten">AI Office Hours starten <span aria-hidden="true">↗</span></a></div></section>
   </main>
 
-  <footer class="site-footer dark-band"><div class="footer-about"><a class="brand" href="#top" aria-label="Blinkin zurück nach oben"><img src="/assets/blinkin-logo-dark.png" alt="Blinkin" /></a></div><img class="eu-badge" src="/assets/co-funded-by-eu.png" alt="Co-funded by the European Union" /><div class="footer-meta"><div class="footer-links"><a href="/">AI Office Hours</a><a href="/build.html">Build Sprint</a><a href="/forward-deployed-engineering.html">Forward Deployed Engineering</a><a href="/playground.html">AI Playground</a><a href="/vorher-nachher.html">Vorher–Nachher</a><a href="/about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a></div><p>© 2026 Blinkin GmbH</p></div></footer>
+  <footer class="site-footer dark-band"><div class="footer-about"><a class="brand" href="#top" aria-label="Blinkin zurück nach oben"><img src="/assets/blinkin-logo-dark.png" alt="Blinkin" /></a></div><img class="eu-badge" src="/assets/co-funded-by-eu.png" alt="Co-funded by the European Union" /><div class="footer-meta"><div class="footer-links"><a href="/v10/">AI Office Hours</a><a href="/build.html">Build Sprint</a><a href="/playground.html">AI Playground</a><a href="/vorher-nachher.html">Vorher–Nachher</a><a href="/about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a></div><p>© 2026 Blinkin GmbH</p></div></footer>
   <script>document.documentElement.classList.add('js');</script>
   <script src="/app.js?v=20260816-1"></script>
 <link rel="stylesheet" href="/site.css">
