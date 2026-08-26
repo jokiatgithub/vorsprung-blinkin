@@ -1,0 +1,22 @@
+.version-picker {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 9999;
+  max-width: calc(100vw - 28px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #111;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+  color: #fff;
+  font: 12px/1 Manrope, system-ui, sans-serif;
+}
+
+.version-picker__label { opacity: .6; }
+.version-picker__current { color: #ff7714; font-weight: 700; white-space: nowrap; }
+.version-picker__link { color: #7ad0ff; opacity: .9; text-decoration: none; white-space: nowrap; }
+.version-picker__separator { opacity: .3; }
