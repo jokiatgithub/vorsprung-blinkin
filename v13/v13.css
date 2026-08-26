@@ -40,6 +40,16 @@ body .offers-section {
   padding-top: clamp(38px, 4vw, 56px);
 }
 
+@media (min-width: 1061px) {
+  .offer-crate .obi {
+    margin-top: auto;
+  }
+
+  .offer-crate .obi-meta {
+    min-height: 3lh;
+  }
+}
+
 @media (max-width: 700px) {
   body .hero-v11,
   body #top.hero-v11 {
