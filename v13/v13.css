@@ -49,6 +49,27 @@ body .offers-section {
   padding-top: clamp(38px, 4vw, 56px);
 }
 
+body .fde-banner {
+  margin-top: clamp(30px, 3.5vw, 46px);
+  padding: 22px 0;
+  border-top: 1px solid rgba(23, 23, 25, .22);
+  border-radius: 0;
+  background: transparent;
+  color: var(--v12-ink);
+}
+
+body .fde-banner:hover {
+  transform: none;
+}
+
+.fde-banner-text {
+  color: #666871;
+}
+
+.fde-banner-cta {
+  color: var(--v12-ink);
+}
+
 @media (min-width: 1061px) {
   .offer-crate .obi {
     margin-top: auto;
