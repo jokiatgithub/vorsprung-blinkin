@@ -3,31 +3,37 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#111312" />
+    <meta name="theme-color" content="#000000" />
     <title>Vorher–Nachher | Blinkin</title>
     <meta name="description" content="Was ein Build Sprint in 4 Wochen an einem konkreten Ablauf verändert." />
     <link rel="icon" type="image/png" href="./assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
-  <link rel="stylesheet" href="./before-after-density.css" />
-  <link rel="stylesheet" href="./before-after-clean.css" />
-</head>
-  <body class="build-page">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./site.css" />
+    <link rel="stylesheet" href="./before-after-clean.css?v=20260826-2" />
+  </head>
+  <body class="before-after-page">
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menü</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
-      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="index.html">KI-Begleitung</a><a href="build.html">Build Sprint</a><a href="forward-deployed-engineering.html">Forward Deployed Engineering</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a></nav>
+      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"><a href="index.html">KI-Begleitung</a><a href="build.html">Build Sprint</a><a href="forward-deployed-engineering.html">Forward Deployed Engineering</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html" aria-current="page">Vorher–Nachher</a><a href="about.html">Über Blinkin</a></nav>
       <a class="nav-action" href="mailto:hello@blinkin.io?subject=Gespr%C3%A4ch%20buchen">GESPRÄCH BUCHEN <span aria-hidden="true">↗</span></a>
     </header>
     <main id="main">
       <section class="before-after-hero dark-band" aria-labelledby="before-after-title">
-        <div class="page-width reveal">
-          <p class="eyebrow eyebrow-yellow">VORHER–NACHHER</p>
-          <h1 id="before-after-title">Was KI im Unternehmen konkret verbessert.</h1>
-          <p>Vier reale Szenarien zeigen, wie aus verstreutem Wissen, manuellen Übergaben und Nacharbeit bessere Abläufe werden.</p>
+        <div class="page-width before-after-hero-grid">
+          <div class="before-after-hero-copy reveal">
+            <p class="eyebrow eyebrow-yellow">VORHER–NACHHER</p>
+            <h1 id="before-after-title">Was KI im Unternehmen konkret verbessert.</h1>
+            <p>Vier reale Szenarien zeigen, wie aus verstreutem Wissen, manuellen Übergaben und Nacharbeit bessere Abläufe werden.</p>
+          </div>
+          <figure class="before-after-visual reveal reveal-delay-1">
+            <img src="./assets/visual-inspection.png" alt="Mobile KI-Anwendung für visuelle Inspektion und geführte Arbeit im technischen Service" />
+            <figcaption><span>PRAXISEINSATZ</span><strong>Sehen · verstehen · dokumentieren</strong></figcaption>
+          </figure>
         </div>
       </section>
 
@@ -46,7 +52,7 @@
               <ul><li>Nach Auswahl des Landes erscheinen die relevanten Angaben direkt im Kontext.</li><li>Informationen lassen sich für internationale Kunden verständlich übersetzen.</li><li>Produktwissen, Umrechnung und interner Support können in einer Oberfläche zusammenkommen.</li></ul>
             </article>
           </div>
-          <div class="case-meta"><p class="case-scope"><strong>Scope:</strong> Länderlogik, Übersetzungen, Produktwissen und Kundenservice in einer gemeinsamen Oberfläche.</p><p class="case-impact"><strong>Wirkung:</strong> Weniger Recherche im Kundengespräch, konsistentere Auskünfte über Länder hinweg und schnellerer Zugang zu aktuellem Wissen.</p></div>
+          <div class="case-meta reveal reveal-delay-1"><p class="case-scope"><strong>Scope:</strong> Länderlogik, Übersetzungen, Produktwissen und Kundenservice in einer gemeinsamen Oberfläche.</p><p class="case-impact"><strong>Wirkung:</strong> Weniger Recherche im Kundengespräch, konsistentere Auskünfte über Länder hinweg und schnellerer Zugang zu aktuellem Wissen.</p></div>
         </div>
       </section>
 
@@ -57,7 +63,7 @@
             <article><p class="eyebrow">VORHER</p><h3>Dieselben Fragen werden immer wieder beantwortet.</h3><ul><li>Antworten müssen aus unterschiedlichen Quellen zusammengesucht werden.</li><li>Komplexe Fälle unterbrechen den Ablauf und bleiben schwer nachvollziehbar.</li><li>Wiederkehrende Lücken in der Wissensbasis werden erst spät sichtbar.</li></ul></article>
             <article><p class="eyebrow eyebrow-purple">NACHHER</p><h3>Ein Kundenassistent beantwortet Standardfragen und lernt aus gelösten Fällen.</h3><ul><li>Eine gepflegte Wissensbasis gibt die passende Antwort direkt aus.</li><li>Komplexe Fälle werden mit Kontext an das Support-Team übergeben.</li><li>Gelöste Anfragen zeigen, welche Inhalte fehlen oder ergänzt werden müssen.</li></ul></article>
           </div>
-          <div class="case-meta"><p class="case-scope"><strong>Scope:</strong> Kundenchat, Support-Übergabe und laufend verbesserte FAQ.</p><p class="case-impact"><strong>Wirkung:</strong> Weniger wiederholte Anfragen, schnellere Orientierung im Support und eine Wissensbasis, die aus gelösten Fällen wächst.</p></div>
+          <div class="case-meta reveal reveal-delay-1"><p class="case-scope"><strong>Scope:</strong> Kundenchat, Support-Übergabe und laufend verbesserte FAQ.</p><p class="case-impact"><strong>Wirkung:</strong> Weniger wiederholte Anfragen, schnellere Orientierung im Support und eine Wissensbasis, die aus gelösten Fällen wächst.</p></div>
         </div>
       </section>
 
@@ -68,7 +74,7 @@
             <article><p class="eyebrow">VORHER</p><h3>Wichtige Details gehen zwischen Einsatz und Bericht verloren.</h3><ul><li>Techniker halten Informationen unter Zeitdruck nur unvollständig fest.</li><li>Die Nachbereitung kostet Zeit und schafft zusätzliche Übergaben.</li><li>Berichte sind je nach Person unterschiedlich aufgebaut und schwer vergleichbar.</li></ul></article>
             <article><p class="eyebrow eyebrow-purple">NACHHER</p><h3>Aus Sprache entsteht direkt ein strukturierter, prüfbarer Bericht.</h3><ul><li>Techniker sprechen ein, was vor Ort getan wurde.</li><li>Der Bericht wird strukturiert, ergänzt und vor der Übergabe geprüft.</li><li>Bestehende Systeme erhalten die Informationen im passenden Format.</li></ul></article>
           </div>
-          <div class="case-meta"><p class="case-scope"><strong>Scope:</strong> Mobile Erfassung, mehrsprachige Berichte und Übergabe an Serviceprozesse.</p><p class="case-impact"><strong>Wirkung:</strong> Vollständigere Berichte, weniger Nacharbeit und konsistente Dokumentation direkt nach dem Einsatz.</p></div>
+          <div class="case-meta reveal reveal-delay-1"><p class="case-scope"><strong>Scope:</strong> Mobile Erfassung, mehrsprachige Berichte und Übergabe an Serviceprozesse.</p><p class="case-impact"><strong>Wirkung:</strong> Vollständigere Berichte, weniger Nacharbeit und konsistente Dokumentation direkt nach dem Einsatz.</p></div>
         </div>
       </section>
 
@@ -79,7 +85,7 @@
             <article><p class="eyebrow">VORHER</p><h3>Die Dokumentation beginnt erst nach dem Einsatz.</h3><ul><li>Bild, Sprache und technische Angaben sind nicht miteinander verbunden.</li><li>Für Prüfung und Freigabe fehlt ein vollständiger Überblick.</li><li>Nachgelagerte Systeme erhalten Daten verspätet oder unvollständig.</li></ul></article>
             <article><p class="eyebrow eyebrow-purple">NACHHER</p><h3>Alle Nachweise werden direkt am Auftrag zusammengeführt.</h3><ul><li>Bild, Sprache und technische Angaben bilden einen gemeinsamen Datensatz.</li><li>Fachleute prüfen und ergänzen den Vorgang an einer Stelle.</li><li>Nachgelagerte Systeme können die dokumentierten Informationen übernehmen.</li></ul></article>
           </div>
-          <div class="case-meta"><p class="case-scope"><strong>Scope:</strong> Multimodale Erfassung, fachliche Prüfung und dokumentierte Übergabe.</p><p class="case-impact"><strong>Wirkung:</strong> Nachweise bleiben vollständig verbunden, Prüfungen werden einfacher und die Dokumentation ist direkt weiterverwendbar.</p></div>
+          <div class="case-meta reveal reveal-delay-1"><p class="case-scope"><strong>Scope:</strong> Multimodale Erfassung, fachliche Prüfung und dokumentierte Übergabe.</p><p class="case-impact"><strong>Wirkung:</strong> Nachweise bleiben vollständig verbunden, Prüfungen werden einfacher und die Dokumentation ist direkt weiterverwendbar.</p></div>
         </div>
       </section>
 
@@ -97,7 +103,7 @@
     </main>
     <footer class="site-footer dark-band"><div class="footer-about"><a class="brand" href="index.html" aria-label="Blinkin Startseite"><img src="./assets/blinkin-logo-dark.png" alt="Blinkin" /></a></div><img class="eu-badge" src="./assets/co-funded-by-eu.png" alt="Co-funded by the European Union" /><div class="footer-meta"><div class="footer-links"><a href="index.html">AI Office Hours</a><a href="build.html">Build Sprint</a><a href="forward-deployed-engineering.html">Forward Deployed Engineering</a><a href="playground.html">AI Playground</a><a href="vorher-nachher.html">Vorher–Nachher</a><a href="about.html">Über Blinkin</a><a href="mailto:hello@blinkin.io">hello@blinkin.io</a><a href="https://blinkin.io/imprint">Impressum</a><a href="https://blinkin.io/privacy-policy">Datenschutz</a></div><p>© 2026 Blinkin GmbH</p></div></footer>
     <script src="./app.js"></script>
-<link rel="stylesheet" href="site.css">
-<script src="site.js" defer></script>
-<script src="/version-picker.js" defer></script></body>
+    <script src="site.js" defer></script>
+    <script src="/version-picker.js" defer></script>
+  </body>
 </html>
