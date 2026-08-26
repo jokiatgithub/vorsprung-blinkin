@@ -1,13 +1,13 @@
 // ponytail: one shared switcher for the current v10 and archived versions
 (function () {
   var versions = ['v11', 'v10', 'v9', 'v8', 'v7', 'v6', 'v5', 'v3', 'v2', 'v1'];
-  var m = location.pathname.match(/^\/(v11|v1|v2|v3|v5|v6|v7|v8|v9)(\/|$)/);
-  var cur = m ? m[1] : 'v10';
-  var page = location.pathname.replace(/^\/(v11|v1|v2|v3|v5|v6|v7|v8|v9)\/?/, '/').replace(/^\/+/, '/');
+  var m = location.pathname.match(/^\/(v10|v1|v2|v3|v5|v6|v7|v8|v9)(\/|$)/);
+  var cur = m ? m[1] : 'v11';
+  var page = location.pathname.replace(/^\/(v10|v1|v2|v3|v5|v6|v7|v8|v9)\/?/, '/').replace(/^\/+/, '/');
   if (page === '/' || page === '') page = '/index.html';
   var multiPage = { '/index.html': 1, '/build.html': 1, '/playground.html': 1, '/vorher-nachher.html': 1, '/about.html': 1 };
   function href(v) {
-    if (v === 'v10') return page;
+    if (v === 'v11') return page;
     if (v === 'v1' || v === 'v2' || v === 'v3') return multiPage[page] ? '/' + v + page : '/' + v + '/';
     return '/' + v + '/';
   }
