@@ -9,6 +9,16 @@ export default {
       return Response.redirect(url, 301);
     }
 
+    if (['/v14', '/v14/', '/v15', '/v15/'].includes(url.pathname)) {
+      url.pathname = '/';
+      return Response.redirect(url, 301);
+    }
+
+    if (url.pathname === '/' || url.pathname === '/index.html') {
+      url.pathname = '/v15/';
+      return env.ASSETS.fetch(new Request(url, request));
+    }
+
     return env.ASSETS.fetch(request);
   },
 };
