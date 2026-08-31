@@ -9,7 +9,7 @@ export default {
       return Response.redirect(url, 301);
     }
 
-    if (['/v14', '/v14/', '/v15', '/v15/'].includes(url.pathname)) {
+    if (['/v15', '/v15/'].includes(url.pathname)) {
       url.pathname = '/';
       return Response.redirect(url, 301);
     }

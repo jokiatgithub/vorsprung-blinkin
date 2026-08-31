@@ -18,9 +18,13 @@ test('redirects the .io host and serves V15 at the .de root', async () => {
   assert.equal(redirect.status, 301);
   assert.equal(redirect.headers.get('location'), 'https://vorsprung.blinkin.de/v10/?from=io');
 
-  const legacy = await worker.fetch(new Request('https://vorsprung.blinkin.de/v14/?from=menu'));
-  assert.equal(legacy.status, 301);
-  assert.equal(legacy.headers.get('location'), 'https://vorsprung.blinkin.de/?from=menu');
+  const legacyRequest = new Request('https://vorsprung.blinkin.de/v14/?from=archive');
+  const legacyResponse = new Response('legacy');
+  const legacyAssets = { fetch: (received) => {
+    assert.equal(received, legacyRequest);
+    return legacyResponse;
+  } };
+  assert.equal(await worker.fetch(legacyRequest, { ASSETS: legacyAssets }), legacyResponse);
 
   const request = new Request('https://vorsprung.blinkin.de/?campaign=root');
   const response = new Response('site');
