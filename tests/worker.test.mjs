@@ -38,3 +38,39 @@ test('redirects the .io host and serves V15 at the .de root', async () => {
   } };
   assert.equal(await worker.fetch(request, { ASSETS: assets }), response);
 });
+
+test('injects the shared consent-gated PostHog assets into HTML only', async () => {
+  let injected = '';
+  globalThis.HTMLRewriter = class {
+    on(selector, handlers) {
+      assert.equal(selector, 'head');
+      handlers.element({
+        append(markup, options) {
+          injected = markup;
+          assert.deepEqual(options, { html: true });
+        },
+      });
+      return this;
+    }
+
+    transform(response) {
+      return response;
+    }
+  };
+
+  try {
+    const response = new Response('<html><head></head><body></body></html>', {
+      headers: { 'content-type': 'text/html; charset=utf-8' },
+    });
+    const result = await worker.fetch(new Request('https://vorsprung.blinkin.de/page.html'), {
+      ASSETS: { fetch: () => response },
+    });
+
+    assert.equal(result, response);
+    assert.match(injected, /data-blinkin-analytics/);
+    assert.match(injected, /data-category="analytics" data-service="PostHog"/);
+    assert.match(injected, /https:\/\/blinkin\.de\/posthog-init\.js/);
+  } finally {
+    delete globalThis.HTMLRewriter;
+  }
+});
