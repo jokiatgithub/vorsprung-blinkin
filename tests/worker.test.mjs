@@ -9,9 +9,7 @@ test('redirects the .io host and serves V15 at the .de root', async () => {
   const v15 = await readFile(new URL('../v15/index.html', import.meta.url), 'utf8');
   assert.match(v15, /version-picker\.js/);
   const picker = await readFile(new URL('../version-picker.js', import.meta.url), 'utf8');
-  assert.match(picker, /var cur = m \? m\[1\] : 'v15'/);
-  assert.match(picker, /if \(v === 'v15'\) return '\/'/);
-  assert.match(picker, /if \(v === 'v11'\) return '\/v11\/'/);
+  assert.doesNotMatch(picker, /Versionsauswahl|version-picker__/);
   assert.match(v15, /href="\/">KI-Begleitung<\/a>/);
   for (const page of ['v15/index.html', 'build.html', 'forward-deployed-engineering.html', 'playground.html', 'vorher-nachher.html', 'about.html']) {
     const html = await readFile(new URL(`../${page}`, import.meta.url), 'utf8');
