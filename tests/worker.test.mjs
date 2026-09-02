@@ -74,3 +74,26 @@ test('injects the shared consent-gated PostHog assets into HTML only', async () 
     delete globalThis.HTMLRewriter;
   }
 });
+
+test('the FDE page explains the partnership offer in one scannable module', async () => {
+  const html = await readFile(new URL('../forward-deployed-engineering.html', import.meta.url), 'utf8');
+  const css = await readFile(new URL('../partnership-module.css', import.meta.url), 'utf8');
+
+  assert.match(html, /class="partnership-module"/);
+  assert.match(html, /Gemeinsam vom Vorhaben in den Betrieb\./);
+  assert.equal(html.match(/class="partnership-item"/g)?.length, 7);
+  assert.match(html, /class="partnership-cta" href="https:\/\/calendar\.app\.google\/h872ptRL3MNE3dZ7A">Gespr&auml;ch buchen/);
+  assert.match(html, /href="\/partnership-module\.css\?v=20260901-1"/);
+  assert.match(css, /--partnership-accent: #17607c/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*\.partnership-list/);
+});
+
+test('the Build Sprint page summarizes the concrete sprint outcome', async () => {
+  const html = await readFile(new URL('../build.html', import.meta.url), 'utf8');
+
+  assert.match(html, /class="partnership-module"/);
+  assert.match(html, /Das nehmt ihr nach vier Wochen mit\./);
+  assert.equal(html.match(/class="partnership-item"/g)?.length, 7);
+  assert.match(html, /class="partnership-cta" href="https:\/\/calendar\.app\.google\/h872ptRL3MNE3dZ7A">Build Sprint besprechen/);
+  assert.match(html, /href="\.\/partnership-module\.css\?v=20260901-1"/);
+});
